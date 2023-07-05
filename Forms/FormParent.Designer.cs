@@ -275,7 +275,7 @@ namespace ScreenpressoKG
             this.txt_LicenseKey.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
             this.txt_LicenseKey.BorderFocusColor = System.Drawing.Color.White;
             this.txt_LicenseKey.BorderSize = 1;
-            this.txt_LicenseKey.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txt_LicenseKey.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txt_LicenseKey.ForeColor = System.Drawing.Color.White;
             this.txt_LicenseKey.Location = new System.Drawing.Point(19, 330);
             this.txt_LicenseKey.Margin = new System.Windows.Forms.Padding(5);
@@ -285,7 +285,7 @@ namespace ScreenpressoKG
             this.txt_LicenseKey.PasswordChar = false;
             this.txt_LicenseKey.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_LicenseKey.PlaceholderText = "";
-            this.txt_LicenseKey.ReadOnly = false;
+            this.txt_LicenseKey.ReadOnly = true;
             this.txt_LicenseKey.Size = new System.Drawing.Size(494, 98);
             this.txt_LicenseKey.TabIndex = 22;
             this.txt_LicenseKey.UnderlineStyle = false;
@@ -322,19 +322,24 @@ namespace ScreenpressoKG
             // lbl_HostBlocker_Desc
             // 
             this.lbl_HostBlocker_Desc.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lbl_HostBlocker_Desc.Location = new System.Drawing.Point(11, 33);
+            this.lbl_HostBlocker_Desc.Location = new System.Drawing.Point(7, 33);
             this.lbl_HostBlocker_Desc.Name = "lbl_HostBlocker_Desc";
-            this.lbl_HostBlocker_Desc.Size = new System.Drawing.Size(480, 32);
+            this.lbl_HostBlocker_Desc.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.lbl_HostBlocker_Desc.Size = new System.Drawing.Size(484, 32);
             this.lbl_HostBlocker_Desc.TabIndex = 12;
             this.lbl_HostBlocker_Desc.Text = "Perform this step first to block Screenpresso from communicating with your comput" +
     "er. Required for license activation to work.";
+            this.lbl_HostBlocker_Desc.Click += new System.EventHandler(this.lbl_HostBlocker_Desc_Click);
             // 
             // lbl_HostBlocker_Title
             // 
             this.lbl_HostBlocker_Title.AutoSize = true;
-            this.lbl_HostBlocker_Title.Location = new System.Drawing.Point(9, 7);
+            this.lbl_HostBlocker_Title.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lbl_HostBlocker_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.lbl_HostBlocker_Title.Location = new System.Drawing.Point(6, 7);
             this.lbl_HostBlocker_Title.Name = "lbl_HostBlocker_Title";
-            this.lbl_HostBlocker_Title.Size = new System.Drawing.Size(97, 21);
+            this.lbl_HostBlocker_Title.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.lbl_HostBlocker_Title.Size = new System.Drawing.Size(108, 26);
             this.lbl_HostBlocker_Title.TabIndex = 11;
             this.lbl_HostBlocker_Title.Text = "Host Blocker";
             // 

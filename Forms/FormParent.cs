@@ -451,5 +451,10 @@ namespace ScreenpressoKG
                 MessageBox.Show("Successfully edited your host file at " + host_path.ToString(), "Host File Written", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void lbl_HostBlocker_Desc_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
