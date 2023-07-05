@@ -9,11 +9,12 @@ Developed under the following conditions:
 
 # Usage
 Download the project repo and open with Visual Studio. 
-Executable in `/bin/` folder.
-If building your own version, you must ensure the following three files are in the same directory with each other:
+If building your own version or want to move my binaries, you must ensure the following three files are in the same directory with each other:
 - /bin/`ScreenpressoKG.exe`
 - /bin/`ScreenpressoKG.exe.config`
 - /bin/`readme.md`
+
+The already-built executable binaries are located in the`/bin/` folder. Launch them to use the software.
 
 # App.config
 This file holds default values that the app uses when launching. You shouldn't need to modify these, but they're provided just in case:
