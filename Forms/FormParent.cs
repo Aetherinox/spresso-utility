@@ -363,11 +363,6 @@ namespace ScreenpressoKG
                 "Click the "Generate" button below to create a number number."
         */
 
-        private void lbl_Serial_Body_Click( object sender, EventArgs e )
-        {
-
-        }
-
         /*
             Text Box > Serial > OnTextChanged
         */
@@ -380,6 +375,81 @@ namespace ScreenpressoKG
         private void tbUser__TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_BlockHost_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        /*
+             Group box for activation + generated response boxes
+
+             paint custom borders because default borders looks like shit
+         */
+
+        private void grpBox_Paint(object sender, PaintEventArgs e)
+        {
+
+            // border color
+            Pen p = new Pen(Color.FromArgb(75, 75, 75));
+
+            // left
+            e.Graphics.DrawLine(p, 0, 1, 0, e.ClipRectangle.Height - 1);
+
+            // top
+            e.Graphics.DrawLine(p, 1, 1, e.ClipRectangle.Width - 1, 1);
+
+            // right
+            e.Graphics.DrawLine(p, e.ClipRectangle.Width - 1, 1, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1);
+
+            // bottom
+            e.Graphics.DrawLine(p, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1, 0, e.ClipRectangle.Height - 1);
+        }
+
+        private void grpBox_Paint_1(object sender, PaintEventArgs e)
+        {
+            // border color
+            Pen p = new Pen(Color.FromArgb(75, 75, 75));
+
+            // left
+            e.Graphics.DrawLine(p, 0, 1, 0, e.ClipRectangle.Height - 1);
+
+            // top
+            e.Graphics.DrawLine(p, 1, 1, e.ClipRectangle.Width - 1, 1);
+
+            // right
+            e.Graphics.DrawLine(p, e.ClipRectangle.Width - 1, 1, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1);
+
+            // bottom
+            e.Graphics.DrawLine(p, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1, 0, e.ClipRectangle.Height - 1);
+        }
+
+        private void lbl_LicenseKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_DoBlock_Click(object sender, EventArgs e)
+        {
+            string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts");
+            using (StreamWriter w = File.AppendText(host_path))
+            {
+                w.WriteLine(Environment.NewLine);
+                w.WriteLine("# Screenpresso Host Block");
+                w.WriteLine("0.0.0.0 screenpresso.com");
+                w.WriteLine("0.0.0.0 www.screenpresso.com");
+                w.WriteLine("0.0.0.0 secure.screenpresso.com");
+                w.WriteLine("0.0.0.0 stats.screenpresso.com");
+                w.WriteLine("0.0.0.0 18.65.3.28");
+
+                MessageBox.Show("Successfully edited your host file at " + host_path.ToString(), "Host File Written", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
