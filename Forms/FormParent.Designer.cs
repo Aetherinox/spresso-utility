@@ -19,7 +19,7 @@ namespace ScreenpressoKG
         {
             if (disposing && (components != null))
             {
-                components.Dispose( );
+                components.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -30,8 +30,8 @@ namespace ScreenpressoKG
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Pen clr_border = new Pen( Color.FromArgb( 75, 75, 75 ) );
-            e.Graphics.DrawRectangle( clr_border, 0, 0, Width - 1, Height - 1 );
+            Pen clr_border = new Pen(Color.FromArgb(75, 75, 75));
+            e.Graphics.DrawRectangle(clr_border, 0, 0, Width - 1, Height - 1);
         }
 
         #region Windows Form Designer generated code
@@ -40,7 +40,7 @@ namespace ScreenpressoKG
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent( )
+        private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParent));
             this.minimizeBtn = new System.Windows.Forms.Label();

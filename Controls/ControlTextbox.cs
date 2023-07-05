@@ -415,10 +415,6 @@ namespace ScreenpressoKG
         {
             if (_TextChanged != null)
             {
-                #if DEBUG
-                    //MessageBox.Show("Value: " + this.Value.ToString(), "TextChanged Invoke", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                #endif
-
                 _TextChanged.Invoke(sender, e);
             }
         }

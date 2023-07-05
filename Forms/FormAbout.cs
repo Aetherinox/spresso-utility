@@ -20,7 +20,9 @@ namespace ScreenpressoKG
     public partial class FormAbout : Form
     {
 
+#pragma warning disable CS0169 // The field 'FormAbout.appInfo' is never used
         private AppInfo appInfo;
+#pragma warning restore CS0169 // The field 'FormAbout.appInfo' is never used
 
         public FormAbout( )
         {
