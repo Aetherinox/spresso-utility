@@ -57,12 +57,13 @@ namespace ScreenpressoKG
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnCopy = new System.Windows.Forms.Button();
             this.lbl_LicenseKey = new System.Windows.Forms.Label();
-            this.txt_User = new ScreenpressoKG.AetherxTextBox();
-            this.txt_LicenseKey = new ScreenpressoKG.AetherxTextBox();
             this.grpBox = new System.Windows.Forms.Panel();
+            this.btn_HostView = new System.Windows.Forms.Button();
             this.btn_DoBlock = new System.Windows.Forms.Button();
             this.lbl_HostBlocker_Desc = new System.Windows.Forms.Label();
             this.lbl_HostBlocker_Title = new System.Windows.Forms.Label();
+            this.txt_LicenseKey = new ScreenpressoKG.AetherxTextBox();
+            this.txt_User = new ScreenpressoKG.AetherxTextBox();
             this.mnuTop.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.grpBox.SuspendLayout();
@@ -140,9 +141,6 @@ namespace ScreenpressoKG
             this.mnuTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.mnuTop.Dock = System.Windows.Forms.DockStyle.None;
             this.mnuTop.GripMargin = new System.Windows.Forms.Padding(12, 2, 0, 2);
-            this.mnuTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.aboutToolStripMenuItem});
             this.mnuTop.Location = new System.Drawing.Point(1, 46);
             this.mnuTop.Name = "mnuTop";
             this.mnuTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -196,8 +194,6 @@ namespace ScreenpressoKG
             this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip.ForeColor = System.Drawing.Color.Red;
             this.statusStrip.GripMargin = new System.Windows.Forms.Padding(0);
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.statusStrip.Location = new System.Drawing.Point(1, 494);
             this.statusStrip.Name = "statusStrip";
@@ -245,55 +241,10 @@ namespace ScreenpressoKG
             this.lbl_LicenseKey.Text = "Generated License Key";
             this.lbl_LicenseKey.Click += new System.EventHandler(this.lbl_LicenseKey_Click);
             // 
-            // txt_User
-            // 
-            this.txt_User.AutoScroll = true;
-            this.txt_User.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.txt_User.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
-            this.txt_User.BorderFocusColor = System.Drawing.Color.White;
-            this.txt_User.BorderSize = 1;
-            this.txt_User.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_User.ForeColor = System.Drawing.Color.White;
-            this.txt_User.Location = new System.Drawing.Point(19, 269);
-            this.txt_User.Margin = new System.Windows.Forms.Padding(5);
-            this.txt_User.Multiline = false;
-            this.txt_User.Name = "txt_User";
-            this.txt_User.Padding = new System.Windows.Forms.Padding(8, 3, 8, 3);
-            this.txt_User.PasswordChar = false;
-            this.txt_User.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_User.PlaceholderText = "";
-            this.txt_User.ReadOnly = false;
-            this.txt_User.Size = new System.Drawing.Size(494, 28);
-            this.txt_User.TabIndex = 21;
-            this.txt_User.UnderlineStyle = false;
-            this.txt_User.Value = "";
-            // 
-            // txt_LicenseKey
-            // 
-            this.txt_LicenseKey.AutoScroll = true;
-            this.txt_LicenseKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.txt_LicenseKey.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
-            this.txt_LicenseKey.BorderFocusColor = System.Drawing.Color.White;
-            this.txt_LicenseKey.BorderSize = 1;
-            this.txt_LicenseKey.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_LicenseKey.ForeColor = System.Drawing.Color.White;
-            this.txt_LicenseKey.Location = new System.Drawing.Point(19, 330);
-            this.txt_LicenseKey.Margin = new System.Windows.Forms.Padding(5);
-            this.txt_LicenseKey.Multiline = true;
-            this.txt_LicenseKey.Name = "txt_LicenseKey";
-            this.txt_LicenseKey.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.txt_LicenseKey.PasswordChar = false;
-            this.txt_LicenseKey.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_LicenseKey.PlaceholderText = "";
-            this.txt_LicenseKey.ReadOnly = true;
-            this.txt_LicenseKey.Size = new System.Drawing.Size(494, 98);
-            this.txt_LicenseKey.TabIndex = 22;
-            this.txt_LicenseKey.UnderlineStyle = false;
-            this.txt_LicenseKey.Value = "";
-            // 
             // grpBox
             // 
             this.grpBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.grpBox.Controls.Add(this.btn_HostView);
             this.grpBox.Controls.Add(this.btn_DoBlock);
             this.grpBox.Controls.Add(this.lbl_HostBlocker_Desc);
             this.grpBox.Controls.Add(this.lbl_HostBlocker_Title);
@@ -303,6 +254,22 @@ namespace ScreenpressoKG
             this.grpBox.TabIndex = 24;
             this.grpBox.Paint += new System.Windows.Forms.PaintEventHandler(this.grpBox_Paint_1);
             // 
+            // btn_HostView
+            // 
+            this.btn_HostView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.btn_HostView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_HostView.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_HostView.FlatAppearance.BorderSize = 0;
+            this.btn_HostView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_HostView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_HostView.Location = new System.Drawing.Point(246, 78);
+            this.btn_HostView.Name = "btn_HostView";
+            this.btn_HostView.Size = new System.Drawing.Size(106, 29);
+            this.btn_HostView.TabIndex = 20;
+            this.btn_HostView.Text = "&View Host";
+            this.btn_HostView.UseVisualStyleBackColor = false;
+            this.btn_HostView.Click += new System.EventHandler(this.btn_HostView_Click);
+            // 
             // btn_DoBlock
             // 
             this.btn_DoBlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
@@ -311,7 +278,7 @@ namespace ScreenpressoKG
             this.btn_DoBlock.FlatAppearance.BorderSize = 0;
             this.btn_DoBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_DoBlock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DoBlock.Location = new System.Drawing.Point(193, 78);
+            this.btn_DoBlock.Location = new System.Drawing.Point(134, 78);
             this.btn_DoBlock.Name = "btn_DoBlock";
             this.btn_DoBlock.Size = new System.Drawing.Size(106, 29);
             this.btn_DoBlock.TabIndex = 19;
@@ -342,6 +309,52 @@ namespace ScreenpressoKG
             this.lbl_HostBlocker_Title.Size = new System.Drawing.Size(108, 26);
             this.lbl_HostBlocker_Title.TabIndex = 11;
             this.lbl_HostBlocker_Title.Text = "Host Blocker";
+            // 
+            // txt_LicenseKey
+            // 
+            this.txt_LicenseKey.AutoScroll = true;
+            this.txt_LicenseKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.txt_LicenseKey.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.txt_LicenseKey.BorderFocusColor = System.Drawing.Color.White;
+            this.txt_LicenseKey.BorderSize = 1;
+            this.txt_LicenseKey.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txt_LicenseKey.ForeColor = System.Drawing.Color.White;
+            this.txt_LicenseKey.Location = new System.Drawing.Point(19, 330);
+            this.txt_LicenseKey.Margin = new System.Windows.Forms.Padding(5);
+            this.txt_LicenseKey.Multiline = true;
+            this.txt_LicenseKey.Name = "txt_LicenseKey";
+            this.txt_LicenseKey.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.txt_LicenseKey.PasswordChar = false;
+            this.txt_LicenseKey.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_LicenseKey.PlaceholderText = "";
+            this.txt_LicenseKey.ReadOnly = true;
+            this.txt_LicenseKey.Size = new System.Drawing.Size(494, 98);
+            this.txt_LicenseKey.TabIndex = 22;
+            this.txt_LicenseKey.UnderlineStyle = false;
+            this.txt_LicenseKey.Value = "";
+            // 
+            // txt_User
+            // 
+            this.txt_User.AutoScroll = true;
+            this.txt_User.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.txt_User.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.txt_User.BorderFocusColor = System.Drawing.Color.White;
+            this.txt_User.BorderSize = 1;
+            this.txt_User.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txt_User.ForeColor = System.Drawing.Color.White;
+            this.txt_User.Location = new System.Drawing.Point(19, 269);
+            this.txt_User.Margin = new System.Windows.Forms.Padding(5);
+            this.txt_User.Multiline = false;
+            this.txt_User.Name = "txt_User";
+            this.txt_User.Padding = new System.Windows.Forms.Padding(8, 3, 8, 3);
+            this.txt_User.PasswordChar = false;
+            this.txt_User.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_User.PlaceholderText = "";
+            this.txt_User.ReadOnly = false;
+            this.txt_User.Size = new System.Drawing.Size(494, 28);
+            this.txt_User.TabIndex = 21;
+            this.txt_User.UnderlineStyle = false;
+            this.txt_User.Value = "";
             // 
             // FormParent
             // 
@@ -408,6 +421,7 @@ namespace ScreenpressoKG
         private Button btn_DoBlock;
         private Label lbl_HostBlocker_Desc;
         private Label lbl_HostBlocker_Title;
+        private Button btn_HostView;
     }
 }
 

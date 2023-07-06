@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScreenpressoKG;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -107,7 +108,7 @@ namespace ScreenpressoKG
         {
             if (string.IsNullOrEmpty(txt_User.Value))
             {
-                MessageBox.Show("Type a name for yourself first", "No name specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Type a name for yourself first", "No name specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -437,23 +438,47 @@ namespace ScreenpressoKG
 
         private void btn_DoBlock_Click(object sender, EventArgs e)
         {
-            string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts");
-            using (StreamWriter w = File.AppendText(host_path))
-            {
-                w.WriteLine(Environment.NewLine);
-                w.WriteLine("# Screenpresso Host Block");
-                w.WriteLine("0.0.0.0 screenpresso.com");
-                w.WriteLine("0.0.0.0 www.screenpresso.com");
-                w.WriteLine("0.0.0.0 secure.screenpresso.com");
-                w.WriteLine("0.0.0.0 stats.screenpresso.com");
-                w.WriteLine("0.0.0.0 18.65.3.28");
 
-                MessageBox.Show("Successfully edited your host file at " + host_path.ToString(), "Host File Written", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var result = MessageBox.Show("Do you want to modify your Windows host file to block Screenpresso's servers?",
+            "Edit Host File?",
+            MessageBoxButtons.YesNo);
+
+            string answer = result.ToString();
+
+            if (answer == "Yes")
+            {
+                string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts");
+                using (StreamWriter w = File.AppendText(host_path))
+                {
+                    w.WriteLine(Environment.NewLine);
+                    w.WriteLine("# Screenpresso Host Block");
+                    w.WriteLine("0.0.0.0 screenpresso.com");
+                    w.WriteLine("0.0.0.0 www.screenpresso.com");
+                    w.WriteLine("0.0.0.0 secure.screenpresso.com");
+                    w.WriteLine("0.0.0.0 stats.screenpresso.com");
+                    w.WriteLine("0.0.0.0 18.65.3.28");
+
+                    System.Windows.Forms.MessageBox.Show("Successfully edited your host file at " + host_path.ToString(), "Host File Written", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+
         }
 
         private void lbl_HostBlocker_Desc_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_HostView_Click(object sender, EventArgs e)
+        {
+            string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts");
+            string etc_path = @"C:\Windows\System32\drivers\etc";
+            Process.Start("explorer.exe", etc_path);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
 
         }
     }

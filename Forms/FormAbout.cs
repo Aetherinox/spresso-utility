@@ -51,7 +51,7 @@ namespace ScreenpressoKG
             }
             else
             {
-                MessageBox.Show("No such file " + file_name);
+                System.Windows.Forms.MessageBox.Show("No such file " + file_name);
             }
 
             txt_Terms.Value = textLine;

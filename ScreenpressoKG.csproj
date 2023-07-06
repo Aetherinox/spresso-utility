@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppInfo.cs" />
+    <Compile Include="Classes\MessageBox.cs" />
     <Compile Include="Controls\ControlTextbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="Forms\FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMessageBox.Designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormParent.cs">
       <SubType>Form</SubType>
@@ -117,6 +124,9 @@
     <EmbeddedResource Include="Forms\FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormParent.resx">
       <DependentUpon>FormParent.cs</DependentUpon>
@@ -148,6 +158,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Materials\screenpresso_64.ico" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\information.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
