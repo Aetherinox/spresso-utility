@@ -32,3 +32,6 @@ Don't modify these unless you know what you're doing, improperly configured, the
 ![Block Host Confirmation](https://i.imgur.com/ucWP4Hk.png)
 ![Generate License Key](https://i.imgur.com/gukUKPU.png)
 ![Interface + Help Menu](https://i.imgur.com/j2erqaA.png)
+![Valid License](https://i.imgur.com/uVSX2CA.png)
+![Activation Complete](https://i.imgur.com/vHIuhf8.png)
+![Verifying License](https://i.imgur.com/QWIMaNd.png)
