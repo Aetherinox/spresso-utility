@@ -481,5 +481,10 @@ namespace ScreenpressoKG
 
 
         }
+
+        private void addaaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

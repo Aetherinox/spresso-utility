@@ -64,6 +64,10 @@ namespace ScreenpressoKG
             this.lbl_HostBlocker_Title = new System.Windows.Forms.Label();
             this.txt_LicenseKey = new ScreenpressoKG.AetherxTextBox();
             this.txt_User = new ScreenpressoKG.AetherxTextBox();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTop.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.grpBox.SuspendLayout();
@@ -141,6 +145,9 @@ namespace ScreenpressoKG
             this.mnuTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.mnuTop.Dock = System.Windows.Forms.DockStyle.None;
             this.mnuTop.GripMargin = new System.Windows.Forms.Padding(12, 2, 0, 2);
+            this.mnuTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.mnuTop.Location = new System.Drawing.Point(1, 46);
             this.mnuTop.Name = "mnuTop";
             this.mnuTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -194,6 +201,8 @@ namespace ScreenpressoKG
             this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip.ForeColor = System.Drawing.Color.Red;
             this.statusStrip.GripMargin = new System.Windows.Forms.Padding(0);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.statusStrip.Location = new System.Drawing.Point(1, 494);
             this.statusStrip.Name = "statusStrip";
@@ -356,6 +365,38 @@ namespace ScreenpressoKG
             this.txt_User.UnderlineStyle = false;
             this.txt_User.Value = "";
             // 
+            // fileToolStripMenuItem1
+            // 
+            this.fileToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem1});
+            this.fileToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 28);
+            this.fileToolStripMenuItem1.Text = "File";
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            // 
+            // aboutToolStripMenuItem2
+            // 
+            this.aboutToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.aboutToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem3});
+            this.aboutToolStripMenuItem2.ForeColor = System.Drawing.Color.White;
+            this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
+            this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(52, 28);
+            this.aboutToolStripMenuItem2.Text = "About";
+            // 
+            // aboutToolStripMenuItem3
+            // 
+            this.aboutToolStripMenuItem3.Name = "aboutToolStripMenuItem3";
+            this.aboutToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem3.Text = "About";
+            // 
             // FormParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -422,6 +463,10 @@ namespace ScreenpressoKG
         private Label lbl_HostBlocker_Desc;
         private Label lbl_HostBlocker_Title;
         private Button btn_HostView;
+        private ToolStripMenuItem fileToolStripMenuItem1;
+        private ToolStripMenuItem aboutToolStripMenuItem2;
+        private ToolStripMenuItem exitToolStripMenuItem1;
+        private ToolStripMenuItem aboutToolStripMenuItem3;
     }
 }
 
