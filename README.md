@@ -8,7 +8,7 @@ Developed under the following conditions:
 - v4.8.0 .NET Framework
 
 # Usage
-Download the project repo and open with Visual Studio. 
+Download the project repo and open with Visual Studio.
 If building your own version or want to move my binaries, you must ensure the following three files are in the same directory with each other:
 - /bin/`ScreenpressoKG.exe`
 - /bin/`ScreenpressoKG.exe.config`
@@ -28,3 +28,7 @@ This file holds default values that the app uses when launching. You shouldn't n
 Don't modify these unless you know what you're doing, improperly configured, the Activation and Response will not generate into a valid serial key.
 
 # Previews
+![Main Screen](https://i.imgur.com/sNCXVle.png)
+![Block Host Confirmation](https://i.imgur.com/ucWP4Hk.png)
+![Generate License Key](https://i.imgur.com/gukUKPU.png)
+![Interface + Help Menu](https://i.imgur.com/j2erqaA.png)
