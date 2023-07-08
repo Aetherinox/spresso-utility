@@ -34,9 +34,9 @@ namespace ScreenpressoKG.Msgbox
             this.labelCaption = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.panelButtons = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new ScreenpressoKG.AetherxButton();
+            this.button2 = new ScreenpressoKG.AetherxButton();
+            this.button1 = new ScreenpressoKG.AetherxButton();
             this.panelBody = new System.Windows.Forms.Panel();
             this.labelMessage = new System.Windows.Forms.Label();
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
@@ -98,6 +98,7 @@ namespace ScreenpressoKG.Msgbox
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(346, 60);
             this.panelButtons.TabIndex = 1;
+            this.panelButtons.Paint += new System.Windows.Forms.PaintEventHandler(this.panelButtons_Paint);
             // 
             // button3
             // 
@@ -153,7 +154,7 @@ namespace ScreenpressoKG.Msgbox
             this.panelBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.panelBody.Location = new System.Drawing.Point(2, 27);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Padding = new System.Windows.Forms.Padding(10, 13, 0, 0);
+            this.panelBody.Padding = new System.Windows.Forms.Padding(18, 13, 5, 0);
             this.panelBody.Size = new System.Drawing.Size(346, 61);
             this.panelBody.TabIndex = 2;
             // 
@@ -163,12 +164,12 @@ namespace ScreenpressoKG.Msgbox
             this.labelMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessage.ForeColor = System.Drawing.Color.White;
-            this.labelMessage.Location = new System.Drawing.Point(50, 13);
+            this.labelMessage.Location = new System.Drawing.Point(58, 13);
             this.labelMessage.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.labelMessage.MaximumSize = new System.Drawing.Size(600, 0);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Padding = new System.Windows.Forms.Padding(5, 5, 10, 15);
-            this.labelMessage.Size = new System.Drawing.Size(110, 37);
+            this.labelMessage.Padding = new System.Windows.Forms.Padding(5, 5, 22, 15);
+            this.labelMessage.Size = new System.Drawing.Size(122, 37);
             this.labelMessage.TabIndex = 1;
             this.labelMessage.Text = "labelMessage";
             this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,7 +179,7 @@ namespace ScreenpressoKG.Msgbox
             // 
             this.pictureBoxIcon.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBoxIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxIcon.Image")));
-            this.pictureBoxIcon.Location = new System.Drawing.Point(10, 13);
+            this.pictureBoxIcon.Location = new System.Drawing.Point(18, 13);
             this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.pictureBoxIcon.Name = "pictureBoxIcon";
             this.pictureBoxIcon.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
@@ -214,9 +215,9 @@ namespace ScreenpressoKG.Msgbox
 
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Panel panelButtons;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private AetherxButton button3;
+        private AetherxButton button2;
+        private AetherxButton button1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.Label labelMessage;

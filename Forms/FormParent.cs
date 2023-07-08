@@ -97,7 +97,12 @@ namespace ScreenpressoKG
         {
             if (string.IsNullOrEmpty(txt_User.Value))
             {
-                System.Windows.Forms.MessageBox.Show("Type a name for yourself first", "No name specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "You must enter a name first before trying to generate a license key.",
+                    "No Name Specified",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
             else
             {
@@ -121,6 +126,13 @@ namespace ScreenpressoKG
 
             if (string.IsNullOrEmpty(txt_LicenseKey.Value))
             {
+                MessageBox.Show(
+                    "Cannot copy a license key you have not generated yet.",
+                    "No License Generated",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
                 toolStripStatusLabel1.Text = string.Format("Generate license key first");
                 statusStrip.Refresh();
             }

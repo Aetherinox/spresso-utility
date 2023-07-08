@@ -131,7 +131,7 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.OK:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter, yCenter);
-                    button1.Text = "OK";
+                    button1.Text = "&OK";
                     button1.DialogResult = DialogResult.OK;
 
                     SetDefaultButton(btnDefault);
@@ -145,12 +145,12 @@ namespace ScreenpressoKG.Msgbox
 
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "OK";
+                    button1.Text = "&OK";
                     button1.DialogResult = DialogResult.OK;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "Cancel";
+                    button2.Text = "&Cancel";
                     button2.DialogResult = DialogResult.Cancel;
                     button2.BackColor = Color.DimGray;
 
@@ -167,12 +167,12 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.RetryCancel:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "Retry";
+                    button1.Text = "&Retry";
                     button1.DialogResult = DialogResult.Retry;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "Cancel";
+                    button2.Text = "&Cancel";
                     button2.DialogResult = DialogResult.Cancel;
                     button2.BackColor = Color.DimGray;
 
@@ -189,12 +189,12 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.YesNo:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "Yes";
+                    button1.Text = "&Yes";
                     button1.DialogResult = DialogResult.Yes;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "No";
+                    button2.Text = "&No";
                     button2.DialogResult = DialogResult.No;
                     button2.BackColor = Color.IndianRed;
 
@@ -211,18 +211,18 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.YesNoCancel:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - button1.Width - 5, yCenter);
-                    button1.Text = "Yes";
+                    button1.Text = "&Yes";
                     button1.DialogResult = DialogResult.Yes;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter, yCenter);
-                    button2.Text = "No";
+                    button2.Text = "&No";
                     button2.DialogResult = DialogResult.No;
                     button2.BackColor = Color.IndianRed;
 
                     button3.Visible = true;
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
-                    button3.Text = "Cancel";
+                    button3.Text = "&Cancel";
                     button3.DialogResult = DialogResult.Cancel;
                     button3.BackColor = Color.DimGray;
 
@@ -236,18 +236,18 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.AbortRetryIgnore:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - button1.Width - 5, yCenter);
-                    button1.Text = "Abort";
+                    button1.Text = "&Abort";
                     button1.DialogResult = DialogResult.Abort;
                     button1.BackColor = Color.Goldenrod;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter, yCenter);
-                    button2.Text = "Retry";
+                    button2.Text = "&Retry";
                     button2.DialogResult = DialogResult.Retry;
 
                     button3.Visible = true;
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
-                    button3.Text = "Ignore";
+                    button3.Text = "&Ignore";
                     button3.DialogResult = DialogResult.Ignore;
                     button3.BackColor = Color.IndianRed;
 
@@ -271,7 +271,7 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxDefaultButton.Button1:
                     button1.Select();
                     button1.ForeColor = Color.White;
-                    button1.Font = new Font(button1.Font, FontStyle.Underline);
+                    button1.Font = new Font(button1.Font, FontStyle.Regular);
                     break;
 
                 /*
@@ -281,7 +281,7 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxDefaultButton.Button2:
                     button2.Select();
                     button2.ForeColor = Color.White;
-                    button2.Font = new Font(button2.Font, FontStyle.Underline);
+                    button2.Font = new Font(button2.Font, FontStyle.Regular);
                     break;
 
                 /*
@@ -291,7 +291,7 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxDefaultButton.Button3:
                     button3.Select();
                     button3.ForeColor = Color.White;
-                    button3.Font = new Font(button3.Font, FontStyle.Underline);
+                    button3.Font = new Font(button3.Font, FontStyle.Regular);
                     break;
             }
         }
@@ -401,5 +401,10 @@ namespace ScreenpressoKG.Msgbox
         #endregion
 
         private void lblMessage_Click(object sender, EventArgs e) { }
+
+        private void panelButtons_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
