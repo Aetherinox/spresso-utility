@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Security.Principal;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScreenpressoKG
@@ -11,9 +8,9 @@ namespace ScreenpressoKG
     static class Program
     {
         [STAThread]
-        static void Main( )
+        static void Main()
         {
-            Application.EnableVisualStyles( );
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             /*

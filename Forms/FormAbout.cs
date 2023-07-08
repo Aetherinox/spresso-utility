@@ -1,18 +1,6 @@
-﻿using ScreenpressoKG;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Deployment.Application;
-using System.Diagnostics;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScreenpressoKG
 {
@@ -20,42 +8,43 @@ namespace ScreenpressoKG
     public partial class FormAbout : Form
     {
 
-#pragma warning disable CS0169 // The field 'FormAbout.appInfo' is never used
-        private AppInfo appInfo;
-#pragma warning restore CS0169 // The field 'FormAbout.appInfo' is never used
-
-        public FormAbout( )
+        public string GetReadme(string product, string version, string developer)
         {
-            InitializeComponent( );
-            string ver          = AppInfo.PublishVersion.ToString();
-            string product      = AppInfo.Title;
-            string tm           = AppInfo.Trademark;
 
-            txt_Version.Text    = "v" + ver + " by " + tm;
-            lbl_Product.Text    = product;
+            string pattern =
+@"{0}
+Version {1}
+{2}
 
-            string file_name = "readme.md";
-            string textLine = "";
+This is for educational purposes only. I hold no responsibility for people doing bad things with it.
 
-            if (System.IO.File.Exists(file_name) == true)
-            {
-                System.IO.StreamReader objReader;
-                objReader = new System.IO.StreamReader(file_name);
+If you wish to view the source code, click the Github link above.
 
-                do
-                {
-                    textLine = textLine + objReader.ReadLine() + "\r\n";
-                } while (objReader.Peek() != -1);
+The keygen is free for anyone to use. I try to make stuff that isn't like the typical keygens out there. No loud annoying ass music, no ads, no weird color schemes that question if you're under the influence of shrooms.
 
-                objReader.Close();
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("No such file " + file_name);
-            }
+INSTRUCTIONS
+   - Type in a name you wish to use (call yourself whatever).
+   - Press ""Generate"" button
+   - Copy the generated license key.
+   - Paste license key into Screenpresso.
+";
 
-            txt_Terms.Value = textLine;
-            txt_Terms.Text = textLine;
+            return string.Format(pattern, product, version, developer);
+        }
+
+        public FormAbout()
+        {
+            InitializeComponent();
+
+            string ver = AppInfo.ProductVersionCore.ToString();
+            string product = AppInfo.Title;
+            string tm = AppInfo.Trademark;
+
+            txt_Version.Text = "v" + ver + " by " + tm;
+            lbl_Product.Text = product;
+
+            txt_Terms.Value = GetReadme(product, ver, tm);
+            txt_Terms.Text = GetReadme(product, ver, tm);
         }
 
         private void FormAbout_Load(object sender, EventArgs e)
@@ -174,6 +163,11 @@ namespace ScreenpressoKG
         }
 
         private void txt_Terms__TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Terms__TextChanged_1(object sender, EventArgs e)
         {
 
         }

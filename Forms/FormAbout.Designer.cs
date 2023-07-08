@@ -143,7 +143,7 @@ namespace ScreenpressoKG
             this.txt_Terms.AutoScroll = true;
             this.txt_Terms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txt_Terms.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
-            this.txt_Terms.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_Terms.BorderFocusColor = System.Drawing.Color.White;
             this.txt_Terms.BorderSize = 1;
             this.txt_Terms.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Terms.ForeColor = System.Drawing.Color.White;
@@ -160,6 +160,7 @@ namespace ScreenpressoKG
             this.txt_Terms.TabIndex = 15;
             this.txt_Terms.UnderlineStyle = false;
             this.txt_Terms.Value = "";
+            this.txt_Terms._TextChanged += new System.EventHandler(this.txt_Terms__TextChanged_1);
             // 
             // FormAbout
             // 

@@ -1,37 +1,26 @@
-﻿using ScreenpressoKG;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Status;
 
 namespace ScreenpressoKG
 {
 
     public partial class FormParent : Form
     {
-        private Serial Serial       = new Serial( );
+        private Serial Serial = new Serial();
 
         /*
             Frame > Parent
         */
 
-        public FormParent( )
+        public FormParent()
         {
-            InitializeComponent( );
-            this.statusStrip.Renderer       = new StatusBar_Renderer( );
-            string product                  = AppInfo.Title;
-            lblTitle.Text                   = product;
+            InitializeComponent();
+            this.statusStrip.Renderer = new StatusBar_Renderer();
+            string product = AppInfo.Title;
+            lblTitle.Text = product;
         }
 
 
@@ -39,18 +28,18 @@ namespace ScreenpressoKG
             Frame > Parent > Load
         */
 
-        private void FormParent_Load( object sender, EventArgs e )
+        private void FormParent_Load(object sender, EventArgs e)
         {
-            mnuTop.Renderer                 = new ToolStripProfessionalRenderer( new mnuTop_ColorTable( ) );
-            toolStripStatusLabel1.Text      = string.Format( "Press Generate to create license key ..." );
-            statusStrip.Refresh( );
+            mnuTop.Renderer = new ToolStripProfessionalRenderer(new mnuTop_ColorTable());
+            toolStripStatusLabel1.Text = string.Format("Press Generate to create license key ...");
+            statusStrip.Refresh();
         }
 
         /*
             Window > Button > Minimize > Click
         */
 
-        private void btn_Window_Minimize_Click( object sender, EventArgs e )
+        private void btn_Window_Minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
@@ -77,9 +66,9 @@ namespace ScreenpressoKG
             Window > Button > Close > Click
         */
 
-        private void btn_Window_Close_Click( object sender, EventArgs e )
+        private void btn_Window_Close_Click(object sender, EventArgs e)
         {
-            Application.Exit( );
+            Application.Exit();
         }
 
         /*
@@ -104,7 +93,7 @@ namespace ScreenpressoKG
             button > Generate > OnClick
         */
 
-        private void btn_Generate_Click( object sender, EventArgs e )
+        private void btn_Generate_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_User.Value))
             {
@@ -152,10 +141,10 @@ namespace ScreenpressoKG
         private bool mouseDown;
         private Point lastLocation;
 
-        private void MainForm_MouseDown( object sender, MouseEventArgs e )
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDown       = true;
-            lastLocation    = e.Location;
+            mouseDown = true;
+            lastLocation = e.Location;
         }
 
         /*
@@ -163,7 +152,7 @@ namespace ScreenpressoKG
             deals with moving form around on screen
         */
 
-        private void MainForm_MouseUp( object sender, MouseEventArgs e )
+        private void MainForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
         }
@@ -173,14 +162,14 @@ namespace ScreenpressoKG
             deals with moving form around on screen
         */
 
-        private void MainForm_MouseMove( object sender, MouseEventArgs e )
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
                 this.Location = new Point(
-                    ( this.Location.X - lastLocation.X ) + e.X, ( this.Location.Y - lastLocation.Y ) + e.Y );
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
 
-                this.Update( );
+                this.Update();
             }
         }
 
@@ -188,7 +177,7 @@ namespace ScreenpressoKG
             Label > Window Title
         */
 
-        private void lbl_Title_Click( object sender, EventArgs e )
+        private void lbl_Title_Click(object sender, EventArgs e)
         {
 
         }
@@ -197,20 +186,20 @@ namespace ScreenpressoKG
             Top Menu > File > Exit
         */
 
-        private void exitToolStripMenuItem_Click( object sender, EventArgs e )
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit( );
+            Application.Exit();
         }
 
         /*
             Top Menu > Help > About
         */
 
-        private void aboutToolStripMenuItem1_Click( object sender, EventArgs e )
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FormAbout to = new FormAbout( );
+            FormAbout to = new FormAbout();
             to.TopMost = true;
-            to.Show( );
+            to.Show();
         }
 
         /*
@@ -219,7 +208,7 @@ namespace ScreenpressoKG
 
         private void mnuTop_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
- 
+
         }
 
         /*
@@ -228,8 +217,8 @@ namespace ScreenpressoKG
 
         public class ClrTable : ProfessionalColorTable
         {
-            public override Color StatusStripGradientBegin => Color.FromArgb( 35, 35, 35 );
-            public override Color StatusStripGradientEnd => Color.FromArgb( 35, 35, 35 );
+            public override Color StatusStripGradientBegin => Color.FromArgb(35, 35, 35);
+            public override Color StatusStripGradientEnd => Color.FromArgb(35, 35, 35);
         }
 
         /*
@@ -239,11 +228,11 @@ namespace ScreenpressoKG
 
         public class StatusBar_Renderer : ToolStripProfessionalRenderer
         {
-            public StatusBar_Renderer( ) : base( new ClrTable() ) { }
+            public StatusBar_Renderer() : base(new ClrTable()) { }
 
-            protected override void OnRenderToolStripBorder( ToolStripRenderEventArgs e )
+            protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
             {
-                if (!( e.ToolStrip is StatusStrip ) ) base.OnRenderToolStripBorder( e );
+                if (!(e.ToolStrip is StatusStrip)) base.OnRenderToolStripBorder(e);
             }
         }
 
@@ -259,42 +248,42 @@ namespace ScreenpressoKG
                 a top-level System.Windows.Forms.ToolStripMenuItem is pressed.
             */
 
-            public override Color MenuItemPressedGradientBegin => Color.FromArgb( 55, 55, 55 );
+            public override Color MenuItemPressedGradientBegin => Color.FromArgb(55, 55, 55);
 
             /*
                 Gets the end color of the gradient used when a top-level
                 System.Windows.Forms.ToolStripMenuItem is pressed.
             */
 
-            public override Color MenuItemPressedGradientEnd => Color.FromArgb( 55, 55, 55 );
+            public override Color MenuItemPressedGradientEnd => Color.FromArgb(55, 55, 55);
 
             /*
                 Gets the border color to use with a 
                 System.Windows.Forms.ToolStripMenuItem.
             */
 
-            public override Color MenuItemBorder => Color.FromArgb( 0, 45, 45, 45 );
+            public override Color MenuItemBorder => Color.FromArgb(0, 45, 45, 45);
 
             /*
                 Gets the starting color of the gradient used when the 
                 System.Windows.Forms.ToolStripMenuItem is selected.
             */
 
-            public override Color MenuItemSelectedGradientBegin => Color.FromArgb( 222, 31, 103 );
+            public override Color MenuItemSelectedGradientBegin => Color.FromArgb(222, 31, 103);
 
             /*
                 Gets the end color of the gradient used when the 
                 System.Windows.Forms.ToolStripMenuItem is selected.
             */
 
-            public override Color MenuItemSelectedGradientEnd => Color.FromArgb( 222, 31, 103 );
+            public override Color MenuItemSelectedGradientEnd => Color.FromArgb(222, 31, 103);
 
             /*
                 Gets the solid background color of the 
                 System.Windows.Forms.ToolStripDropDown.
             */
 
-            public override Color ToolStripDropDownBackground => Color.FromArgb( 40, 40, 40 );
+            public override Color ToolStripDropDownBackground => Color.FromArgb(40, 40, 40);
 
             /*
                 Top Menu > Image > Start Gradient Color
@@ -340,50 +329,11 @@ namespace ScreenpressoKG
         }
 
         /*
-            Label > Body
-                "Click Generate button and copy the serial number below, and paste into Screen"
-        */
-
-        private void lbl_ClickToGenerate_Click( object sender, EventArgs e )
-        {
-
-        }
-
-        /*
             Label > Sub Header
                 "Generated serial key"
         */
 
-        private void lbl_Serial_Sub_Click( object sender, EventArgs e )
-        {
-
-        }
-
-        /*
-            Label > Body
-                "Click the "Generate" button below to create a number number."
-        */
-
-        /*
-            Text Box > Serial > OnTextChanged
-        */
-
-        private void serialTextbox__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbUser__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_BlockHost_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpBox_Enter(object sender, EventArgs e)
+        private void lbl_Serial_Sub_Click(object sender, EventArgs e)
         {
 
         }
@@ -395,25 +345,6 @@ namespace ScreenpressoKG
          */
 
         private void grpBox_Paint(object sender, PaintEventArgs e)
-        {
-
-            // border color
-            Pen p = new Pen(Color.FromArgb(75, 75, 75));
-
-            // left
-            e.Graphics.DrawLine(p, 0, 1, 0, e.ClipRectangle.Height - 1);
-
-            // top
-            e.Graphics.DrawLine(p, 1, 1, e.ClipRectangle.Width - 1, 1);
-
-            // right
-            e.Graphics.DrawLine(p, e.ClipRectangle.Width - 1, 1, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1);
-
-            // bottom
-            e.Graphics.DrawLine(p, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1, 0, e.ClipRectangle.Height - 1);
-        }
-
-        private void grpBox_Paint_1(object sender, PaintEventArgs e)
         {
             // border color
             Pen p = new Pen(Color.FromArgb(75, 75, 75));
@@ -439,15 +370,18 @@ namespace ScreenpressoKG
         private void btn_DoBlock_Click(object sender, EventArgs e)
         {
 
-            var result = MessageBox.Show("Do you want to modify your Windows host file to block Screenpresso's servers?",
-            "Edit Host File?",
-            MessageBoxButtons.YesNo);
+            var result = MessageBox.Show(
+                "Do you want to modify your Windows host file to block Screenpresso's servers from communicating with your computer?",
+                "Edit Hostfile?",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             string answer = result.ToString();
 
             if (answer == "Yes")
             {
-                string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts");
+                string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers\\etc\\hosts");
                 using (StreamWriter w = File.AppendText(host_path))
                 {
                     w.WriteLine(Environment.NewLine);
@@ -458,7 +392,12 @@ namespace ScreenpressoKG
                     w.WriteLine("0.0.0.0 stats.screenpresso.com");
                     w.WriteLine("0.0.0.0 18.65.3.28");
 
-                    System.Windows.Forms.MessageBox.Show("Successfully edited your host file at " + host_path.ToString(), "Host File Written", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Successfully edited your host file at " + host_path.ToString(),
+                        "Host File Edited",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
                 }
             }
 
@@ -471,20 +410,10 @@ namespace ScreenpressoKG
 
         private void btn_HostView_Click(object sender, EventArgs e)
         {
-            string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts");
+            string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers\\etc\\hosts");
             string etc_path = @"C:\Windows\System32\drivers\etc";
             Process.Start("explorer.exe", etc_path);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void addaaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace ScreenpressoKG.Private
+namespace ScreenpressoKG.Msgbox
 {
     partial class FormMessageBox
     {

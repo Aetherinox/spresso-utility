@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using System.Configuration;
+using ScreenpressoKG;
 
 namespace ScreenpressoKG
 {
@@ -45,7 +46,7 @@ namespace ScreenpressoKG
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParent));
             this.minimizeBtn = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Label();
-            this.btnGenerate = new System.Windows.Forms.Button();
+            this.btnGenerate = new ScreenpressoKG.AetherxButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lbl_User = new System.Windows.Forms.Label();
             this.mnuTop = new System.Windows.Forms.MenuStrip();
@@ -55,11 +56,11 @@ namespace ScreenpressoKG
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnCopy = new System.Windows.Forms.Button();
+            this.btnCopy = new ScreenpressoKG.AetherxButton();
             this.lbl_LicenseKey = new System.Windows.Forms.Label();
             this.grpBox = new System.Windows.Forms.Panel();
-            this.btn_HostView = new System.Windows.Forms.Button();
-            this.btn_DoBlock = new System.Windows.Forms.Button();
+            this.btn_HostView = new ScreenpressoKG.AetherxButton();
+            this.btn_DoBlock = new ScreenpressoKG.AetherxButton();
             this.lbl_HostBlocker_Desc = new System.Windows.Forms.Label();
             this.lbl_HostBlocker_Title = new System.Windows.Forms.Label();
             this.txt_LicenseKey = new ScreenpressoKG.AetherxTextBox();
@@ -113,7 +114,7 @@ namespace ScreenpressoKG
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(111, 29);
             this.btnGenerate.TabIndex = 3;
-            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.Text = "&Generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btn_Generate_Click);
             // 
@@ -236,7 +237,7 @@ namespace ScreenpressoKG
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(69, 29);
             this.btnCopy.TabIndex = 18;
-            this.btnCopy.Text = "Copy";
+            this.btnCopy.Text = "&Copy";
             this.btnCopy.UseVisualStyleBackColor = false;
             this.btnCopy.Click += new System.EventHandler(this.btn_Copy_Click);
             // 
@@ -261,7 +262,7 @@ namespace ScreenpressoKG
             this.grpBox.Name = "grpBox";
             this.grpBox.Size = new System.Drawing.Size(494, 126);
             this.grpBox.TabIndex = 24;
-            this.grpBox.Paint += new System.Windows.Forms.PaintEventHandler(this.grpBox_Paint_1);
+            this.grpBox.Paint += new System.Windows.Forms.PaintEventHandler(this.grpBox_Paint);
             // 
             // btn_HostView
             // 
@@ -444,7 +445,7 @@ namespace ScreenpressoKG
 
         private System.Windows.Forms.Label minimizeBtn;
         private System.Windows.Forms.Label closeBtn;
-        private System.Windows.Forms.Button btnGenerate;
+        private AetherxButton btnGenerate;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lbl_User;
         private System.Windows.Forms.MenuStrip mnuTop;
@@ -454,15 +455,15 @@ namespace ScreenpressoKG
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button btnCopy;
+        private AetherxButton btnCopy;
         private Label lbl_LicenseKey;
         private AetherxTextBox txt_User;
         private AetherxTextBox txt_LicenseKey;
         private Panel grpBox;
-        private Button btn_DoBlock;
+        private AetherxButton btn_DoBlock;
         private Label lbl_HostBlocker_Desc;
         private Label lbl_HostBlocker_Title;
-        private Button btn_HostView;
+        private AetherxButton btn_HostView;
         private ToolStripMenuItem fileToolStripMenuItem1;
         private ToolStripMenuItem aboutToolStripMenuItem2;
         private ToolStripMenuItem exitToolStripMenuItem1;

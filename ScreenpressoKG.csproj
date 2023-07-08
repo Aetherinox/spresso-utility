@@ -30,7 +30,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Screenpresso Keygen</ProductName>
     <PublisherName>Aetherx</PublisherName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -64,13 +64,23 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>89777A88D6E59A6F83DD8C358ED6616BE4423F9D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>70575BDFB02B3F1B45A37431BEF9A8C9933A4ACE</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ScreenpressoKG_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>aetherx_9a_priv.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -90,6 +100,9 @@
   <ItemGroup>
     <Compile Include="Classes\AppInfo.cs" />
     <Compile Include="Classes\MessageBox.cs" />
+    <Compile Include="Controls\ControlButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ControlTextbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,6 +155,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="aetherx_9a_priv.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,12 +171,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Materials\bell.png" />
+    <None Include="Materials\exclamation.png" />
+    <None Include="Materials\error.png" />
+    <None Include="Materials\question.png" />
+    <None Include="Materials\information.png" />
     <Content Include="Materials\screenpresso_64.ico" />
-    <None Include="Resources\question.png" />
-    <None Include="Resources\chat.png" />
-    <None Include="Resources\error.png" />
-    <None Include="Resources\exclamation.png" />
-    <None Include="Resources\information.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

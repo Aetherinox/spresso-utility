@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace ScreenpressoKG
 {
@@ -123,7 +115,7 @@ namespace ScreenpressoKG
             }
         }
 
-        public static string ProductVersion
+        public static string ProductVersionCore
         {
             get
             {
