@@ -12,7 +12,6 @@ Download the project repo and open with Visual Studio.
 If building your own version or want to move my binaries, you must ensure the following three files are in the same directory with each other:
 - /bin/`ScreenpressoKG.exe`
 - /bin/`ScreenpressoKG.exe.config`
-- /bin/`readme.md`
 
 The already-built executable binaries are located in the`/bin/` folder. Launch them to use the software.
 
