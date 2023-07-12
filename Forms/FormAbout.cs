@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Lng = ScreenpressoKG.Properties.Resources;
+using Cfg = ScreenpressoKG.Properties.Settings;
 
 namespace ScreenpressoKG
 {
@@ -11,7 +13,7 @@ namespace ScreenpressoKG
         public string GetReadme(string product, string version, string developer)
         {
 
-            string pattern =
+            string str_about =
 @"{0}
 Version {1}
 {2}
@@ -27,9 +29,28 @@ INSTRUCTIONS
    - Press ""Generate"" button
    - Copy the generated license key.
    - Paste license key into Screenpresso.
+
+CERTIFICATE THUMBPRINT
+These are specifically associated to the developer of this program.
+
+To verify that this program is safe and unmodified by others,
+right-click on the EXE file: 
+    -> Click PROPERTIES menu item
+    -> DIGITAL SIGNATURES tab
+    -> DETAILS button
+    -> VIEW CERTIFICATE button
+    -> DETAILS tab
+
+Scroll down and locate the THUMBPRINT field.
+Match the thumbprint in the textbox with the thumbprint below.
+
+If you do not see a Digital Signatures tab or if the thumbprints do not match, close and delete this program, it is not mine. My programs are free of malware and other harmful 'gifts'. This thumbprint ensures that you're using the correct program and it has not been tampered with.
+
+GPG KEY ID
+This key is used to sign the releases on Github.com, all commits are also signed with this key id.
 ";
 
-            return string.Format(pattern, product, version, developer);
+            return string.Format(str_about, product, version, developer);
         }
 
         public FormAbout()
@@ -43,8 +64,18 @@ INSTRUCTIONS
             txt_Version.Text = "v" + ver + " by " + tm;
             lbl_Product.Text = product;
 
-            txt_Terms.Value = GetReadme(product, ver, tm);
             txt_Terms.Text = GetReadme(product, ver, tm);
+            txt_Terms.Value = GetReadme(product, ver, tm);
+
+            lbl_Edu.Text = Lng.about_hdr_desc;
+            lnk_TPBLink.Text = Lng.about_lnk_tpb;
+            lnk_Github.Text = Lng.about_lnk_github;
+
+            lbl_Dev_PIV_Thumbprint.Text = Lng.about_lbl_thumbprint;
+            lbl_Dev_GPG_KeyID.Text = Lng.about_lbl_gpg;
+
+            txt_Dev_PIV_Thumbprint.Value = Cfg.Default.app_dev_piv_thumbprint;
+            txt_Dev_GPG_KeyID.Value = Cfg.Default.app_dev_gpg_keyid;
         }
 
         private void FormAbout_Load(object sender, EventArgs e)
@@ -139,7 +170,7 @@ INSTRUCTIONS
 
         private void llblLink_TPB_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://thepiratebay.org/search.php?q=user:Aetherinox");
+            System.Diagnostics.Process.Start(Cfg.Default.app_url_tpb);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -159,7 +190,7 @@ INSTRUCTIONS
 
         private void lnk_Github_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/Aetherinox/ScreenpressoKeygen");
+            System.Diagnostics.Process.Start(Cfg.Default.app_url_github);
         }
 
         private void txt_Terms__TextChanged(object sender, EventArgs e)

@@ -2,16 +2,24 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Lng = ScreenpressoKG.Properties.Resources;
+using Cfg = ScreenpressoKG.Properties.Settings;
 
 namespace ScreenpressoKG.Msgbox
 {
     public partial class FormMessageBox : Form
     {
-        //Fields
-        private Color primaryColor = Color.CornflowerBlue;
-        private int borderSize = 1;
+        /*
+            Fields
+        */
 
-        //Properties
+        private Color primaryColor = Color.CornflowerBlue;
+        readonly private int borderSize = 1;
+
+        /*
+            Properties > Primary Color
+        */
+
         public Color PrimaryColor
         {
             get { return primaryColor; }
@@ -23,7 +31,11 @@ namespace ScreenpressoKG.Msgbox
             }
         }
 
-        //Constructors
+
+    /*
+        Constructors
+    */
+
         public FormMessageBox(string text)
         {
             InitializeComponent();
@@ -92,7 +104,14 @@ namespace ScreenpressoKG.Msgbox
             SetIcon(icon);
         }
 
-        //-> Private Methods
+    /*
+        Private Methods
+    */
+
+        /*
+            Initialize Items
+        */
+
         private void InitializeItems()
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -131,7 +150,7 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.OK:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter, yCenter);
-                    button1.Text = "&OK";
+                    button1.Text = Lng.template_btn_ok;
                     button1.DialogResult = DialogResult.OK;
 
                     SetDefaultButton(btnDefault);
@@ -145,12 +164,12 @@ namespace ScreenpressoKG.Msgbox
 
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "&OK";
+                    button1.Text = Lng.template_btn_ok;
                     button1.DialogResult = DialogResult.OK;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "&Cancel";
+                    button2.Text = Lng.template_btn_cancel;
                     button2.DialogResult = DialogResult.Cancel;
                     button2.BackColor = Color.DimGray;
 
@@ -167,12 +186,12 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.RetryCancel:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "&Retry";
+                    button1.Text = Lng.template_btn_retry;
                     button1.DialogResult = DialogResult.Retry;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "&Cancel";
+                    button2.Text = Lng.template_btn_cancel;
                     button2.DialogResult = DialogResult.Cancel;
                     button2.BackColor = Color.DimGray;
 
@@ -189,12 +208,12 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.YesNo:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "&Yes";
+                    button1.Text = Lng.template_btn_yes;
                     button1.DialogResult = DialogResult.Yes;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "&No";
+                    button2.Text = Lng.template_btn_no;
                     button2.DialogResult = DialogResult.No;
                     button2.BackColor = Color.IndianRed;
 
@@ -211,18 +230,18 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.YesNoCancel:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - button1.Width - 5, yCenter);
-                    button1.Text = "&Yes";
+                    button1.Text = Lng.template_btn_yes;
                     button1.DialogResult = DialogResult.Yes;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter, yCenter);
-                    button2.Text = "&No";
+                    button2.Text = Lng.template_btn_no;
                     button2.DialogResult = DialogResult.No;
                     button2.BackColor = Color.IndianRed;
 
                     button3.Visible = true;
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
-                    button3.Text = "&Cancel";
+                    button3.Text = Lng.template_btn_cancel;
                     button3.DialogResult = DialogResult.Cancel;
                     button3.BackColor = Color.DimGray;
 
@@ -236,18 +255,18 @@ namespace ScreenpressoKG.Msgbox
                 case MessageBoxButtons.AbortRetryIgnore:
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - button1.Width - 5, yCenter);
-                    button1.Text = "&Abort";
+                    button1.Text = Lng.template_btn_abort;
                     button1.DialogResult = DialogResult.Abort;
                     button1.BackColor = Color.Goldenrod;
 
                     button2.Visible = true;
                     button2.Location = new Point(xCenter, yCenter);
-                    button2.Text = "&Retry";
+                    button2.Text = Lng.template_btn_retry;
                     button2.DialogResult = DialogResult.Retry;
 
                     button3.Visible = true;
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
-                    button3.Text = "&Ignore";
+                    button3.Text = Lng.template_btn_ignore;
                     button3.DialogResult = DialogResult.Ignore;
                     button3.BackColor = Color.IndianRed;
 
@@ -350,13 +369,20 @@ namespace ScreenpressoKG.Msgbox
 
                 case MessageBoxIcon.None:
                     this.pictureBoxIcon.Image = Properties.Resources.chat;
-                    PrimaryColor = Color.FromArgb(45, 45, 45);
+                    PrimaryColor = Color.FromArgb(70, 70, 70);
                     this.btnClose.FlatAppearance.MouseOverBackColor = Color.Transparent;
                     break;
             }
         }
 
-        //-> Events Methods
+    /*
+        Events
+    */
+
+        /*
+            Window > Button > Close > Click
+        */
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -43,9 +43,13 @@ namespace ScreenpressoKG
             this.lbl_Product = new System.Windows.Forms.Label();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lbl_Edu = new System.Windows.Forms.Label();
-            this.lbl_TPBLink = new System.Windows.Forms.LinkLabel();
+            this.lnk_TPBLink = new System.Windows.Forms.LinkLabel();
             this.lnk_Github = new System.Windows.Forms.LinkLabel();
             this.txt_Terms = new ScreenpressoKG.AetherxTextBox();
+            this.lbl_Dev_GPG_KeyID = new System.Windows.Forms.Label();
+            this.lbl_Dev_PIV_Thumbprint = new System.Windows.Forms.Label();
+            this.txt_Dev_PIV_Thumbprint = new ScreenpressoKG.AetherxTextBox();
+            this.txt_Dev_GPG_KeyID = new ScreenpressoKG.AetherxTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,19 +114,19 @@ namespace ScreenpressoKG
             this.lbl_Edu.TabIndex = 8;
             this.lbl_Edu.Text = "Educational purposes only. No ads, no music, no bullshit.";
             // 
-            // lbl_TPBLink
+            // lnk_TPBLink
             // 
-            this.lbl_TPBLink.AutoSize = true;
-            this.lbl_TPBLink.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lbl_TPBLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lbl_TPBLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_TPBLink.Location = new System.Drawing.Point(125, 96);
-            this.lbl_TPBLink.Name = "lbl_TPBLink";
-            this.lbl_TPBLink.Size = new System.Drawing.Size(74, 19);
-            this.lbl_TPBLink.TabIndex = 10;
-            this.lbl_TPBLink.TabStop = true;
-            this.lbl_TPBLink.Text = "TPB Profile";
-            this.lbl_TPBLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblLink_TPB_LinkClicked_1);
+            this.lnk_TPBLink.AutoSize = true;
+            this.lnk_TPBLink.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lnk_TPBLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lnk_TPBLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lnk_TPBLink.Location = new System.Drawing.Point(125, 96);
+            this.lnk_TPBLink.Name = "lnk_TPBLink";
+            this.lnk_TPBLink.Size = new System.Drawing.Size(74, 19);
+            this.lnk_TPBLink.TabIndex = 10;
+            this.lnk_TPBLink.TabStop = true;
+            this.lnk_TPBLink.Text = "TPB Profile";
+            this.lnk_TPBLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblLink_TPB_LinkClicked_1);
             // 
             // lnk_Github
             // 
@@ -156,22 +160,94 @@ namespace ScreenpressoKG
             this.txt_Terms.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_Terms.PlaceholderText = "";
             this.txt_Terms.ReadOnly = true;
-            this.txt_Terms.Size = new System.Drawing.Size(487, 257);
+            this.txt_Terms.Size = new System.Drawing.Size(487, 216);
             this.txt_Terms.TabIndex = 15;
             this.txt_Terms.UnderlineStyle = false;
             this.txt_Terms.Value = "";
             this.txt_Terms._TextChanged += new System.EventHandler(this.txt_Terms__TextChanged_1);
+            // 
+            // lbl_Dev_GPG_KeyID
+            // 
+            this.lbl_Dev_GPG_KeyID.AutoSize = true;
+            this.lbl_Dev_GPG_KeyID.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lbl_Dev_GPG_KeyID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.lbl_Dev_GPG_KeyID.Location = new System.Drawing.Point(11, 425);
+            this.lbl_Dev_GPG_KeyID.Name = "lbl_Dev_GPG_KeyID";
+            this.lbl_Dev_GPG_KeyID.Size = new System.Drawing.Size(45, 19);
+            this.lbl_Dev_GPG_KeyID.TabIndex = 17;
+            this.lbl_Dev_GPG_KeyID.Text = "label2";
+            // 
+            // lbl_Dev_PIV_Thumbprint
+            // 
+            this.lbl_Dev_PIV_Thumbprint.AutoSize = true;
+            this.lbl_Dev_PIV_Thumbprint.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lbl_Dev_PIV_Thumbprint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.lbl_Dev_PIV_Thumbprint.Location = new System.Drawing.Point(11, 361);
+            this.lbl_Dev_PIV_Thumbprint.Name = "lbl_Dev_PIV_Thumbprint";
+            this.lbl_Dev_PIV_Thumbprint.Size = new System.Drawing.Size(45, 19);
+            this.lbl_Dev_PIV_Thumbprint.TabIndex = 16;
+            this.lbl_Dev_PIV_Thumbprint.Text = "label1";
+            // 
+            // txt_Dev_PIV_Thumbprint
+            // 
+            this.txt_Dev_PIV_Thumbprint.AutoScroll = true;
+            this.txt_Dev_PIV_Thumbprint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txt_Dev_PIV_Thumbprint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
+            this.txt_Dev_PIV_Thumbprint.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_Dev_PIV_Thumbprint.BorderSize = 1;
+            this.txt_Dev_PIV_Thumbprint.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txt_Dev_PIV_Thumbprint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txt_Dev_PIV_Thumbprint.Location = new System.Drawing.Point(15, 384);
+            this.txt_Dev_PIV_Thumbprint.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Dev_PIV_Thumbprint.Multiline = false;
+            this.txt_Dev_PIV_Thumbprint.Name = "txt_Dev_PIV_Thumbprint";
+            this.txt_Dev_PIV_Thumbprint.Padding = new System.Windows.Forms.Padding(6);
+            this.txt_Dev_PIV_Thumbprint.PasswordChar = false;
+            this.txt_Dev_PIV_Thumbprint.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Dev_PIV_Thumbprint.PlaceholderText = "";
+            this.txt_Dev_PIV_Thumbprint.ReadOnly = true;
+            this.txt_Dev_PIV_Thumbprint.Size = new System.Drawing.Size(485, 33);
+            this.txt_Dev_PIV_Thumbprint.TabIndex = 18;
+            this.txt_Dev_PIV_Thumbprint.UnderlineStyle = true;
+            this.txt_Dev_PIV_Thumbprint.Value = "";
+            // 
+            // txt_Dev_GPG_KeyID
+            // 
+            this.txt_Dev_GPG_KeyID.AutoScroll = true;
+            this.txt_Dev_GPG_KeyID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txt_Dev_GPG_KeyID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
+            this.txt_Dev_GPG_KeyID.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_Dev_GPG_KeyID.BorderSize = 1;
+            this.txt_Dev_GPG_KeyID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txt_Dev_GPG_KeyID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txt_Dev_GPG_KeyID.Location = new System.Drawing.Point(15, 448);
+            this.txt_Dev_GPG_KeyID.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Dev_GPG_KeyID.Multiline = false;
+            this.txt_Dev_GPG_KeyID.Name = "txt_Dev_GPG_KeyID";
+            this.txt_Dev_GPG_KeyID.Padding = new System.Windows.Forms.Padding(6);
+            this.txt_Dev_GPG_KeyID.PasswordChar = false;
+            this.txt_Dev_GPG_KeyID.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Dev_GPG_KeyID.PlaceholderText = "";
+            this.txt_Dev_GPG_KeyID.ReadOnly = true;
+            this.txt_Dev_GPG_KeyID.Size = new System.Drawing.Size(485, 33);
+            this.txt_Dev_GPG_KeyID.TabIndex = 19;
+            this.txt_Dev_GPG_KeyID.UnderlineStyle = true;
+            this.txt_Dev_GPG_KeyID.Value = "";
             // 
             // FormAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.ClientSize = new System.Drawing.Size(516, 399);
+            this.ClientSize = new System.Drawing.Size(516, 499);
             this.ControlBox = false;
+            this.Controls.Add(this.txt_Dev_GPG_KeyID);
+            this.Controls.Add(this.txt_Dev_PIV_Thumbprint);
+            this.Controls.Add(this.lbl_Dev_GPG_KeyID);
+            this.Controls.Add(this.lbl_Dev_PIV_Thumbprint);
             this.Controls.Add(this.txt_Terms);
             this.Controls.Add(this.lnk_Github);
-            this.Controls.Add(this.lbl_TPBLink);
+            this.Controls.Add(this.lnk_TPBLink);
             this.Controls.Add(this.lbl_Edu);
             this.Controls.Add(this.imgLogo);
             this.Controls.Add(this.lbl_Product);
@@ -200,8 +276,12 @@ namespace ScreenpressoKG
         private Label lbl_Product;
         private PictureBox imgLogo;
         private Label lbl_Edu;
-        private LinkLabel lbl_TPBLink;
+        private LinkLabel lnk_TPBLink;
         private LinkLabel lnk_Github;
         private AetherxTextBox txt_Terms;
+        private Label lbl_Dev_GPG_KeyID;
+        private Label lbl_Dev_PIV_Thumbprint;
+        private AetherxTextBox txt_Dev_PIV_Thumbprint;
+        private AetherxTextBox txt_Dev_GPG_KeyID;
     }
 }

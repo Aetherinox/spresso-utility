@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="about_hdr_desc" xml:space="preserve">
+    <value>Educational purposes only. No ads, no music, no bullshit.</value>
+  </data>
+  <data name="about_lbl_gpg" xml:space="preserve">
+    <value>GPG KeyID</value>
+  </data>
+  <data name="about_lbl_thumbprint" xml:space="preserve">
+    <value>Digital Signature Thumbprint</value>
+  </data>
+  <data name="about_lnk_github" xml:space="preserve">
+    <value>Github Repo</value>
+  </data>
+  <data name="about_lnk_tpb" xml:space="preserve">
+    <value>TPB Profile</value>
+  </data>
+  <data name="btn_generate" xml:space="preserve">
+    <value>&amp;Generate</value>
+  </data>
+  <data name="btn_generate_copy" xml:space="preserve">
+    <value>&amp;Copy</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\bell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,10 +148,85 @@
   <data name="exclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hostblock_btn_doblock" xml:space="preserve">
+    <value>&amp;Block Host</value>
+  </data>
+  <data name="hostblock_btn_hostview" xml:space="preserve">
+    <value>&amp;View Host</value>
+  </data>
+  <data name="hostblock_desc" xml:space="preserve">
+    <value>Perform this step first to block {0} from communicating with your computer. Required for license activation to work.</value>
+  </data>
+  <data name="hostblock_title" xml:space="preserve">
+    <value>Host Blocker</value>
+  </data>
   <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lbl_generate_license" xml:space="preserve">
+    <value>Generated License Key</value>
+  </data>
+  <data name="lbl_generate_name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="msgbox_block_msg" xml:space="preserve">
+    <value>Do you want to modify your Windows host file to block Screenpresso's servers from communicating with your computer?</value>
+  </data>
+  <data name="msgbox_block_success_msg" xml:space="preserve">
+    <value>Successfully edited your host file at {0}</value>
+  </data>
+  <data name="msgbox_block_success_title" xml:space="preserve">
+    <value>Host File Edited</value>
+  </data>
+  <data name="msgbox_block_title" xml:space="preserve">
+    <value>Edit Hostfile?</value>
+  </data>
+  <data name="msgbox_copy_invlicense_msg" xml:space="preserve">
+    <value>Cannot copy a license key you have not generated yet.</value>
+  </data>
+  <data name="msgbox_copy_invlicense_title" xml:space="preserve">
+    <value>No License Generated</value>
+  </data>
+  <data name="msgbox_generate_invname_msg" xml:space="preserve">
+    <value>You must enter a name first before trying to generate a license key.</value>
+  </data>
+  <data name="msgbox_generate_invname_title" xml:space="preserve">
+    <value>No Name Specified</value>
+  </data>
   <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statusbar_copy_invlicense" xml:space="preserve">
+    <value>Generate license key first</value>
+  </data>
+  <data name="statusbar_copy_success" xml:space="preserve">
+    <value>License key copied. Paste in Screenpresso app.</value>
+  </data>
+  <data name="statusbar_generate" xml:space="preserve">
+    <value>Press Generate to create license key ...</value>
+  </data>
+  <data name="statusbar_serial_generated" xml:space="preserve">
+    <value>Serial number generated. Paste into Screenpresso app.</value>
+  </data>
+  <data name="template_btn_abort" xml:space="preserve">
+    <value>&amp;Abort</value>
+  </data>
+  <data name="template_btn_cancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="template_btn_ignore" xml:space="preserve">
+    <value>&amp;Ignore</value>
+  </data>
+  <data name="template_btn_no" xml:space="preserve">
+    <value>&amp;No</value>
+  </data>
+  <data name="template_btn_ok" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="template_btn_retry" xml:space="preserve">
+    <value>&amp;Retry</value>
+  </data>
+  <data name="template_btn_yes" xml:space="preserve">
+    <value>&amp;Yes</value>
   </data>
 </root>

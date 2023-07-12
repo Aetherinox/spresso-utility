@@ -3,13 +3,16 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Lng = ScreenpressoKG.Properties.Resources;
+using Cfg = ScreenpressoKG.Properties.Settings;
+using System.Configuration;
 
 namespace ScreenpressoKG
 {
 
     public partial class FormParent : Form
     {
-        private Serial Serial = new Serial();
+        readonly private Serial Serial = new Serial();
 
         /*
             Frame > Parent
@@ -19,8 +22,21 @@ namespace ScreenpressoKG
         {
             InitializeComponent();
             this.statusStrip.Renderer = new StatusBar_Renderer();
-            string product = AppInfo.Title;
-            lblTitle.Text = product;
+
+            string product                  = AppInfo.Title;
+            lblTitle.Text                   = product;
+
+            lbl_HostBlocker_Title.Text      = Lng.hostblock_title;
+            lbl_HostBlocker_Desc.Text       = string.Format( Lng.hostblock_desc, product);
+            btn_DoBlock.Text                = Lng.hostblock_btn_doblock;
+            btn_HostView.Text               = Lng.hostblock_btn_hostview;
+
+            lbl_User.Text                   = Lng.lbl_generate_name;
+            txt_User.PlaceholderText        = Cfg.Default.app_def_name;
+            lbl_LicenseKey.Text             = Lng.lbl_generate_license;
+
+            btnGenerate.Text                = Lng.btn_generate;
+            btnCopy.Text                    = Lng.btn_generate_copy;
         }
 
 
@@ -31,7 +47,7 @@ namespace ScreenpressoKG
         private void FormParent_Load(object sender, EventArgs e)
         {
             mnuTop.Renderer = new ToolStripProfessionalRenderer(new mnuTop_ColorTable());
-            toolStripStatusLabel1.Text = string.Format("Press Generate to create license key ...");
+            toolStripStatusLabel1.Text = string.Format(Lng.statusbar_generate);
             statusStrip.Refresh();
         }
 
@@ -98,8 +114,8 @@ namespace ScreenpressoKG
             if (string.IsNullOrEmpty(txt_User.Value))
             {
                 MessageBox.Show(
-                    "You must enter a name first before trying to generate a license key.",
-                    "No Name Specified",
+                    Lng.msgbox_generate_invname_msg,
+                    Lng.msgbox_generate_invname_title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -108,9 +124,9 @@ namespace ScreenpressoKG
             {
                 // force placeholder off
                 txt_LicenseKey.isPlaceholder = false;
-                txt_LicenseKey.Value = Serial.Generate(Serial.Type.LicenseCorporate, new Random().Next(0x270f), this.txt_User.Value);
+                txt_LicenseKey.Value = Serial.Generate( Serial.Editions.LicenseCorporate, new Random().Next(0x270f), this.txt_User.Value);
 
-                toolStripStatusLabel1.Text = string.Format("Serial number generated. Paste into Screenpresso app.");
+                toolStripStatusLabel1.Text = string.Format(Lng.statusbar_serial_generated, AppInfo.Title);
                 statusStrip.Refresh();
             }
         }
@@ -127,20 +143,20 @@ namespace ScreenpressoKG
             if (string.IsNullOrEmpty(txt_LicenseKey.Value))
             {
                 MessageBox.Show(
-                    "Cannot copy a license key you have not generated yet.",
-                    "No License Generated",
+                    Lng.msgbox_copy_invlicense_msg,
+                    Lng.msgbox_copy_invlicense_title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
 
-                toolStripStatusLabel1.Text = string.Format("Generate license key first");
+                toolStripStatusLabel1.Text = string.Format(Lng.statusbar_copy_invlicense);
                 statusStrip.Refresh();
             }
             else
             {
                 Clipboard.SetText(txt_LicenseKey.Value);
 
-                toolStripStatusLabel1.Text = string.Format("License key copied. Paste in Screenpresso app.");
+                toolStripStatusLabel1.Text = string.Format(Lng.statusbar_copy_success);
                 statusStrip.Refresh();
             }
         }
@@ -383,8 +399,8 @@ namespace ScreenpressoKG
         {
 
             var result = MessageBox.Show(
-                "Do you want to modify your Windows host file to block Screenpresso's servers from communicating with your computer?",
-                "Edit Hostfile?",
+                Lng.msgbox_block_msg,
+                Lng.msgbox_block_title,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
@@ -405,8 +421,8 @@ namespace ScreenpressoKG
                     w.WriteLine("0.0.0.0 18.65.3.28");
 
                     MessageBox.Show(
-                        "Successfully edited your host file at " + host_path.ToString(),
-                        "Host File Edited",
+                        string.Format( Lng.msgbox_block_success_msg, host_path.ToString() ),
+                        Lng.msgbox_block_success_title,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
@@ -422,7 +438,6 @@ namespace ScreenpressoKG
 
         private void btn_HostView_Click(object sender, EventArgs e)
         {
-            string host_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers\\etc\\hosts");
             string etc_path = @"C:\Windows\System32\drivers\etc";
             Process.Start("explorer.exe", etc_path);
         }

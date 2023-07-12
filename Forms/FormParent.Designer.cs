@@ -359,7 +359,7 @@ namespace ScreenpressoKG
             this.txt_User.Padding = new System.Windows.Forms.Padding(8, 3, 8, 3);
             this.txt_User.PasswordChar = false;
             this.txt_User.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_User.PlaceholderText = "Aetherinox";
+            this.txt_User.PlaceholderText = "";
             this.txt_User.ReadOnly = false;
             this.txt_User.Size = new System.Drawing.Size(494, 28);
             this.txt_User.TabIndex = 21;

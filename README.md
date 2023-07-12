@@ -36,7 +36,7 @@ As of `v1.0.0.0` and onwards, binaries are GPG signed with the key `CB5C4C30CD0D
 - [keyserver.ubuntu.com](keyserver.ubuntu.com)
 - [keys.openpgp.org](https://keys.openpgp.org)
 
-Binaries are also signed with a certificate which has the serial number `10d43e641e59fa884c773add600159dd`. If you downloaded this elsewhere on the internet and the binary is not signed with that certificate serial number; **IT IS NOT MINE**. You should delete it.
+Binaries are also signed with a certificate which has the serial number `70575bdfb02b3f1b45a37431bef9a8c9933a4ace`. If you downloaded this elsewhere on the internet and the binary is not signed with that certificate serial number; **IT IS NOT MINE**. You should delete it.
 
 # App.config
 

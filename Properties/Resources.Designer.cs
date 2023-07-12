@@ -61,6 +61,69 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Educational purposes only. No ads, no music, no bullshit..
+        /// </summary>
+        internal static string about_hdr_desc {
+            get {
+                return ResourceManager.GetString("about_hdr_desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPG KeyID.
+        /// </summary>
+        internal static string about_lbl_gpg {
+            get {
+                return ResourceManager.GetString("about_lbl_gpg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Digital Signature Thumbprint.
+        /// </summary>
+        internal static string about_lbl_thumbprint {
+            get {
+                return ResourceManager.GetString("about_lbl_thumbprint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Github Repo.
+        /// </summary>
+        internal static string about_lnk_github {
+            get {
+                return ResourceManager.GetString("about_lnk_github", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TPB Profile.
+        /// </summary>
+        internal static string about_lnk_tpb {
+            get {
+                return ResourceManager.GetString("about_lnk_tpb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Generate.
+        /// </summary>
+        internal static string btn_generate {
+            get {
+                return ResourceManager.GetString("btn_generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Copy.
+        /// </summary>
+        internal static string btn_generate_copy {
+            get {
+                return ResourceManager.GetString("btn_generate_copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap chat {
@@ -91,6 +154,42 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Block Host.
+        /// </summary>
+        internal static string hostblock_btn_doblock {
+            get {
+                return ResourceManager.GetString("hostblock_btn_doblock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;View Host.
+        /// </summary>
+        internal static string hostblock_btn_hostview {
+            get {
+                return ResourceManager.GetString("hostblock_btn_hostview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Perform this step first to block {0} from communicating with your computer. Required for license activation to work..
+        /// </summary>
+        internal static string hostblock_desc {
+            get {
+                return ResourceManager.GetString("hostblock_desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Host Blocker.
+        /// </summary>
+        internal static string hostblock_title {
+            get {
+                return ResourceManager.GetString("hostblock_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap information {
@@ -101,12 +200,201 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generated License Key.
+        /// </summary>
+        internal static string lbl_generate_license {
+            get {
+                return ResourceManager.GetString("lbl_generate_license", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string lbl_generate_name {
+            get {
+                return ResourceManager.GetString("lbl_generate_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to modify your Windows host file to block Screenpresso&apos;s servers from communicating with your computer?.
+        /// </summary>
+        internal static string msgbox_block_msg {
+            get {
+                return ResourceManager.GetString("msgbox_block_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully edited your host file at {0}.
+        /// </summary>
+        internal static string msgbox_block_success_msg {
+            get {
+                return ResourceManager.GetString("msgbox_block_success_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Host File Edited.
+        /// </summary>
+        internal static string msgbox_block_success_title {
+            get {
+                return ResourceManager.GetString("msgbox_block_success_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Hostfile?.
+        /// </summary>
+        internal static string msgbox_block_title {
+            get {
+                return ResourceManager.GetString("msgbox_block_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot copy a license key you have not generated yet..
+        /// </summary>
+        internal static string msgbox_copy_invlicense_msg {
+            get {
+                return ResourceManager.GetString("msgbox_copy_invlicense_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No License Generated.
+        /// </summary>
+        internal static string msgbox_copy_invlicense_title {
+            get {
+                return ResourceManager.GetString("msgbox_copy_invlicense_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a name first before trying to generate a license key..
+        /// </summary>
+        internal static string msgbox_generate_invname_msg {
+            get {
+                return ResourceManager.GetString("msgbox_generate_invname_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Name Specified.
+        /// </summary>
+        internal static string msgbox_generate_invname_title {
+            get {
+                return ResourceManager.GetString("msgbox_generate_invname_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap question {
             get {
                 object obj = ResourceManager.GetObject("question", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate license key first.
+        /// </summary>
+        internal static string statusbar_copy_invlicense {
+            get {
+                return ResourceManager.GetString("statusbar_copy_invlicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to License key copied. Paste in Screenpresso app..
+        /// </summary>
+        internal static string statusbar_copy_success {
+            get {
+                return ResourceManager.GetString("statusbar_copy_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press Generate to create license key ....
+        /// </summary>
+        internal static string statusbar_generate {
+            get {
+                return ResourceManager.GetString("statusbar_generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serial number generated. Paste into Screenpresso app..
+        /// </summary>
+        internal static string statusbar_serial_generated {
+            get {
+                return ResourceManager.GetString("statusbar_serial_generated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Abort.
+        /// </summary>
+        internal static string template_btn_abort {
+            get {
+                return ResourceManager.GetString("template_btn_abort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Cancel.
+        /// </summary>
+        internal static string template_btn_cancel {
+            get {
+                return ResourceManager.GetString("template_btn_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Ignore.
+        /// </summary>
+        internal static string template_btn_ignore {
+            get {
+                return ResourceManager.GetString("template_btn_ignore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;No.
+        /// </summary>
+        internal static string template_btn_no {
+            get {
+                return ResourceManager.GetString("template_btn_no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;OK.
+        /// </summary>
+        internal static string template_btn_ok {
+            get {
+                return ResourceManager.GetString("template_btn_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Retry.
+        /// </summary>
+        internal static string template_btn_retry {
+            get {
+                return ResourceManager.GetString("template_btn_retry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Yes.
+        /// </summary>
+        internal static string template_btn_yes {
+            get {
+                return ResourceManager.GetString("template_btn_yes", resourceCulture);
             }
         }
     }
