@@ -31,7 +31,11 @@
     <ProductName>Screenpresso Keygen</ProductName>
     <PublisherName>Aetherx</PublisherName>
     <ApplicationRevision>1</ApplicationRevision>
+<<<<<<< HEAD
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+=======
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+>>>>>>> 2b93565 (v1.0.1.0)
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
