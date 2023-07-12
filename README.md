@@ -13,12 +13,9 @@ Developed under the following conditions:
 
 # Usage
 
-If you wish to simply use the keygen, head over to the [Releases](https://github.com/Aetherinox/ScreenpressoKeygen/releases) section and download the latest binary as a `zip` or `rar`. The binary release should only contain two files:
+If you wish to simply use the keygen, head over to the [Releases](https://github.com/Aetherinox/ScreenpressoKeygen/releases) section and download the latest binary as a `zip` or `rar`. The binary release should only contain one file:
 
 - `ScreenpressoKG.exe`
-- `ScreenpressoKG.exe.config`
-
-Make sure these two files are both in the same folder.
 
 # Build
 
@@ -37,18 +34,6 @@ As of `v1.0.0.0` and onwards, binaries are GPG signed with the key `CB5C4C30CD0D
 - [keys.openpgp.org](https://keys.openpgp.org)
 
 Binaries are also signed with a certificate which has the serial number `70575bdfb02b3f1b45a37431bef9a8c9933a4ace`. If you downloaded this elsewhere on the internet and the binary is not signed with that certificate serial number; **IT IS NOT MINE**. You should delete it.
-
-# App.config
-
-This file holds default values that the app uses when launching. You shouldn't need to modify these, but they're provided just in case:
-
-```xml
-  <appSettings>
-    <add key="username_default" value="Aetherinox"/>
-    <add key="editions_list" value="ActivationKey,LicenseBoundToSoftwareName,LicenseBoundToHardDrive,LicenseCorporate,LicenseBoundToHardDrive2"/>
-    <add key="ClientSettingsProvider.ServiceUri" value=""/>
-  </appSettings>
-```
 
 Don't modify these unless you know what you're doing, improperly configured, the Activation and Response will not generate into a valid serial key.
 
