@@ -27,7 +27,7 @@ namespace ScreenpressoKG
             lblTitle.Text                   = product;
 
             lbl_HostBlocker_Title.Text      = Lng.hostblock_title;
-            lbl_HostBlocker_Desc.Text       = string.Format( Lng.hostblock_desc, product);
+            lbl_HostBlocker_Desc.Text       = string.Format( Lng.hostblock_desc, product );
             btn_DoBlock.Text                = Lng.hostblock_btn_doblock;
             btn_HostView.Text               = Lng.hostblock_btn_hostview;
 
