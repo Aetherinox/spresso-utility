@@ -1,6 +1,17 @@
-# Screenpresso License Generator
+<p align="center"><img src="Docs/images/banner.png" width="860"></p>
+<h1 align="center"><b>Screenpresso License Generator</b></h1>
 
-Allows you to generate and activate a copy of [Screenpresso v2.1.12](https://screenpresso.com/) using offline manual activation.
+<div align="center">
+
+![Version](https://img.shields.io/github/v/tag/Aetherinox/ScreenpressoKeygen?logo=GitHub&label=version&color=ba5225) ![Downloads](https://img.shields.io/github/downloads/Aetherinox/ScreenpressoKeygen/total) ![Repo Size](https://img.shields.io/github/repo-size/Aetherinox/ScreenpressoKeygen?label=size&color=59702a) ![Last Commit)](https://img.shields.io/github/last-commit/Aetherinox/ScreenpressoKeygen?color=b43bcc)
+
+</div>
+
+---
+
+<br />
+
+Allows you to generate and activate a copy of [Screenpresso v2.x](https://screenpresso.com/) using offline manual activation.
 
 <br />
 
@@ -13,9 +24,14 @@ Allows you to generate and activate a copy of [Screenpresso v2.1.12](https://scr
 Developer holds no responsibility with what people decide to do with this app. It was developed strictly for demonstration purposes only.
 Developed under the following conditions:
 
-- Visual Studio 2022 (17.6.4)
+- Visual Studio 2022 (17.6.5)
 - v4.8.0 .NET Framework
 - C# language
+
+<br />
+
+This generator has been developed to work on the following versions:
+- Screenpresso Enterprise v2.x
 
 <br />
 
@@ -25,7 +41,7 @@ Developed under the following conditions:
 
 # Usage
 
-If you wish to simply use the keygen, head over to the [Releases](https://github.com/Aetherinox/ScreenpressoKeygen/releases) section and download the latest binary as a `zip` or `rar`. The binary release should only contain one file:
+If you wish to simply use the keygen, head over to the [Releases](https://github.com/Aetherinox/ScreenpressoKeygen/releases) section and download the latest binary as a `zip` or `rar`. The download is a single `exe`.
 
 - `ScreenpressoKG.exe`
 
@@ -39,9 +55,7 @@ If you wish to simply use the keygen, head over to the [Releases](https://github
 
 Download the source files and launch the `.csproj` project file in Visual Studio.
 
-If you decide to modify or re-build my code, you are to not re-distribute. Unlike a lot of keygens, my files are free of malware, and I do not want people taking advantage of a quick solution that you can dump your non-sense malware into and re-distribute.
-
-If you're looking to do a quick credits swap and re-distribute just so you can make a name for yourself; I'd highly recommend you actually learn C# and make something yourself.
+If you decide to modify or re-build my code, you are to not re-distribute. These sources are for learning purposes and should not be used in order to take advantage of others.
 
 <br />
 
@@ -57,9 +71,7 @@ As of `v1.0.0.0` and onwards, binaries are GPG signed with the key `CB5C4C30CD0D
 - [keyserver.ubuntu.com](keyserver.ubuntu.com)
 - [keys.openpgp.org](https://keys.openpgp.org)
 
-Binaries are also signed with a certificate which has the serial number `70575bdfb02b3f1b45a37431bef9a8c9933a4ace`. If you downloaded this elsewhere on the internet and the binary is not signed with that certificate serial number; **IT IS NOT MINE**. You should delete it.
-
-Don't modify these unless you know what you're doing, improperly configured, the Activation and Response will not generate into a valid serial key.
+Binaries are also signed with a certificate which has the Thumbprint `70575bdfb02b3f1b45a37431bef9a8c9933a4ace`. If you downloaded this elsewhere on the internet and the binary is not signed with that certificate serial number; **IT IS NOT MINE**. You should delete it.
 
 <br />
 
@@ -73,12 +85,11 @@ Unfortunately, virus scanners such as VirusTotal can report false positives. The
 
 The only option I'd have is to contact these websites and tell them that it's a false positive, but I'm writing a keygen; I highly doubt they're going to be happy with doing anything.
 
-I scanned this keygen with Windows Defender and it reported that the files are clean. The other scan reports are listed below:
+I scanned with Windows Defender and it reported that the files are clean.
 
-- [VirusTotal](https://www.virustotal.com/gui/file/e88f80e4478733e444a0ac0eb71b882ff55c83f5401f84f77eeda825a87a4918)
-- [Jotti](https://virusscan.jotti.org/en-US/filescanjob/lnnmr0o8zg)
-- [Dr. Web](https://online192.drweb.com/cache/?i=91eac05dd9ee4d3cbbf03195589cceca)
-- [MetaDefender](https://metadefender.opswat.com/results/file/bzIzMDcwOFdwLS00WE9fb1FkNjRqYjFSdjl0/regular/overview)
+- [VirusTotal](https://www.virustotal.com/gui/file/43f9735732220e6b8d83b7fbd41e75e0bbbcc7a070f8fa5b3fc2c3ce92638ea1?nocache=1)
+- [Jotti](https://virusscan.jotti.org/en-US/filescanjob/0tie5mi89m,wukz0p73no)
+- [MetaDefender](https://metadefender.opswat.com/results/file/bzIzMTEwN0JUNWluVGVuNGRCUVcxYlUwZ1o/regular/overview)
 
 <br />
 
