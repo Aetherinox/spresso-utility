@@ -132,18 +132,30 @@
   <data name="about_lnk_tpb" xml:space="preserve">
     <value>TPB Profile</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Materials\bch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_header" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Materials\bg_header.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Materials\btc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btn_generate" xml:space="preserve">
     <value>&amp;Generate</value>
   </data>
   <data name="btn_generate_copy" xml:space="preserve">
     <value>&amp;Copy</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\bell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Materials\eth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,11 +175,29 @@
   <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lbl_contrib_bch" xml:space="preserve">
+    <value>BCH</value>
+    <comment>Bitcoin Cash</comment>
+  </data>
+  <data name="lbl_contrib_btc" xml:space="preserve">
+    <value>BTC</value>
+    <comment>Bitcoin</comment>
+  </data>
+  <data name="lbl_contrib_eth" xml:space="preserve">
+    <value>ETH</value>
+    <comment>Etherium</comment>
+  </data>
   <data name="lbl_generate_license" xml:space="preserve">
     <value>Generated License Key</value>
   </data>
   <data name="lbl_generate_name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="msgbox_block_cancel_msg" xml:space="preserve">
+    <value>Your host file has been left untouched</value>
+  </data>
+  <data name="msgbox_block_cancel_title" xml:space="preserve">
+    <value>Operation Cancelled</value>
   </data>
   <data name="msgbox_block_msg" xml:space="preserve">
     <value>Do you want to modify your Windows host file to block Screenpresso's servers from communicating with your computer?</value>
@@ -196,6 +226,9 @@
   <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="resp_keygen_fail" xml:space="preserve">
+    <value>Error - Key could not be generated</value>
+  </data>
   <data name="statusbar_copy_invlicense" xml:space="preserve">
     <value>Generate license key first</value>
   </data>
@@ -207,6 +240,12 @@
   </data>
   <data name="statusbar_serial_generated" xml:space="preserve">
     <value>Serial number generated. Paste into Screenpresso app.</value>
+  </data>
+  <data name="status_keygen_fail" xml:space="preserve">
+    <value>Key generation failed</value>
+  </data>
+  <data name="status_keygen_success" xml:space="preserve">
+    <value>Key generation successful</value>
   </data>
   <data name="template_btn_abort" xml:space="preserve">
     <value>&amp;Abort</value>
@@ -228,5 +267,8 @@
   </data>
   <data name="template_btn_yes" xml:space="preserve">
     <value>&amp;Yes</value>
+  </data>
+  <data name="txt_contrib_intro" xml:space="preserve">
+    <value>I do this because I enjoy giving back, and I'm not looking to make a profit off my work. However, donations would help immensely for one purpose -- purchasing libraries and other commercial products which have insane licensing systems. These types of products would make life much easier and get releases pumped out on a more regular basis. Don't feel obligated, this is just "if you can". My main goal is better tools.</value>
   </data>
 </root>

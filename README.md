@@ -1,5 +1,5 @@
 <p align="center"><img src="Docs/images/banner.png" width="860"></p>
-<h1 align="center"><b>Screenpresso License Generator</b></h1>
+<h1 align="center"><b>Screenpresso Patcher</b></h1>
 
 <div align="center">
 
@@ -11,7 +11,18 @@
 
 <br />
 
-Allows you to generate and activate a copy of [Screenpresso v2.x](https://screenpresso.com/) using offline manual activation.
+# About
+
+Screenpresso screen capturing software is designed to capture, edit, organize, and share screen captures on a desktop. Its captured videos and images can be used for creating training materials, performing collaborative design work, generating IT bug reports, and more.
+
+This screen recording software comes with features such as scrolling screen capturing, publishing edited files, and scheduling screen recording. It also helps in recording the edits, decoding QR codes, editing images, generating documents, etc.
+
+It is a great tool to record high-definition videos, editing captured screenshots, publishing recordings to several online platforms, generating documents with captured images, and more. With multilingual functionality, users can easily operate this software in 20+ languages.
+
+<br />
+
+This has been developed to work on the following versions:
+- Screenpresso v2.x
 
 <br />
 
@@ -19,7 +30,7 @@ Allows you to generate and activate a copy of [Screenpresso v2.x](https://screen
 
 <br />
 
-# About
+# Notice
 
 Developer holds no responsibility with what people decide to do with this app. It was developed strictly for demonstration purposes only.
 Developed under the following conditions:
@@ -27,11 +38,6 @@ Developed under the following conditions:
 - Visual Studio 2022 (17.6.5)
 - v4.8.0 .NET Framework
 - C# language
-
-<br />
-
-This generator has been developed to work on the following versions:
-- Screenpresso Enterprise v2.x
 
 <br />
 
@@ -99,10 +105,6 @@ I scanned with Windows Defender and it reported that the files are clean.
 
 # Previews
 
-![Main Screen](https://i.imgur.com/sNCXVle.png)
-![Block Host Confirmation](https://i.imgur.com/ucWP4Hk.png)
-![Generate License Key](https://i.imgur.com/gukUKPU.png)
-![Interface + Help Menu](https://i.imgur.com/j2erqaA.png)
-![Valid License](https://i.imgur.com/uVSX2CA.png)
-![Activation Complete](https://i.imgur.com/vHIuhf8.png)
-![Verifying License](https://i.imgur.com/QWIMaNd.png)
+<p align="center"><img style="width: 85%;text-align: center;border: 1px solid #353535;" src="https://i.imgur.com/AO9doqG.png"></p>
+
+<p align="center"><img style="width: 85%;text-align: center;border: 1px solid #353535;" src="https://i.imgur.com/hY6Krw2.png"></p>

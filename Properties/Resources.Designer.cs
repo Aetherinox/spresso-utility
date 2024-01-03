@@ -106,6 +106,36 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bch {
+            get {
+                object obj = ResourceManager.GetObject("bch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_header {
+            get {
+                object obj = ResourceManager.GetObject("bg_header", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btc {
+            get {
+                object obj = ResourceManager.GetObject("btc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Generate.
         /// </summary>
         internal static string btn_generate {
@@ -139,6 +169,16 @@ namespace ScreenpressoKG.Properties {
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eth {
+            get {
+                object obj = ResourceManager.GetObject("eth", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -200,6 +240,33 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BCH.
+        /// </summary>
+        internal static string lbl_contrib_bch {
+            get {
+                return ResourceManager.GetString("lbl_contrib_bch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BTC.
+        /// </summary>
+        internal static string lbl_contrib_btc {
+            get {
+                return ResourceManager.GetString("lbl_contrib_btc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ETH.
+        /// </summary>
+        internal static string lbl_contrib_eth {
+            get {
+                return ResourceManager.GetString("lbl_contrib_eth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generated License Key.
         /// </summary>
         internal static string lbl_generate_license {
@@ -214,6 +281,24 @@ namespace ScreenpressoKG.Properties {
         internal static string lbl_generate_name {
             get {
                 return ResourceManager.GetString("lbl_generate_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your host file has been left untouched.
+        /// </summary>
+        internal static string msgbox_block_cancel_msg {
+            get {
+                return ResourceManager.GetString("msgbox_block_cancel_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation Cancelled.
+        /// </summary>
+        internal static string msgbox_block_cancel_title {
+            get {
+                return ResourceManager.GetString("msgbox_block_cancel_title", resourceCulture);
             }
         }
         
@@ -296,6 +381,33 @@ namespace ScreenpressoKG.Properties {
             get {
                 object obj = ResourceManager.GetObject("question", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error - Key could not be generated.
+        /// </summary>
+        internal static string resp_keygen_fail {
+            get {
+                return ResourceManager.GetString("resp_keygen_fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key generation failed.
+        /// </summary>
+        internal static string status_keygen_fail {
+            get {
+                return ResourceManager.GetString("status_keygen_fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key generation successful.
+        /// </summary>
+        internal static string status_keygen_success {
+            get {
+                return ResourceManager.GetString("status_keygen_success", resourceCulture);
             }
         }
         
@@ -395,6 +507,15 @@ namespace ScreenpressoKG.Properties {
         internal static string template_btn_yes {
             get {
                 return ResourceManager.GetString("template_btn_yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I do this because I enjoy giving back, and I&apos;m not looking to make a profit off my work. However, donations would help immensely for one purpose -- purchasing libraries and other commercial products which have insane licensing systems. These types of products would make life much easier and get releases pumped out on a more regular basis. Don&apos;t feel obligated, this is just &quot;if you can&quot;. My main goal is better tools..
+        /// </summary>
+        internal static string txt_contrib_intro {
+            get {
+                return ResourceManager.GetString("txt_contrib_intro", resourceCulture);
             }
         }
     }

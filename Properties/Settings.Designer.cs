@@ -77,5 +77,14 @@ namespace ScreenpressoKG.Properties {
                 return ((string)(this["app_editions"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Screenpresso.exe")]
+        public string app_target_exe {
+            get {
+                return ((string)(this["app_target_exe"]));
+            }
+        }
     }
 }

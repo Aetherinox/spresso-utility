@@ -18,7 +18,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>H:\Apps\Screenpresso Pro\Screenpresso Keygen\Source\Built\</PublishUrl>
+    <PublishUrl>H:\Apps\Screenpresso Pro\Screenpresso Keygen\Source\v1.2.x\Built\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -30,8 +30,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Screenpresso Keygen</ProductName>
     <PublisherName>Aetherx</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.2.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -86,6 +86,10 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\WindowsPowerShell\3.0\System.Management.Automation.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -99,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppInfo.cs" />
+    <Compile Include="Classes\Receiver.cs" />
+    <Compile Include="Classes\Helpers.cs" />
     <Compile Include="Classes\MessageBox.cs" />
     <Compile Include="Controls\ControlButton.cs">
       <SubType>Component</SubType>
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="Controls\ControlTextbox.Designer.cs">
       <DependentUpon>ControlTextbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormContribute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormContribute.Designer.cs">
+      <DependentUpon>FormContribute.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormAbout.cs">
       <SubType>Form</SubType>
@@ -138,6 +150,9 @@
       <DependentUpon>FormAbout.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormContribute.resx">
+      <DependentUpon>FormContribute.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +171,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="aetherx_9a_priv.pfx" />
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -172,6 +188,10 @@
     <None Include="Materials\error.png" />
     <None Include="Materials\question.png" />
     <None Include="Materials\information.png" />
+    <None Include="Materials\bch.png" />
+    <None Include="Materials\btc.png" />
+    <None Include="Materials\eth.png" />
+    <None Include="Materials\bg_header.jpg" />
     <Content Include="Materials\screenpresso_64.ico" />
   </ItemGroup>
   <ItemGroup>

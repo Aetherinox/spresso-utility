@@ -20,5 +20,8 @@
     <Setting Name="app_editions" Type="System.String" Scope="Application">
       <Value Profile="(Default)">ActivationKey,LicenseBoundToSoftwareName,LicenseBoundToHardDrive,LicenseCorporate,LicenseBoundToHardDrive2</Value>
     </Setting>
+    <Setting Name="app_target_exe" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Screenpresso.exe</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
