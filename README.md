@@ -105,6 +105,6 @@ I scanned with Windows Defender and it reported that the files are clean.
 
 # Previews
 
-<p align="center"><img style="width: 85%;text-align: center;border: 1px solid #353535;" src="https://i.imgur.com/AO9doqG.png"></p>
+<p align="center"><img style="width: 85%;text-align: center;border: 1px solid #353535;" src="https://i.imgur.com/33yi7jE.png"></p>
 
 <p align="center"><img style="width: 85%;text-align: center;border: 1px solid #353535;" src="https://i.imgur.com/hY6Krw2.png"></p>
