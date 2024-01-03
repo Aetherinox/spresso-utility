@@ -93,9 +93,9 @@ The only option I'd have is to contact these websites and tell them that it's a 
 
 I scanned with Windows Defender and it reported that the files are clean.
 
-- [VirusTotal](https://www.virustotal.com/gui/file/43f9735732220e6b8d83b7fbd41e75e0bbbcc7a070f8fa5b3fc2c3ce92638ea1?nocache=1)
-- [Jotti](https://virusscan.jotti.org/en-US/filescanjob/0tie5mi89m,wukz0p73no)
-- [MetaDefender](https://metadefender.opswat.com/results/file/bzIzMTEwN0JUNWluVGVuNGRCUVcxYlUwZ1o/regular/overview)
+- [VirusTotal](https://www.virustotal.com/gui/file/f64b19aea885315113319dc2e5ef82b220299d3cc570a63cf50796f1f74d7eea?nocache=1)
+- [Jotti](https://virusscan.jotti.org/en-US/filescanjob/1jw4ny3zxa)
+- [MetaDefender](https://metadefender.opswat.com/results/file/bzI0MDEwM0s4a0RiNktLSEc5OWxISGxmMTEy_mdaas/regular/overview)
 
 <br />
 
