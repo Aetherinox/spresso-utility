@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using Lng = ScreenpressoKG.Properties.Resources;
-using Cfg = ScreenpressoKG.Properties.Settings;
 using System.IO;
 using System.Windows.Forms;
+using Lng = ScreenpressoKG.Properties.Resources;
+using Cfg = ScreenpressoKG.Properties.Settings;
 
 namespace ScreenpressoKG
 {
