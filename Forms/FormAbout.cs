@@ -11,12 +11,32 @@ namespace ScreenpressoKG
     public partial class FormAbout : Form
     {
 
-        /*
-            Define > Mouse
-        */
+        #region "Declarations"
 
-        private bool mouseDown;
-        private Point lastLocation;
+            /*
+                Define > Classes
+            */
+
+            private Helpers Helpers     = new Helpers( );
+
+            /*
+                Define > Internal > Helper
+            */
+
+            internal Helpers Helper
+            {
+                set     { Helpers = value;  }
+                get     { return Helpers;   }
+            }
+
+            /*
+                Define > Mouse
+            */
+
+            private bool mouseDown;
+            private Point lastLocation;
+
+        #endregion
 
         #region "Generate Readme"
 
@@ -71,48 +91,64 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
         #region "Main Window: Initialize"
 
-        public FormAbout()
+            public FormAbout()
             {
                 InitializeComponent( );
+
+                /*
+                    Product, trademark, etc.
+                */
 
                 string ver                      = AppInfo.ProductVersionCore.ToString( );
                 string product                  = AppInfo.Title;
                 string tm                       = AppInfo.Trademark;
 
-                lbl_HeaderName.Parent           = imgHeader;
-                lbl_HeaderName.BackColor        = Color.Transparent;
-
-                lbl_Version.Parent              = imgHeader;
-                lbl_Version.BackColor           = Color.Transparent;
+                /*
+                    Form Control Buttons
+                */
 
                 btn_Close.Parent                = imgHeader;
                 btn_Close.BackColor             = Color.Transparent;
 
-                lbl_HeaderSub.Parent            = imgHeader;
-                lbl_HeaderSub.BackColor         = Color.Transparent;
+                /*
+                    Headers
+                */
 
-                lnk_TPBLink.Parent              = imgHeader;
-                lnk_TPBLink.BackColor           = Color.Transparent;
-
-                lnk_Github.Parent               = imgHeader;
-                lnk_Github.BackColor            = Color.Transparent;
-
-                lbl_Version.Text                = "v" + ver + " by " + tm;
+                lbl_HeaderName.Parent           = imgHeader;
+                lbl_HeaderName.BackColor        = Color.Transparent;
                 lbl_HeaderName.Text             = product;
 
-                txt_Terms.Value                 = GetReadme(product, ver, tm);
-                txt_Terms.Text                  = GetReadme(product, ver, tm);
-
+                lbl_HeaderSub.Parent            = imgHeader;
+                lbl_HeaderSub.BackColor         = Color.Transparent;
                 lbl_HeaderSub.Text              = Lng.about_hdr_desc;
+
+                lbl_Version.Parent              = imgHeader;
+                lbl_Version.BackColor           = Color.Transparent;
+                lbl_Version.Text                = "v" + ver + " by " + tm;
+
+                /*
+                    Button Links
+                */
+
                 lnk_TPBLink.Text                = Lng.about_lnk_tpb;
                 lnk_Github.Text                 = Lng.about_lnk_github;
+
+                /*
+                    About Readme
+                */
+
+                txt_Terms.Text                  = GetReadme(product, ver, tm);
+                txt_Terms.Value                 = GetReadme(product, ver, tm);
+
+                /*
+                    GPG / PIV Fields
+                */
 
                 lbl_Dev_PIV_Thumbprint.Text     = Lng.about_lbl_thumbprint;
                 lbl_Dev_GPG_KeyID.Text          = Lng.about_lbl_gpg;
 
                 txt_Dev_PIV_Thumbprint.Value    = Cfg.Default.app_dev_piv_thumbprint;
                 txt_Dev_GPG_KeyID.Value         = Cfg.Default.app_dev_gpg_keyid;
-
             }
 
             /*
@@ -199,6 +235,10 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
         #region "Header"
 
+        /*
+            Header Image
+        */
+
             private void imgHeader_Paint( object sender, PaintEventArgs e )
             {
                 Graphics g          = e.Graphics;
@@ -232,18 +272,78 @@ This key is used to sign the releases on Github.com, all commits are also signed
                 }
             }
 
+        /*
+            Header > Name Label
+        */
+
+            private void lbl_HeaderName_MouseDown( object sender, MouseEventArgs e )
+            {
+                mouseDown = true;
+                lastLocation = e.Location;
+            }
+
+            private void lbl_HeaderName_MouseUp( object sender, MouseEventArgs e )
+            {
+                mouseDown = false;
+            }
+
+            private void lbl_HeaderName_MouseMove( object sender, MouseEventArgs e )
+            {
+                if ( mouseDown )
+                {
+                    this.Location = new Point(
+                        ( this.Location.X - lastLocation.X ) + e.X,
+                        ( this.Location.Y - lastLocation.Y ) + e.Y
+                    );
+
+                    this.Update( );
+                }
+            }
+
+        /*
+            Header > Sub Label
+        */
+
+            private void lbl_HeaderSub_MouseDown( object sender, MouseEventArgs e )
+            {
+                mouseDown = true;
+                lastLocation = e.Location;
+            }
+
+            private void lbl_HeaderSub_MouseUp( object sender, MouseEventArgs e )
+            {
+                mouseDown = false;
+            }
+
+            private void lbl_HeaderSub_MouseMove( object sender, MouseEventArgs e )
+            {
+                if ( mouseDown )
+                {
+                    this.Location = new Point(
+                        ( this.Location.X - lastLocation.X ) + e.X,
+                        ( this.Location.Y - lastLocation.Y ) + e.Y
+                    );
+
+                    this.Update( );
+                }
+            }
+
         #endregion
 
         #region "Header: External Links"
 
             /*
-                Window > Button > Close
+                The Pirate Bay
             */
 
-            private void llblLink_TPB_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+            private void lnk_TPB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             {
                 System.Diagnostics.Process.Start(Cfg.Default.app_url_tpb);
             }
+
+            /*
+                Github
+            */
 
             private void lnk_Github_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             {

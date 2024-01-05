@@ -183,6 +183,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bg_header.jpg" />
     <None Include="Materials\bell.png" />
     <None Include="Materials\exclamation.png" />
     <None Include="Materials\error.png" />

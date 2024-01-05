@@ -35,7 +35,7 @@ namespace ScreenpressoKG.Forms
             this.btn_Close = new System.Windows.Forms.Label();
             this.lbl_HeaderSub = new System.Windows.Forms.Label();
             this.lbl_HeaderName = new System.Windows.Forms.Label();
-            this.lbl_contrib_intro = new System.Windows.Forms.Label();
+            this.lbl_Contrib_Intro = new System.Windows.Forms.Label();
             this.txt_BTC = new ScreenpressoKG.AetherxTextBox();
             this.txt_ETH = new ScreenpressoKG.AetherxTextBox();
             this.txt_BCH = new ScreenpressoKG.AetherxTextBox();
@@ -53,7 +53,7 @@ namespace ScreenpressoKG.Forms
             // 
             // imgHeader
             // 
-            this.imgHeader.BackgroundImage = global::ScreenpressoKG.Properties.Resources.bg_header;
+            this.imgHeader.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgHeader.BackgroundImage")));
             this.imgHeader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.imgHeader.Location = new System.Drawing.Point(1, 1);
             this.imgHeader.Name = "imgHeader";
@@ -89,9 +89,9 @@ namespace ScreenpressoKG.Forms
             this.lbl_HeaderSub.Size = new System.Drawing.Size(51, 17);
             this.lbl_HeaderSub.TabIndex = 7;
             this.lbl_HeaderSub.Text = "Version";
-            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Subtitle_MouseDown);
-            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_Subtitle_MouseMove);
-            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_Subtitle_MouseUp);
+            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseDown);
+            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseMove);
+            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseUp);
             // 
             // lbl_HeaderName
             // 
@@ -103,31 +103,32 @@ namespace ScreenpressoKG.Forms
             this.lbl_HeaderName.Size = new System.Drawing.Size(129, 32);
             this.lbl_HeaderName.TabIndex = 6;
             this.lbl_HeaderName.Text = "Contribute";
-            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Title_MouseDown);
-            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_Title_MouseMove);
-            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_Title_MouseUp);
+            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseDown);
+            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseMove);
+            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseUp);
             // 
-            // lbl_contrib_intro
+            // lbl_Contrib_Intro
             // 
-            this.lbl_contrib_intro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbl_Contrib_Intro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_contrib_intro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lbl_contrib_intro.ForeColor = System.Drawing.Color.Gray;
-            this.lbl_contrib_intro.Location = new System.Drawing.Point(15, 136);
-            this.lbl_contrib_intro.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl_contrib_intro.Name = "lbl_contrib_intro";
-            this.lbl_contrib_intro.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.lbl_contrib_intro.Size = new System.Drawing.Size(503, 155);
-            this.lbl_contrib_intro.TabIndex = 0;
-            this.lbl_contrib_intro.Text = resources.GetString("lbl_contrib_intro.Text");
-            this.lbl_contrib_intro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_contrib_intro_MouseDown);
-            this.lbl_contrib_intro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_contrib_intro_MouseMove);
-            this.lbl_contrib_intro.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_contrib_intro_MouseUp);
+            this.lbl_Contrib_Intro.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lbl_Contrib_Intro.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_Contrib_Intro.Location = new System.Drawing.Point(15, 136);
+            this.lbl_Contrib_Intro.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_Contrib_Intro.Name = "lbl_Contrib_Intro";
+            this.lbl_Contrib_Intro.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.lbl_Contrib_Intro.Size = new System.Drawing.Size(503, 155);
+            this.lbl_Contrib_Intro.TabIndex = 0;
+            this.lbl_Contrib_Intro.Text = resources.GetString("lbl_Contrib_Intro.Text");
+            this.lbl_Contrib_Intro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseDown);
+            this.lbl_Contrib_Intro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseMove);
+            this.lbl_Contrib_Intro.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseUp);
             // 
             // txt_BTC
             // 
             this.txt_BTC.AllowFocus = false;
+            this.txt_BTC.AutoScroll = true;
             this.txt_BTC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.txt_BTC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
             this.txt_BTC.BorderFocusColor = System.Drawing.Color.HotPink;
@@ -153,6 +154,7 @@ namespace ScreenpressoKG.Forms
             // txt_ETH
             // 
             this.txt_ETH.AllowFocus = false;
+            this.txt_ETH.AutoScroll = true;
             this.txt_ETH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.txt_ETH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
             this.txt_ETH.BorderFocusColor = System.Drawing.Color.HotPink;
@@ -178,6 +180,7 @@ namespace ScreenpressoKG.Forms
             // txt_BCH
             // 
             this.txt_BCH.AllowFocus = false;
+            this.txt_BCH.AutoScroll = true;
             this.txt_BCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.txt_BCH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
             this.txt_BCH.BorderFocusColor = System.Drawing.Color.HotPink;
@@ -282,7 +285,7 @@ namespace ScreenpressoKG.Forms
             this.Controls.Add(this.txt_BCH);
             this.Controls.Add(this.txt_ETH);
             this.Controls.Add(this.txt_BTC);
-            this.Controls.Add(this.lbl_contrib_intro);
+            this.Controls.Add(this.lbl_Contrib_Intro);
             this.Controls.Add(this.lbl_HeaderSub);
             this.Controls.Add(this.lbl_HeaderName);
             this.Controls.Add(this.btn_Close);
@@ -295,7 +298,7 @@ namespace ScreenpressoKG.Forms
             this.Name = "FormContribute";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Contribute";
+            this.Text = "Screenpresso : Contribute";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormContribute_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormContribute_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormContribute_MouseMove);
@@ -315,7 +318,7 @@ namespace ScreenpressoKG.Forms
         private System.Windows.Forms.Label btn_Close;
         private System.Windows.Forms.Label lbl_HeaderSub;
         private System.Windows.Forms.Label lbl_HeaderName;
-        private System.Windows.Forms.Label lbl_contrib_intro;
+        private System.Windows.Forms.Label lbl_Contrib_Intro;
         private AetherxTextBox txt_BTC;
         private AetherxTextBox txt_ETH;
         private AetherxTextBox txt_BCH;

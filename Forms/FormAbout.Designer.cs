@@ -103,7 +103,7 @@ namespace ScreenpressoKG
             this.lnk_TPBLink.TabIndex = 10;
             this.lnk_TPBLink.TabStop = true;
             this.lnk_TPBLink.Text = "TPB Profile";
-            this.lnk_TPBLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblLink_TPB_LinkClicked_1);
+            this.lnk_TPBLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_TPB_LinkClicked);
             // 
             // lnk_Github
             // 

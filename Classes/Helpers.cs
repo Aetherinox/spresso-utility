@@ -65,7 +65,6 @@ namespace ScreenpressoKG
 
         private static string find_InAppHome    = Path.Combine(
                                                     patch_launch_dir,
-                                                    "Learnpulse\\Screenpresso",
                                                     app_target_exe
                                                 );
 
