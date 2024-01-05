@@ -64,7 +64,7 @@ namespace ScreenpressoKG
             this.btn_Close.Location = new System.Drawing.Point(490, 7);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(24, 32);
-            this.btn_Close.TabIndex = 3;
+            this.btn_Close.TabIndex = 0;
             this.btn_Close.Text = "";
             this.btn_Close.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_Close.Click += new System.EventHandler(this.btn_Window_Close_Click);
@@ -108,7 +108,7 @@ namespace ScreenpressoKG
             this.lnk_TPB.Location = new System.Drawing.Point(25, 104);
             this.lnk_TPB.Name = "lnk_TPB";
             this.lnk_TPB.Size = new System.Drawing.Size(74, 19);
-            this.lnk_TPB.TabIndex = 10;
+            this.lnk_TPB.TabIndex = 4;
             this.lnk_TPB.TabStop = true;
             this.lnk_TPB.Text = "TPB Profile";
             this.lnk_TPB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_TPB_LinkClicked);
@@ -125,7 +125,7 @@ namespace ScreenpressoKG
             this.lnk_Github.Location = new System.Drawing.Point(105, 104);
             this.lnk_Github.Name = "lnk_Github";
             this.lnk_Github.Size = new System.Drawing.Size(86, 19);
-            this.lnk_Github.TabIndex = 14;
+            this.lnk_Github.TabIndex = 5;
             this.lnk_Github.TabStop = true;
             this.lnk_Github.Text = "Github Repo";
             this.lnk_Github.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_Github_LinkClicked);
@@ -155,7 +155,7 @@ namespace ScreenpressoKG
             this.txt_Terms.ReadOnly = true;
             this.txt_Terms.Selectable = false;
             this.txt_Terms.Size = new System.Drawing.Size(504, 294);
-            this.txt_Terms.TabIndex = 15;
+            this.txt_Terms.TabIndex = 1;
             this.txt_Terms.UnderlineStyle = false;
             this.txt_Terms.Value = "";
             // 
@@ -230,7 +230,7 @@ namespace ScreenpressoKG
             this.txt_Dev_GPG_KeyID.ReadOnly = true;
             this.txt_Dev_GPG_KeyID.Selectable = true;
             this.txt_Dev_GPG_KeyID.Size = new System.Drawing.Size(504, 33);
-            this.txt_Dev_GPG_KeyID.TabIndex = 19;
+            this.txt_Dev_GPG_KeyID.TabIndex = 3;
             this.txt_Dev_GPG_KeyID.UnderlineStyle = true;
             this.txt_Dev_GPG_KeyID.Value = "";
             // 
@@ -256,7 +256,7 @@ namespace ScreenpressoKG
             this.txt_Dev_PIV_Thumbprint.ReadOnly = true;
             this.txt_Dev_PIV_Thumbprint.Selectable = true;
             this.txt_Dev_PIV_Thumbprint.Size = new System.Drawing.Size(504, 33);
-            this.txt_Dev_PIV_Thumbprint.TabIndex = 18;
+            this.txt_Dev_PIV_Thumbprint.TabIndex = 2;
             this.txt_Dev_PIV_Thumbprint.UnderlineStyle = true;
             this.txt_Dev_PIV_Thumbprint.Value = "";
             // 

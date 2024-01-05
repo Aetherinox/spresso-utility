@@ -17,6 +17,7 @@ using System.Data;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
 using System.Diagnostics;
+using System.Linq;
 
 [AttributeUsage( AttributeTargets.Assembly )]
 internal class BuildDateAttribute : Attribute
@@ -38,6 +39,10 @@ namespace ScreenpressoKG
 
     class Helpers
     {
+
+        /*
+             patch and target paths
+        */
 
         private static string patch_launch_fullpath     = Process.GetCurrentProcess( ).MainModule.FileName;
         private static string patch_launch_dir          = Path.GetDirectoryName( patch_launch_fullpath );
@@ -84,11 +89,38 @@ namespace ScreenpressoKG
                 -   Patcher exe directory (Where the patcher was executed from)
                 -   Powershell where command
 
-            @return     str | directory name
+            @return     str | full path ( dir + file.xxx )
         */
 
         public string FindApp( )
         {
+
+            /*
+                looks for the portable app, this takes priority in case the user wants to activate the portable version
+            */
+
+            string[] drives         = System.IO.Directory.GetFiles( patch_launch_dir, "*Screenpresso_v*.exe");
+            var i_filesFound        = drives.Count( );
+
+            if ( i_filesFound > 0 )
+            {
+                string found    = drives[0];
+                string dir      = Path.GetDirectoryName( found );
+
+                if ( Directory.Exists( dir ) )
+                {
+
+                    #if DEBUG
+                        MessageBox.Show(
+                            string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, folder ),
+                            string.Format( Lng.msgbox_debug_findpath_title ),
+                            MessageBoxButtons.OK, MessageBoxIcon.None
+                        );
+                    #endif
+
+                    return found;
+                }
+            }
 
             /*
                 Check for path inside Windows Environment Variables
@@ -100,9 +132,27 @@ namespace ScreenpressoKG
             foreach ( String folder in folders )
             {
                 if ( File.Exists( folder + app_target_exe ) )
-                    return folder;
+
+                    #if DEBUG
+                        MessageBox.Show(
+                            string.Format( Lng.msgbox_debug_findpath_env_c1_msg, app_target_exe, folder ),
+                            string.Format( Lng.msgbox_debug_findpath_env_c1_title ),
+                            MessageBoxButtons.OK, MessageBoxIcon.None
+                        );
+                    #endif
+
+                    return folder + app_target_exe;
                 else if ( File.Exists( folder + "\\" + app_target_exe ) )
-                    return folder + "\\";
+
+                    #if DEBUG
+                        MessageBox.Show(
+                            string.Format( Lng.msgbox_debug_findpath_env_c2_msg, app_target_exe, folder ),
+                            string.Format( Lng.msgbox_debug_findpath_env_c2_title ),
+                            MessageBoxButtons.OK, MessageBoxIcon.None
+                        );
+                    #endif
+
+                    return folder + "\\" + app_target_exe;
             }
 
             /*
@@ -112,7 +162,16 @@ namespace ScreenpressoKG
 
             if ( File.Exists( find_InProg64 ) )
             {
-                return Path.GetDirectoryName( find_InProg64 );
+
+                #if DEBUG
+                    MessageBox.Show(
+                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InProg64 ),
+                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        MessageBoxButtons.OK, MessageBoxIcon.None
+                    );
+                #endif
+
+                return find_InProg64;
             }
 
             /*
@@ -122,7 +181,16 @@ namespace ScreenpressoKG
 
             if ( File.Exists( find_InProg86 ) )
             {
-                return Path.GetDirectoryName( find_InProg86 );
+
+                #if DEBUG
+                    MessageBox.Show(
+                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InProg86 ),
+                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        MessageBoxButtons.OK, MessageBoxIcon.None
+                    );
+                #endif
+
+                return find_InProg86;
             }
 
             /*
@@ -132,7 +200,16 @@ namespace ScreenpressoKG
 
             if ( File.Exists( find_InAppdata ) )
             {
-                return Path.GetDirectoryName( find_InAppdata );
+
+                #if DEBUG
+                    MessageBox.Show(
+                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InAppData ),
+                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        MessageBoxButtons.OK, MessageBoxIcon.None
+                    );
+                #endif
+
+                return find_InAppdata;
             }
 
             /*
@@ -142,7 +219,16 @@ namespace ScreenpressoKG
 
             if ( File.Exists( find_InAppHome ) )
             {
-                return Path.GetDirectoryName( find_InAppHome );
+
+                #if DEBUG
+                    MessageBox.Show(
+                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InAppHome ),
+                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        MessageBoxButtons.OK, MessageBoxIcon.None
+                    );
+                #endif
+
+                return find_InAppHome;
             }
 
             /*
@@ -162,7 +248,16 @@ namespace ScreenpressoKG
 
             if ( File.Exists( target_where ) )
             {
-                return Path.GetDirectoryName( target_where );
+
+                #if DEBUG
+                    MessageBox.Show(
+                        string.Format( Lng.msgbox_debug_findpath_ps_msg, app_target_exe, target_where ),
+                        string.Format( Lng.msgbox_debug_findpath_ps_title ),
+                        MessageBoxButtons.OK, MessageBoxIcon.None
+                    );
+                #endif
+
+                return target_where;
             }
 
             return String.Empty;

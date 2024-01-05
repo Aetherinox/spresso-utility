@@ -193,6 +193,16 @@
   <data name="lbl_generate_name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="msgbox_blkhost_badpath_msg" xml:space="preserve">
+    <value>Cannot locate the exact path to Screenpresso. Skipping Firewall registration. You may need to manually block Screenpresso using Windows Firewall.
+
+This can happen if you're running Screenpresso Portable.
+
+{0}</value>
+  </data>
+  <data name="msgbox_blkhost_badpath_title" xml:space="preserve">
+    <value>Unknown Firewall Target</value>
+  </data>
   <data name="msgbox_block_cancel_msg" xml:space="preserve">
     <value>Your host file has been left untouched</value>
   </data>
@@ -200,22 +210,82 @@
     <value>Operation Cancelled</value>
   </data>
   <data name="msgbox_block_msg" xml:space="preserve">
-    <value>Do you want to modify your Windows host file to block Screenpresso's servers from communicating with your computer?</value>
+    <value>This action will block Screenpresso by adding entries to your Windows host file. 
+
+Additionally, two firewall rules will be created which blocks inbound / outbound internet communication between your machine and Screenpresso only. This ensures the Screenpresso License server doesn't deactivate you.
+
+Are you sure?</value>
   </data>
   <data name="msgbox_block_success_msg" xml:space="preserve">
     <value>Successfully edited your host file at {0}</value>
   </data>
   <data name="msgbox_block_success_title" xml:space="preserve">
-    <value>Host File Edited</value>
+    <value>Screenpresso Successfully Blocked</value>
   </data>
   <data name="msgbox_block_title" xml:space="preserve">
-    <value>Edit Hostfile?</value>
+    <value>Add Screenpresso Blocks?</value>
   </data>
   <data name="msgbox_copy_invlicense_msg" xml:space="preserve">
     <value>Cannot copy a license key you have not generated yet.</value>
   </data>
   <data name="msgbox_copy_invlicense_title" xml:space="preserve">
     <value>No License Generated</value>
+  </data>
+  <data name="msgbox_debug_findpath_env_c1_msg" xml:space="preserve">
+    <value>Located {0} with Windows Env Var in:
+
+{1}</value>
+  </data>
+  <data name="msgbox_debug_findpath_env_c1_title" xml:space="preserve">
+    <value>Debug: 1000C-1</value>
+  </data>
+  <data name="msgbox_debug_findpath_env_c2_msg" xml:space="preserve">
+    <value>Located {0} with Windows Env Var in:
+
+{1}</value>
+  </data>
+  <data name="msgbox_debug_findpath_env_c2_title" xml:space="preserve">
+    <value>Debug: 1000C-2</value>
+  </data>
+  <data name="msgbox_debug_findpath_msg" xml:space="preserve">
+    <value>Located {0} In:
+
+{1}</value>
+  </data>
+  <data name="msgbox_debug_findpath_ps_msg" xml:space="preserve">
+    <value>Located {0} with Powershell in:
+
+{1}</value>
+  </data>
+  <data name="msgbox_debug_findpath_ps_title" xml:space="preserve">
+    <value>Debug: 1000B</value>
+  </data>
+  <data name="msgbox_debug_findpath_title" xml:space="preserve">
+    <value>Debug: 1000A</value>
+  </data>
+  <data name="msgbox_debug_ps_bhost_qry_fail_msg" xml:space="preserve">
+    <value>It appears something went wrong adding the new firewall rules.
+
+Fear not, you can open Windows Firewall and manually block Screenpresso if you need to.</value>
+  </data>
+  <data name="msgbox_debug_ps_bhost_qry_fail_title" xml:space="preserve">
+    <value>Firewall Rule Addition Failed</value>
+  </data>
+  <data name="msgbox_debug_ps_bhost_qry_ok_msg" xml:space="preserve">
+    <value>Added firewall rules to system:
+
+{0}
+
+{1}</value>
+  </data>
+  <data name="msgbox_debug_ps_bhost_qry_ok_title" xml:space="preserve">
+    <value>Windows Firewall Updated</value>
+  </data>
+  <data name="msgbox_debug_ps_output_msg" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="msgbox_debug_ps_output_title" xml:space="preserve">
+    <value>Debug: PowerShell Output</value>
   </data>
   <data name="msgbox_generate_invname_msg" xml:space="preserve">
     <value>You must enter a name first before trying to generate a license key.</value>

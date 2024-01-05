@@ -1,4 +1,10 @@
-﻿using ScreenpressoKG.Msgbox;
+﻿/*
+    @app        : Screenpresso
+    @repo       : https://github.com/Aetherinox/ScreenpressoKeygen
+    @author     : Aetherinox
+*/
+
+using ScreenpressoKG.Msgbox;
 using System.Windows.Forms;
 
 namespace ScreenpressoKG

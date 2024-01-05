@@ -63,7 +63,7 @@ namespace ScreenpressoKG.Msgbox
             this.lbl_Caption.AutoSize = true;
             this.lbl_Caption.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Caption.ForeColor = System.Drawing.Color.White;
-            this.lbl_Caption.Location = new System.Drawing.Point(9, 3);
+            this.lbl_Caption.Location = new System.Drawing.Point(9, 5);
             this.lbl_Caption.Name = "lbl_Caption";
             this.lbl_Caption.Size = new System.Drawing.Size(86, 17);
             this.lbl_Caption.TabIndex = 4;

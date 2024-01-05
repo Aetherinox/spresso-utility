@@ -285,6 +285,28 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot locate the exact path to Screenpresso. Skipping Firewall registration. You may need to manually block Screenpresso using Windows Firewall.
+        ///
+        ///This can happen if you&apos;re running Screenpresso Portable.
+        ///
+        ///{0}.
+        /// </summary>
+        internal static string msgbox_blkhost_badpath_msg {
+            get {
+                return ResourceManager.GetString("msgbox_blkhost_badpath_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown Firewall Target.
+        /// </summary>
+        internal static string msgbox_blkhost_badpath_title {
+            get {
+                return ResourceManager.GetString("msgbox_blkhost_badpath_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your host file has been left untouched.
         /// </summary>
         internal static string msgbox_block_cancel_msg {
@@ -303,7 +325,11 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to modify your Windows host file to block Screenpresso&apos;s servers from communicating with your computer?.
+        ///   Looks up a localized string similar to This action will block Screenpresso by adding entries to your Windows host file. 
+        ///
+        ///Additionally, two firewall rules will be created which blocks inbound / outbound internet communication between your machine and Screenpresso only. This ensures the Screenpresso License server doesn&apos;t deactivate you.
+        ///
+        ///Are you sure?.
         /// </summary>
         internal static string msgbox_block_msg {
             get {
@@ -321,7 +347,7 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Host File Edited.
+        ///   Looks up a localized string similar to Screenpresso Successfully Blocked.
         /// </summary>
         internal static string msgbox_block_success_title {
             get {
@@ -330,7 +356,7 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Hostfile?.
+        ///   Looks up a localized string similar to Add Screenpresso Blocks?.
         /// </summary>
         internal static string msgbox_block_title {
             get {
@@ -353,6 +379,146 @@ namespace ScreenpressoKG.Properties {
         internal static string msgbox_copy_invlicense_title {
             get {
                 return ResourceManager.GetString("msgbox_copy_invlicense_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Located {0} with Windows Env Var in:
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string msgbox_debug_findpath_env_c1_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_env_c1_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug: 1000C-1.
+        /// </summary>
+        internal static string msgbox_debug_findpath_env_c1_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_env_c1_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Located {0} with Windows Env Var in:
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string msgbox_debug_findpath_env_c2_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_env_c2_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug: 1000C-2.
+        /// </summary>
+        internal static string msgbox_debug_findpath_env_c2_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_env_c2_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Located {0} In:
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string msgbox_debug_findpath_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Located {0} with Powershell in:
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string msgbox_debug_findpath_ps_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_ps_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug: 1000B.
+        /// </summary>
+        internal static string msgbox_debug_findpath_ps_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_ps_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug: 1000A.
+        /// </summary>
+        internal static string msgbox_debug_findpath_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_findpath_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It appears something went wrong adding the new firewall rules.
+        ///
+        ///Fear not, you can open Windows Firewall and manually block Screenpresso if you need to..
+        /// </summary>
+        internal static string msgbox_debug_ps_bhost_qry_fail_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_fail_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firewall Rule Addition Failed.
+        /// </summary>
+        internal static string msgbox_debug_ps_bhost_qry_fail_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_fail_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added firewall rules to system:
+        ///
+        ///{0}
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string msgbox_debug_ps_bhost_qry_ok_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_ok_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Firewall Updated.
+        /// </summary>
+        internal static string msgbox_debug_ps_bhost_qry_ok_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_ok_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.
+        /// </summary>
+        internal static string msgbox_debug_ps_output_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_ps_output_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug: PowerShell Output.
+        /// </summary>
+        internal static string msgbox_debug_ps_output_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_ps_output_title", resourceCulture);
             }
         }
         

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    @app        : Screenpresso
+    @repo       : https://github.com/Aetherinox/ScreenpressoKeygen
+    @author     : Aetherinox
+*/
+
+using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;

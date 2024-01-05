@@ -67,10 +67,14 @@ If you wish to view the source code, click the Github link above.
 The keygen is free for anyone to use. I try to make stuff that isn't like the typical keygens out there. No loud annoying ass music, no ads, no weird color schemes that question if you're under the influence of shrooms.
 
 INSTRUCTIONS
-   - Type in a name you wish to use (call yourself whatever).
-   - Press Generate button
-   - Copy the generated license key.
-   - Paste license key into Screenpresso.
+    - In the top box, press the 'BLOCK HOST' button
+    - Type a name you wish to use (call yourself whatever).
+    - Press Generate button
+    - Copy the generated license key.
+    - Launch Screenpresso and find the 'About' / 'Manage Activation' button.
+    - Paste your generated license key into Screenpresso.
+
+
 
 CERTIFICATE THUMBPRINT
 These are specifically associated to the developer of this program.

@@ -117,22 +117,7 @@ namespace ScreenpressoKG
             private void FormParent_Load( object sender, EventArgs e )
             {
                 mnu_Main.Renderer           = new ToolStripProfessionalRenderer( new mnu_Main_ColorTable( ) );
-                lbl_StatusOutput.Text       = string.Format( Lng.statusbar_generate );
-                status_Strip.Refresh( );
-            }
-
-            /*
-                Tweak to fix frame flickering
-            */
-
-            protected override CreateParams CreateParams
-            {
-                get
-                {
-                    CreateParams cp = base.CreateParams;
-                    cp.ExStyle |= 0x02000000;  // enable WS_EX_COMPOSITED
-                    return cp;
-                }
+                StatusBar.Update( string.Format( Lng.statusbar_generate ) );
             }
 
         #endregion
@@ -239,13 +224,13 @@ namespace ScreenpressoKG
 
             private void imgHeader_MouseDown( object sender, MouseEventArgs e )
             {
-                mouseDown = true;
-                lastLocation = e.Location;
+                mouseDown       = true;
+                lastLocation    = e.Location;
             }
 
             private void imgHeader_MouseUp( object sender, MouseEventArgs e )
             {
-                mouseDown       = false;
+                mouseDown = false;
             }
 
             private void imgHeader_MouseMove( object sender, MouseEventArgs e )
@@ -640,15 +625,12 @@ namespace ScreenpressoKG
                         MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
 
-                    lbl_StatusOutput.Text = string.Format( Lng.statusbar_copy_invlicense );
-                    status_Strip.Refresh( );
+                    StatusBar.Update( string.Format( Lng.statusbar_copy_invlicense ) );
                 }
                 else
                 {
                     Clipboard.SetText( txt_LicenseKey.Value );
-
-                    lbl_StatusOutput.Text = string.Format( Lng.statusbar_copy_success );
-                    status_Strip.Refresh();
+                    StatusBar.Update( string.Format( Lng.statusbar_copy_success ) );
                 }
             }
 
@@ -735,6 +717,7 @@ namespace ScreenpressoKG
             public void Status( string message )
             {
                 lbl_StatusOutput.Text = message;
+                status_Strip.Refresh( );
             }
 
         #endregion

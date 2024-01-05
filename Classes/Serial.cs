@@ -1,15 +1,33 @@
-﻿using System;
+﻿/*
+    @app        : Screenpresso
+    @repo       : https://github.com/Aetherinox/ScreenpressoKeygen
+    @author     : Aetherinox
+*/
+
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
+using System.Management.Automation;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+using System.Diagnostics;
 
 namespace ScreenpressoKG
 {
     class Serial
     {
+
+        /*
+             patch and target paths
+        */
+
+        private static string patch_launch_fullpath     = Process.GetCurrentProcess( ).MainModule.FileName;
+        private static string patch_launch_dir          = Path.GetDirectoryName( patch_launch_fullpath );
+        private static string patch_launch_exe          = Path.GetFileName( patch_launch_fullpath );
+        private static string app_target_exe            = Cfg.Default.app_target_exe;
 
         /*
             Serial > Edition Types
@@ -25,15 +43,26 @@ namespace ScreenpressoKG
         }
 
         /*
+            Define > Classes
+        */
+
+        private Helpers Helpers     = new Helpers( );
+
+        /*
             Serial > Block Host
         */
 
         public void BlockHost( )
         {
-            string host_path = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.System ), "drivers\\etc\\hosts" );
+            string host_path                = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.System ), "drivers\\etc\\hosts" );
+
+            /*
+                Windows host file
+            */
 
             using ( StreamWriter w = File.AppendText( host_path ) )
             {
+                /*
                 w.WriteLine( Environment.NewLine );
                 w.WriteLine( "# Screenpresso Host Block"        );
                 w.WriteLine( "0.0.0.0 screenpresso.com"         );
@@ -43,12 +72,101 @@ namespace ScreenpressoKG
                 w.WriteLine( "0.0.0.0 18.65.3.28"               );
                 w.WriteLine( "0.0.0.0 webapi.screenpresso.com"  );
                 w.WriteLine( "0.0.0.0 18.155.192.82"            );
+                w.WriteLine( "0.0.0.0 46.105.204.6"             );
+                */
 
                 MessageBox.Show(
-                    string.Format( Lng.msgbox_block_success_msg, host_path.ToString() ),
+                    string.Format( Lng.msgbox_block_success_msg, host_path ),
                     Lng.msgbox_block_success_title,
                     MessageBoxButtons.OK, MessageBoxIcon.Information
                 );
+            }
+
+            /*
+                could find the app exe fullpath file (maybe running portable?)
+            */
+
+            string app_path_exe         = Helpers.FindApp( );
+
+            /*
+                Found no app file path, no need to continue blocks with the firewall.
+                Do host entries only
+            */
+
+
+            if ( !File.Exists( app_path_exe ) )
+            {
+
+                MessageBox.Show(
+                    string.Format( Lng.msgbox_blkhost_badpath_msg, app_path_exe ),
+                    Lng.msgbox_blkhost_badpath_title,
+                    MessageBoxButtons.OK, MessageBoxIcon.None
+                );
+
+                return;
+            }
+
+            /*
+                app path with ending filename stripped
+            */
+
+            string app_path_dir         = Path.GetDirectoryName( app_path_exe );
+
+            /*
+                if for some reason, this utility can't edit the user's host file, we'll use Windows Firewall as a back up.
+                Create two new firewall rules for inbound and outbound.
+            */
+
+            string fw_id_name           = "01-Screenpresso";
+            string fw_id_desc           = "Blocks Screenpresso from communicating with license server. Added by https://github.com/Aetherinox/ScreenpressoKeygen";
+            string fw_id_exe            = app_path_exe;
+
+            /*
+                firewall rules | inbound + outbound
+            */
+
+            string fwl_rule_block_in    = "New-NetFirewallRule -Name \"" + fw_id_name + "-Inbound (Auto-added)\" -DisplayName \"" + fw_id_name + "-Inbound (Auto-added)\" -Description \"" + fw_id_desc + "\" -Enabled True -Protocol Any -Profile Any -Direction Inbound -Program \"" + fw_id_exe + "\" -Action Block";
+            string fwl_rule_block_out   = "New-NetFirewallRule -Name \"" + fw_id_name + "-Outbound (Auto-added)\" -DisplayName \"" + fw_id_name + "-Outbound (Auto-added)\" -Description \"" + fw_id_desc + "\" -Enabled True -Protocol Any -Profile Any -Direction Outbound -Program \"" + fw_id_exe + "\" -Action Block";
+
+            /*
+                run powershell commands to adjust permissions
+            */
+
+            using ( PowerShell ps = PowerShell.Create( ) )
+            {
+
+                ps.AddScript( fwl_rule_block_in );
+                ps.AddScript( fwl_rule_block_out );
+
+                Collection<PSObject> PSOutput   = ps.Invoke( );
+                StringBuilder sb                = new StringBuilder( );
+
+                foreach ( PSObject PSItem in PSOutput )
+                {
+                    if ( PSItem != null )
+                    {
+                        Console.WriteLine( $"Output line: [{PSItem}]" );
+                        sb.AppendLine( PSItem.ToString( ) );
+
+                        #if DEBUG
+                            MessageBox.Show(
+                                string.Format( Lng.msgbox_debug_ps_bhost_qry_ok_msg, fwl_rule_block_in, fwl_rule_block_out ),
+                                Lng.msgbox_debug_ps_bhost_qry_ok_title,
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation
+                            );
+                        #endif
+
+                    }
+                }
+
+                if ( ps.Streams.Error.Count > 0 )
+                {
+                    MessageBox.Show(
+                        string.Format( Lng.msgbox_debug_ps_bhost_qry_fail_msg ),
+                        Lng.msgbox_debug_ps_bhost_qry_fail_title,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error
+                    );
+                }
             }
         }
 
