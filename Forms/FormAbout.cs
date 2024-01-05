@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ScreenpressoKG.Forms;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
-using ScreenpressoKG.Forms;
 
 namespace ScreenpressoKG
 {
@@ -67,13 +67,10 @@ If you wish to view the source code, click the Github link above.
 The keygen is free for anyone to use. I try to make stuff that isn't like the typical keygens out there. No loud annoying ass music, no ads, no weird color schemes that question if you're under the influence of shrooms.
 
 INSTRUCTIONS
-   - Provide a name and company or license name.
-   - Click Generate and a new key will be created.
-   - Copy generated key and paste into a rarreg.key file
-     OR
-     Click the save button and save the generated key file
-     to your WinRAR installation directory.
-   - Restart WinRAR if running.
+   - Type in a name you wish to use (call yourself whatever).
+   - Press Generate button
+   - Copy the generated license key.
+   - Paste license key into Screenpresso.
 
 CERTIFICATE THUMBPRINT
 These are specifically associated to the developer of this program.
@@ -96,16 +93,16 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
 ";
 
-                return string.Format(str_about, product, version, developer);
+                return string.Format( str_about, product, version, developer );
             }
 
         #endregion
 
         #region "Main Window: Initialize"
 
-            public FormAbout()
+            public FormAbout( )
             {
-                InitializeComponent();
+                InitializeComponent( );
 
                 /*
                     Form Control Buttons
@@ -520,6 +517,5 @@ This key is used to sign the releases on Github.com, all commits are also signed
             }
 
         #endregion
-
     }
 }

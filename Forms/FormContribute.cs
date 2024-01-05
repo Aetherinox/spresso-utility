@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using ScreenpressoKG;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
 
@@ -99,15 +98,22 @@ namespace ScreenpressoKG.Forms
                 Font:   Segoe MDL2 Assets
             */
 
-            /*
-                Window > Button > Close > Click
-            */
-
+ 
             private void btn_Window_Close_Click( object sender, EventArgs e )
             {
                 FormParent to   = new FormParent( );
                 to.Show         ( );
                 this.Close      ( );
+            }
+
+            private void btn_Window_Close_MouseEnter( object sender, EventArgs e )
+            {
+                btn_Close.ForeColor = Color.FromArgb( 222, 31, 100 );
+            }
+
+            private void btn_Window_Close_MouseLeave( object sender, EventArgs e )
+            {
+                btn_Close.ForeColor = Color.FromArgb( 255, 255, 255 );
             }
 
         #endregion

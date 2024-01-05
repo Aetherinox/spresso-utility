@@ -124,6 +124,9 @@ namespace ScreenpressoKG
             this.lbl_HeaderName.Size = new System.Drawing.Size(356, 32);
             this.lbl_HeaderName.TabIndex = 5;
             this.lbl_HeaderName.Text = "Screenpresso License Generator";
+            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseDown);
+            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseMove);
+            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseUp);
             // 
             // lbl_User
             // 
@@ -169,7 +172,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.mnu_Sub_Exit.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Exit.Name = "mnu_Sub_Exit";
-            this.mnu_Sub_Exit.Size = new System.Drawing.Size(180, 22);
+            this.mnu_Sub_Exit.Size = new System.Drawing.Size(93, 22);
             this.mnu_Sub_Exit.Text = "Exit";
             this.mnu_Sub_Exit.Click += new System.EventHandler(this.mnu_Sub_Exit_Click);
             // 
@@ -400,6 +403,9 @@ namespace ScreenpressoKG
             this.lbl_HeaderSub.Size = new System.Drawing.Size(51, 17);
             this.lbl_HeaderSub.TabIndex = 34;
             this.lbl_HeaderSub.Text = "Version";
+            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseDown);
+            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseMove);
+            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseUp);
             // 
             // txt_LicenseKey
             // 

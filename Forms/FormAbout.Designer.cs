@@ -81,6 +81,9 @@ namespace ScreenpressoKG
             this.lbl_HeaderName.Size = new System.Drawing.Size(79, 32);
             this.lbl_HeaderName.TabIndex = 5;
             this.lbl_HeaderName.Text = "label1";
+            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseDown);
+            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseMove);
+            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseUp);
             // 
             // lbl_HeaderSub
             // 
@@ -92,6 +95,9 @@ namespace ScreenpressoKG
             this.lbl_HeaderSub.Size = new System.Drawing.Size(341, 17);
             this.lbl_HeaderSub.TabIndex = 8;
             this.lbl_HeaderSub.Text = "Educational purposes only. No ads, no music, no bullshit.";
+            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseDown);
+            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseMove);
+            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseUp);
             // 
             // lnk_TPB
             // 
@@ -123,6 +129,7 @@ namespace ScreenpressoKG
             this.lnk_Github.TabStop = true;
             this.lnk_Github.Text = "Github Repo";
             this.lnk_Github.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_Github_LinkClicked);
+            this.lnk_Github.Paint += new System.Windows.Forms.PaintEventHandler(this.lnk_Github_Paint);
             this.lnk_Github.MouseEnter += new System.EventHandler(this.lnk_Github_MouseEnter);
             this.lnk_Github.MouseLeave += new System.EventHandler(this.lnk_Github_MouseLeave);
             // 
@@ -207,7 +214,7 @@ namespace ScreenpressoKG
             this.txt_Dev_GPG_KeyID.AutoScroll = true;
             this.txt_Dev_GPG_KeyID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.txt_Dev_GPG_KeyID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
-            this.txt_Dev_GPG_KeyID.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_Dev_GPG_KeyID.BorderFocusColor = System.Drawing.Color.White;
             this.txt_Dev_GPG_KeyID.BorderSize = 1;
             this.txt_Dev_GPG_KeyID.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txt_Dev_GPG_KeyID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -233,7 +240,7 @@ namespace ScreenpressoKG
             this.txt_Dev_PIV_Thumbprint.AutoScroll = true;
             this.txt_Dev_PIV_Thumbprint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.txt_Dev_PIV_Thumbprint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
-            this.txt_Dev_PIV_Thumbprint.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_Dev_PIV_Thumbprint.BorderFocusColor = System.Drawing.Color.White;
             this.txt_Dev_PIV_Thumbprint.BorderSize = 1;
             this.txt_Dev_PIV_Thumbprint.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txt_Dev_PIV_Thumbprint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));

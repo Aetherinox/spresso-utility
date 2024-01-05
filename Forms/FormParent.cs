@@ -738,6 +738,5 @@ namespace ScreenpressoKG
             }
 
         #endregion
-
     }
 }

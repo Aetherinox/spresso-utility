@@ -36,15 +36,15 @@ namespace ScreenpressoKG.Forms
             this.lbl_HeaderSub = new System.Windows.Forms.Label();
             this.lbl_HeaderName = new System.Windows.Forms.Label();
             this.lbl_Contrib_Intro = new System.Windows.Forms.Label();
-            this.txt_BTC = new ScreenpressoKG.AetherxTextBox();
-            this.txt_ETH = new ScreenpressoKG.AetherxTextBox();
-            this.txt_BCH = new ScreenpressoKG.AetherxTextBox();
             this.pic_BCH = new System.Windows.Forms.PictureBox();
             this.pic_ETH = new System.Windows.Forms.PictureBox();
             this.pic_BTC = new System.Windows.Forms.PictureBox();
             this.lbl_BCH = new System.Windows.Forms.Label();
             this.lbl_ETH = new System.Windows.Forms.Label();
             this.lbl_BTC = new System.Windows.Forms.Label();
+            this.txt_BCH = new ScreenpressoKG.AetherxTextBox();
+            this.txt_ETH = new ScreenpressoKG.AetherxTextBox();
+            this.txt_BTC = new ScreenpressoKG.AetherxTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BCH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_ETH)).BeginInit();
@@ -78,6 +78,8 @@ namespace ScreenpressoKG.Forms
             this.btn_Close.Text = "";
             this.btn_Close.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_Close.Click += new System.EventHandler(this.btn_Window_Close_Click);
+            this.btn_Close.MouseEnter += new System.EventHandler(this.btn_Window_Close_MouseEnter);
+            this.btn_Close.MouseLeave += new System.EventHandler(this.btn_Window_Close_MouseLeave);
             // 
             // lbl_HeaderSub
             // 
@@ -124,84 +126,6 @@ namespace ScreenpressoKG.Forms
             this.lbl_Contrib_Intro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseDown);
             this.lbl_Contrib_Intro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseMove);
             this.lbl_Contrib_Intro.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseUp);
-            // 
-            // txt_BTC
-            // 
-            this.txt_BTC.AllowFocus = false;
-            this.txt_BTC.AutoScroll = true;
-            this.txt_BTC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.txt_BTC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
-            this.txt_BTC.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_BTC.BorderSize = 1;
-            this.txt_BTC.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txt_BTC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.txt_BTC.Location = new System.Drawing.Point(15, 329);
-            this.txt_BTC.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_BTC.Multiline = false;
-            this.txt_BTC.MultilineScrollbars = false;
-            this.txt_BTC.Name = "txt_BTC";
-            this.txt_BTC.Padding = new System.Windows.Forms.Padding(36, 6, 6, 6);
-            this.txt_BTC.PasswordChar = false;
-            this.txt_BTC.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_BTC.PlaceholderText = "";
-            this.txt_BTC.ReadOnly = true;
-            this.txt_BTC.Selectable = false;
-            this.txt_BTC.Size = new System.Drawing.Size(503, 33);
-            this.txt_BTC.TabIndex = 1;
-            this.txt_BTC.UnderlineStyle = true;
-            this.txt_BTC.Value = "1QGTXH5gdkWDueFU46fQiZEwkjtHk1yriy";
-            // 
-            // txt_ETH
-            // 
-            this.txt_ETH.AllowFocus = false;
-            this.txt_ETH.AutoScroll = true;
-            this.txt_ETH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.txt_ETH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
-            this.txt_ETH.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_ETH.BorderSize = 1;
-            this.txt_ETH.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txt_ETH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.txt_ETH.Location = new System.Drawing.Point(15, 392);
-            this.txt_ETH.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_ETH.Multiline = false;
-            this.txt_ETH.MultilineScrollbars = false;
-            this.txt_ETH.Name = "txt_ETH";
-            this.txt_ETH.Padding = new System.Windows.Forms.Padding(36, 6, 6, 6);
-            this.txt_ETH.PasswordChar = false;
-            this.txt_ETH.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_ETH.PlaceholderText = "";
-            this.txt_ETH.ReadOnly = true;
-            this.txt_ETH.Selectable = true;
-            this.txt_ETH.Size = new System.Drawing.Size(503, 33);
-            this.txt_ETH.TabIndex = 2;
-            this.txt_ETH.UnderlineStyle = true;
-            this.txt_ETH.Value = "0xC6A9cA5B17265f41636a45dF165a5821f9d26445";
-            // 
-            // txt_BCH
-            // 
-            this.txt_BCH.AllowFocus = false;
-            this.txt_BCH.AutoScroll = true;
-            this.txt_BCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.txt_BCH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
-            this.txt_BCH.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_BCH.BorderSize = 1;
-            this.txt_BCH.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txt_BCH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.txt_BCH.Location = new System.Drawing.Point(15, 454);
-            this.txt_BCH.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_BCH.Multiline = false;
-            this.txt_BCH.MultilineScrollbars = false;
-            this.txt_BCH.Name = "txt_BCH";
-            this.txt_BCH.Padding = new System.Windows.Forms.Padding(36, 6, 6, 6);
-            this.txt_BCH.PasswordChar = false;
-            this.txt_BCH.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_BCH.PlaceholderText = "";
-            this.txt_BCH.ReadOnly = true;
-            this.txt_BCH.Selectable = true;
-            this.txt_BCH.Size = new System.Drawing.Size(503, 33);
-            this.txt_BCH.TabIndex = 3;
-            this.txt_BCH.UnderlineStyle = true;
-            this.txt_BCH.Value = "bitcoincash:qrf53klxwhh6t74cfdkv3u3knvhdtpwaku4qgdapja";
             // 
             // pic_BCH
             // 
@@ -268,6 +192,84 @@ namespace ScreenpressoKG.Forms
             this.lbl_BTC.Size = new System.Drawing.Size(31, 19);
             this.lbl_BTC.TabIndex = 44;
             this.lbl_BTC.Text = "BTC";
+            // 
+            // txt_BCH
+            // 
+            this.txt_BCH.AllowFocus = false;
+            this.txt_BCH.AutoScroll = true;
+            this.txt_BCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.txt_BCH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
+            this.txt_BCH.BorderFocusColor = System.Drawing.Color.White;
+            this.txt_BCH.BorderSize = 1;
+            this.txt_BCH.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txt_BCH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txt_BCH.Location = new System.Drawing.Point(15, 454);
+            this.txt_BCH.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_BCH.Multiline = false;
+            this.txt_BCH.MultilineScrollbars = false;
+            this.txt_BCH.Name = "txt_BCH";
+            this.txt_BCH.Padding = new System.Windows.Forms.Padding(40, 6, 6, 6);
+            this.txt_BCH.PasswordChar = false;
+            this.txt_BCH.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_BCH.PlaceholderText = "";
+            this.txt_BCH.ReadOnly = true;
+            this.txt_BCH.Selectable = true;
+            this.txt_BCH.Size = new System.Drawing.Size(503, 33);
+            this.txt_BCH.TabIndex = 3;
+            this.txt_BCH.UnderlineStyle = true;
+            this.txt_BCH.Value = "bitcoincash:qrf53klxwhh6t74cfdkv3u3knvhdtpwaku4qgdapja";
+            // 
+            // txt_ETH
+            // 
+            this.txt_ETH.AllowFocus = false;
+            this.txt_ETH.AutoScroll = true;
+            this.txt_ETH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.txt_ETH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
+            this.txt_ETH.BorderFocusColor = System.Drawing.Color.White;
+            this.txt_ETH.BorderSize = 1;
+            this.txt_ETH.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txt_ETH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txt_ETH.Location = new System.Drawing.Point(15, 392);
+            this.txt_ETH.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_ETH.Multiline = false;
+            this.txt_ETH.MultilineScrollbars = false;
+            this.txt_ETH.Name = "txt_ETH";
+            this.txt_ETH.Padding = new System.Windows.Forms.Padding(40, 6, 6, 6);
+            this.txt_ETH.PasswordChar = false;
+            this.txt_ETH.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_ETH.PlaceholderText = "";
+            this.txt_ETH.ReadOnly = true;
+            this.txt_ETH.Selectable = true;
+            this.txt_ETH.Size = new System.Drawing.Size(503, 33);
+            this.txt_ETH.TabIndex = 2;
+            this.txt_ETH.UnderlineStyle = true;
+            this.txt_ETH.Value = "0xC6A9cA5B17265f41636a45dF165a5821f9d26445";
+            // 
+            // txt_BTC
+            // 
+            this.txt_BTC.AllowFocus = false;
+            this.txt_BTC.AutoScroll = true;
+            this.txt_BTC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.txt_BTC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(99)))));
+            this.txt_BTC.BorderFocusColor = System.Drawing.Color.White;
+            this.txt_BTC.BorderSize = 1;
+            this.txt_BTC.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txt_BTC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txt_BTC.Location = new System.Drawing.Point(15, 329);
+            this.txt_BTC.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_BTC.Multiline = false;
+            this.txt_BTC.MultilineScrollbars = false;
+            this.txt_BTC.Name = "txt_BTC";
+            this.txt_BTC.Padding = new System.Windows.Forms.Padding(40, 6, 6, 6);
+            this.txt_BTC.PasswordChar = false;
+            this.txt_BTC.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_BTC.PlaceholderText = "";
+            this.txt_BTC.ReadOnly = true;
+            this.txt_BTC.Selectable = false;
+            this.txt_BTC.Size = new System.Drawing.Size(503, 33);
+            this.txt_BTC.TabIndex = 1;
+            this.txt_BTC.UnderlineStyle = true;
+            this.txt_BTC.Value = "1QGTXH5gdkWDueFU46fQiZEwkjtHk1yriy";
             // 
             // FormContribute
             // 
