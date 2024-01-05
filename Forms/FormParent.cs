@@ -88,10 +88,10 @@ namespace ScreenpressoKG
                     Host Block Segment
                 */
 
-                lbl_HostBlocker_Title.Text      = Lng.hostblock_title;
-                lbl_HostBlocker_Desc.Text       = string.Format( Lng.hostblock_desc, product );
-                btn_DoBlock.Text                = Lng.hostblock_btn_doblock;
-                btn_HostView.Text               = Lng.hostblock_btn_hostview;
+                lbl_HostBlocker_Title.Text      = Lng.lbl_bhost_pnl_title;
+                lbl_HostBlocker_Desc.Text       = string.Format( Lng.lbl_bhost_pnl_intro, product );
+                btn_DoBlock.Text                = Lng.btn_bhost_block;
+                btn_HostView.Text               = Lng.btn_bhost_viewfile;
 
                 /*
                     User / License Boxes
@@ -105,8 +105,8 @@ namespace ScreenpressoKG
                     Buttons
                 */
 
-                btnGenerate.Text                = Lng.btn_generate;
-                btnCopy.Text                    = Lng.btn_generate_copy;
+                btnGenerate.Text                = Lng.btn_license_generate;
+                btnCopy.Text                    = Lng.btn_license_copy;
 
             }
 
@@ -543,11 +543,15 @@ namespace ScreenpressoKG
                 // border color
                 Pen p = new Pen( Color.FromArgb( 75, 75, 75 ) );
 
-                e.Graphics.DrawLine( p, 0, 1, 0, e.ClipRectangle.Height - 1 );        // left
-                e.Graphics.DrawLine( p, 1, 1, e.ClipRectangle.Width - 1, 1 );          // top
+                e.Graphics.DrawLine( p, 0, 1, 0, e.ClipRectangle.Height - 1 );          // left
+                e.Graphics.DrawLine( p, 1, 1, e.ClipRectangle.Width - 1, 1 );           // top
                 e.Graphics.DrawLine( p, e.ClipRectangle.Width - 1, 1, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1 );        // right
                 e.Graphics.DrawLine( p, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1, 0, e.ClipRectangle.Height - 1 );       // bottom
             }
+
+            /*
+                Button > Block > On Click
+            */
 
             private void btn_DoBlock_Click( object sender, EventArgs e )
             {
@@ -555,24 +559,33 @@ namespace ScreenpressoKG
                 var result = MessageBox.Show
                 (
                     Lng.msgbox_block_msg,
-                    Lng.msgbox_block_title,
+                    Lng.msgbox_bhost_title,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question
                 );
 
-                string answer = result.ToString( );
+                string answer = result.ToString( ).ToLower( );
 
-                if ( answer == "Yes" )
-                    Serial.BlockHost( );
-                else
+                /*
+                    Block Host > Cancel
+                */
+
+                if ( answer != "yes" )
                 {
                     MessageBox.Show
                     (
-                        Lng.msgbox_block_cancel_msg,
-                        Lng.msgbox_block_cancel_title,
+                        Lng.msgbox_bhost_cancel_msg,
+                        Lng.msgbox_bhost_cancel_title,
                         MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
+
+                    return;
                 }
 
+                /*
+                    Block Host > Continue
+                */
+
+                Serial.BlockHost( );
             }
 
             private void btn_HostView_Click( object sender, EventArgs e )
@@ -594,8 +607,8 @@ namespace ScreenpressoKG
                 if ( string.IsNullOrEmpty( txt_User.Value ) )
                 {
                     MessageBox.Show(
-                        Lng.msgbox_generate_invname_msg,
-                        Lng.msgbox_generate_invname_title,
+                        Lng.msgbox_generate_invalidname_msg,
+                        Lng.msgbox_generate_invalidname_title,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                     );
@@ -625,12 +638,12 @@ namespace ScreenpressoKG
                         MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
 
-                    StatusBar.Update( string.Format( Lng.statusbar_copy_invlicense ) );
+                    StatusBar.Update( string.Format( Lng.statusbar_copy_invalidlicense ) );
                 }
                 else
                 {
                     Clipboard.SetText( txt_LicenseKey.Value );
-                    StatusBar.Update( string.Format( Lng.statusbar_copy_success ) );
+                    StatusBar.Update( string.Format( Lng.statusbar_copy_succ ) );
                 }
             }
 

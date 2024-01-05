@@ -61,51 +61,6 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Educational purposes only. No ads, no music, no bullshit..
-        /// </summary>
-        internal static string about_hdr_desc {
-            get {
-                return ResourceManager.GetString("about_hdr_desc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to GPG KeyID.
-        /// </summary>
-        internal static string about_lbl_gpg {
-            get {
-                return ResourceManager.GetString("about_lbl_gpg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Digital Signature Thumbprint.
-        /// </summary>
-        internal static string about_lbl_thumbprint {
-            get {
-                return ResourceManager.GetString("about_lbl_thumbprint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Github Repo.
-        /// </summary>
-        internal static string about_lnk_github {
-            get {
-                return ResourceManager.GetString("about_lnk_github", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TPB Profile.
-        /// </summary>
-        internal static string about_lnk_tpb {
-            get {
-                return ResourceManager.GetString("about_lnk_tpb", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bch {
@@ -136,20 +91,101 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Generate.
+        ///   Looks up a localized string similar to &amp;Abort.
         /// </summary>
-        internal static string btn_generate {
+        internal static string btn__template_abort {
             get {
-                return ResourceManager.GetString("btn_generate", resourceCulture);
+                return ResourceManager.GetString("btn_ template_abort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Block Host.
+        /// </summary>
+        internal static string btn_bhost_block {
+            get {
+                return ResourceManager.GetString("btn_bhost_block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;View Host.
+        /// </summary>
+        internal static string btn_bhost_viewfile {
+            get {
+                return ResourceManager.GetString("btn_bhost_viewfile", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to &amp;Copy.
         /// </summary>
-        internal static string btn_generate_copy {
+        internal static string btn_license_copy {
             get {
-                return ResourceManager.GetString("btn_generate_copy", resourceCulture);
+                return ResourceManager.GetString("btn_license_copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Generate.
+        /// </summary>
+        internal static string btn_license_generate {
+            get {
+                return ResourceManager.GetString("btn_license_generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Cancel.
+        /// </summary>
+        internal static string btn_template_cancel {
+            get {
+                return ResourceManager.GetString("btn_template_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Ignore.
+        /// </summary>
+        internal static string btn_template_ignore {
+            get {
+                return ResourceManager.GetString("btn_template_ignore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;No.
+        /// </summary>
+        internal static string btn_template_no {
+            get {
+                return ResourceManager.GetString("btn_template_no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;OK.
+        /// </summary>
+        internal static string btn_template_ok {
+            get {
+                return ResourceManager.GetString("btn_template_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Retry.
+        /// </summary>
+        internal static string btn_template_retry {
+            get {
+                return ResourceManager.GetString("btn_template_retry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Yes.
+        /// </summary>
+        internal static string btn_template_yes {
+            get {
+                return ResourceManager.GetString("btn_template_yes", resourceCulture);
             }
         }
         
@@ -194,48 +230,57 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Block Host.
-        /// </summary>
-        internal static string hostblock_btn_doblock {
-            get {
-                return ResourceManager.GetString("hostblock_btn_doblock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;View Host.
-        /// </summary>
-        internal static string hostblock_btn_hostview {
-            get {
-                return ResourceManager.GetString("hostblock_btn_hostview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Perform this step first to block {0} from communicating with your computer. Required for license activation to work..
-        /// </summary>
-        internal static string hostblock_desc {
-            get {
-                return ResourceManager.GetString("hostblock_desc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Host Blocker.
-        /// </summary>
-        internal static string hostblock_title {
-            get {
-                return ResourceManager.GetString("hostblock_title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap information {
             get {
                 object obj = ResourceManager.GetObject("information", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPG KeyID.
+        /// </summary>
+        internal static string lbl_about_gpg {
+            get {
+                return ResourceManager.GetString("lbl_about_gpg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Educational purposes only. No ads, no music, no bullshit..
+        /// </summary>
+        internal static string lbl_about_HeaderSub {
+            get {
+                return ResourceManager.GetString("lbl_about_HeaderSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Digital Signature Thumbprint.
+        /// </summary>
+        internal static string lbl_about_thumbprint {
+            get {
+                return ResourceManager.GetString("lbl_about_thumbprint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Perform this step first to block {0} from communicating with your computer. Required for license activation to work..
+        /// </summary>
+        internal static string lbl_bhost_pnl_intro {
+            get {
+                return ResourceManager.GetString("lbl_bhost_pnl_intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Host Blocker.
+        /// </summary>
+        internal static string lbl_bhost_pnl_title {
+            get {
+                return ResourceManager.GetString("lbl_bhost_pnl_title", resourceCulture);
             }
         }
         
@@ -285,42 +330,107 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot locate the exact path to Screenpresso. Skipping Firewall registration. You may need to manually block Screenpresso using Windows Firewall.
-        ///
-        ///This can happen if you&apos;re running Screenpresso Portable.
-        ///
-        ///{0}.
+        ///   Looks up a localized string similar to Github Repo.
         /// </summary>
-        internal static string msgbox_blkhost_badpath_msg {
+        internal static string lnk_about_github {
             get {
-                return ResourceManager.GetString("msgbox_blkhost_badpath_msg", resourceCulture);
+                return ResourceManager.GetString("lnk_about_github", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown Firewall Target.
+        ///   Looks up a localized string similar to TPB Profile.
         /// </summary>
-        internal static string msgbox_blkhost_badpath_title {
+        internal static string lnk_about_tpb {
             get {
-                return ResourceManager.GetString("msgbox_blkhost_badpath_title", resourceCulture);
+                return ResourceManager.GetString("lnk_about_tpb", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Your host file has been left untouched.
         /// </summary>
-        internal static string msgbox_block_cancel_msg {
+        internal static string msgbox_bhost_cancel_msg {
             get {
-                return ResourceManager.GetString("msgbox_block_cancel_msg", resourceCulture);
+                return ResourceManager.GetString("msgbox_bhost_cancel_msg", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Operation Cancelled.
         /// </summary>
-        internal static string msgbox_block_cancel_title {
+        internal static string msgbox_bhost_cancel_title {
             get {
-                return ResourceManager.GetString("msgbox_block_cancel_title", resourceCulture);
+                return ResourceManager.GetString("msgbox_bhost_cancel_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot locate the exact path to Screenpresso. Skipping Firewall registration. You may need to manually block Screenpresso using Windows Firewall.
+        ///
+        ///This can happen if you&apos;re running Screenpresso Portable.
+        ///
+        ///{0}.
+        /// </summary>
+        internal static string msgbox_bhost_fw_badpath_msg {
+            get {
+                return ResourceManager.GetString("msgbox_bhost_fw_badpath_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown Firewall Target.
+        /// </summary>
+        internal static string msgbox_bhost_fw_badpath_title {
+            get {
+                return ResourceManager.GetString("msgbox_bhost_fw_badpath_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully added new Firewall rules to block the executable:
+        ///
+        ///{0}.
+        /// </summary>
+        internal static string msgbox_bhost_fw_success_msg {
+            get {
+                return ResourceManager.GetString("msgbox_bhost_fw_success_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added Firewall Rules.
+        /// </summary>
+        internal static string msgbox_bhost_fw_success_title {
+            get {
+                return ResourceManager.GetString("msgbox_bhost_fw_success_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully edited your host file at {0}.
+        /// </summary>
+        internal static string msgbox_bhost_success_msg {
+            get {
+                return ResourceManager.GetString("msgbox_bhost_success_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenpresso Successfully Blocked.
+        /// </summary>
+        internal static string msgbox_bhost_success_title {
+            get {
+                return ResourceManager.GetString("msgbox_bhost_success_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Screenpresso Blocks?.
+        /// </summary>
+        internal static string msgbox_bhost_title {
+            get {
+                return ResourceManager.GetString("msgbox_bhost_title", resourceCulture);
             }
         }
         
@@ -334,33 +444,6 @@ namespace ScreenpressoKG.Properties {
         internal static string msgbox_block_msg {
             get {
                 return ResourceManager.GetString("msgbox_block_msg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Successfully edited your host file at {0}.
-        /// </summary>
-        internal static string msgbox_block_success_msg {
-            get {
-                return ResourceManager.GetString("msgbox_block_success_msg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Screenpresso Successfully Blocked.
-        /// </summary>
-        internal static string msgbox_block_success_title {
-            get {
-                return ResourceManager.GetString("msgbox_block_success_title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add Screenpresso Blocks?.
-        /// </summary>
-        internal static string msgbox_block_title {
-            get {
-                return ResourceManager.GetString("msgbox_block_title", resourceCulture);
             }
         }
         
@@ -387,18 +470,18 @@ namespace ScreenpressoKG.Properties {
         ///
         ///{1}.
         /// </summary>
-        internal static string msgbox_debug_findpath_env_c1_msg {
+        internal static string msgbox_debug_fpath_env_c1_msg {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_env_c1_msg", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_env_c1_msg", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debug: 1000C-1.
         /// </summary>
-        internal static string msgbox_debug_findpath_env_c1_title {
+        internal static string msgbox_debug_fpath_env_c1_title {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_env_c1_title", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_env_c1_title", resourceCulture);
             }
         }
         
@@ -407,18 +490,18 @@ namespace ScreenpressoKG.Properties {
         ///
         ///{1}.
         /// </summary>
-        internal static string msgbox_debug_findpath_env_c2_msg {
+        internal static string msgbox_debug_fpath_env_c2_msg {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_env_c2_msg", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_env_c2_msg", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debug: 1000C-2.
         /// </summary>
-        internal static string msgbox_debug_findpath_env_c2_title {
+        internal static string msgbox_debug_fpath_env_c2_title {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_env_c2_title", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_env_c2_title", resourceCulture);
             }
         }
         
@@ -427,9 +510,9 @@ namespace ScreenpressoKG.Properties {
         ///
         ///{1}.
         /// </summary>
-        internal static string msgbox_debug_findpath_msg {
+        internal static string msgbox_debug_fpath_msg {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_msg", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_msg", resourceCulture);
             }
         }
         
@@ -438,47 +521,49 @@ namespace ScreenpressoKG.Properties {
         ///
         ///{1}.
         /// </summary>
-        internal static string msgbox_debug_findpath_ps_msg {
+        internal static string msgbox_debug_fpath_ps_msg {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_ps_msg", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_ps_msg", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debug: 1000B.
         /// </summary>
-        internal static string msgbox_debug_findpath_ps_title {
+        internal static string msgbox_debug_fpath_ps_title {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_ps_title", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_ps_title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Debug: 1000A.
         /// </summary>
-        internal static string msgbox_debug_findpath_title {
+        internal static string msgbox_debug_fpath_title {
             get {
-                return ResourceManager.GetString("msgbox_debug_findpath_title", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_fpath_title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to It appears something went wrong adding the new firewall rules.
         ///
-        ///Fear not, you can open Windows Firewall and manually block Screenpresso if you need to..
+        ///It could either be that you&apos;ve already added the rules in a prior session, or you are running Screenpresso Portable and can&apos;t find the exact location.
+        ///
+        ///You can manually block Screenpresso in your WIndows Firewall..
         /// </summary>
-        internal static string msgbox_debug_ps_bhost_qry_fail_msg {
+        internal static string msgbox_debug_ps_bhost_qry_alert_msg {
             get {
-                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_fail_msg", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_alert_msg", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Firewall Rule Addition Failed.
         /// </summary>
-        internal static string msgbox_debug_ps_bhost_qry_fail_title {
+        internal static string msgbox_debug_ps_bhost_qry_alert_title {
             get {
-                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_fail_title", resourceCulture);
+                return ResourceManager.GetString("msgbox_debug_ps_bhost_qry_alert_title", resourceCulture);
             }
         }
         
@@ -525,18 +610,18 @@ namespace ScreenpressoKG.Properties {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a name first before trying to generate a license key..
         /// </summary>
-        internal static string msgbox_generate_invname_msg {
+        internal static string msgbox_generate_invalidname_msg {
             get {
-                return ResourceManager.GetString("msgbox_generate_invname_msg", resourceCulture);
+                return ResourceManager.GetString("msgbox_generate_invalidname_msg", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to No Name Specified.
         /// </summary>
-        internal static string msgbox_generate_invname_title {
+        internal static string msgbox_generate_invalidname_title {
             get {
-                return ResourceManager.GetString("msgbox_generate_invname_title", resourceCulture);
+                return ResourceManager.GetString("msgbox_generate_invalidname_title", resourceCulture);
             }
         }
         
@@ -547,15 +632,6 @@ namespace ScreenpressoKG.Properties {
             get {
                 object obj = ResourceManager.GetObject("question", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error - Key could not be generated.
-        /// </summary>
-        internal static string resp_keygen_fail {
-            get {
-                return ResourceManager.GetString("resp_keygen_fail", resourceCulture);
             }
         }
         
@@ -571,27 +647,27 @@ namespace ScreenpressoKG.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Key generation successful.
         /// </summary>
-        internal static string status_keygen_success {
+        internal static string status_keygen_succ {
             get {
-                return ResourceManager.GetString("status_keygen_success", resourceCulture);
+                return ResourceManager.GetString("status_keygen_succ", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Generate license key first.
         /// </summary>
-        internal static string statusbar_copy_invlicense {
+        internal static string statusbar_copy_invalidlicense {
             get {
-                return ResourceManager.GetString("statusbar_copy_invlicense", resourceCulture);
+                return ResourceManager.GetString("statusbar_copy_invalidlicense", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to License key copied. Paste in Screenpresso app..
         /// </summary>
-        internal static string statusbar_copy_success {
+        internal static string statusbar_copy_succ {
             get {
-                return ResourceManager.GetString("statusbar_copy_success", resourceCulture);
+                return ResourceManager.GetString("statusbar_copy_succ", resourceCulture);
             }
         }
         
@@ -614,74 +690,20 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Abort.
-        /// </summary>
-        internal static string template_btn_abort {
-            get {
-                return ResourceManager.GetString("template_btn_abort", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;Cancel.
-        /// </summary>
-        internal static string template_btn_cancel {
-            get {
-                return ResourceManager.GetString("template_btn_cancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;Ignore.
-        /// </summary>
-        internal static string template_btn_ignore {
-            get {
-                return ResourceManager.GetString("template_btn_ignore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;No.
-        /// </summary>
-        internal static string template_btn_no {
-            get {
-                return ResourceManager.GetString("template_btn_no", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;OK.
-        /// </summary>
-        internal static string template_btn_ok {
-            get {
-                return ResourceManager.GetString("template_btn_ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;Retry.
-        /// </summary>
-        internal static string template_btn_retry {
-            get {
-                return ResourceManager.GetString("template_btn_retry", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;Yes.
-        /// </summary>
-        internal static string template_btn_yes {
-            get {
-                return ResourceManager.GetString("template_btn_yes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to I do this because I enjoy giving back, and I&apos;m not looking to make a profit off my work. However, donations would help immensely for one purpose -- purchasing libraries and other commercial products which have insane licensing systems. These types of products would make life much easier and get releases pumped out on a more regular basis. Don&apos;t feel obligated, this is just &quot;if you can&quot;. My main goal is better tools..
         /// </summary>
         internal static string txt_contrib_intro {
             get {
                 return ResourceManager.GetString("txt_contrib_intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error - Key could not be generated.
+        /// </summary>
+        internal static string txt_License_resp_keygen_fail {
+            get {
+                return ResourceManager.GetString("txt_License_resp_keygen_fail", resourceCulture);
             }
         }
     }

@@ -125,7 +125,7 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
                 lbl_HeaderSub.Parent            = imgHeader;
                 lbl_HeaderSub.BackColor         = Color.Transparent;
-                lbl_HeaderSub.Text              = Lng.about_hdr_desc;
+                lbl_HeaderSub.Text              = Lng.lbl_about_HeaderSub;
 
                 /*
                     Button Links
@@ -160,8 +160,8 @@ This key is used to sign the releases on Github.com, all commits are also signed
                     GPG / PIV Fields
                 */
 
-                lbl_Dev_PIV_Thumbprint.Text     = Lng.about_lbl_thumbprint;
-                lbl_Dev_GPG_KeyID.Text          = Lng.about_lbl_gpg;
+                lbl_Dev_PIV_Thumbprint.Text     = Lng.lbl_about_thumbprint;
+                lbl_Dev_GPG_KeyID.Text          = Lng.lbl_about_gpg;
 
                 txt_Dev_PIV_Thumbprint.Value    = Cfg.Default.app_dev_piv_thumbprint;
                 txt_Dev_GPG_KeyID.Value         = Cfg.Default.app_dev_gpg_keyid;
@@ -395,8 +395,8 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
             private bool _bTPB_Hover            = false;
             private bool _bGithub_Hover         = false;
-            private string lnk_TPB_label        = " " + Lng.about_lnk_tpb;
-            private string lnk_Github_Label     = " " + Lng.about_lnk_github;
+            private string lnk_TPB_label        = " " + Lng.lnk_about_tpb;
+            private string lnk_Github_Label     = " " + Lng.lnk_about_github;
             private Color clr_Filler            = Color.FromArgb( 125, 0, 0, 0 );
             private Color clr_Text              = Color.FromArgb( 255, 255, 128 );
 

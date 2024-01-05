@@ -117,21 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="about_hdr_desc" xml:space="preserve">
-    <value>Educational purposes only. No ads, no music, no bullshit.</value>
-  </data>
-  <data name="about_lbl_gpg" xml:space="preserve">
-    <value>GPG KeyID</value>
-  </data>
-  <data name="about_lbl_thumbprint" xml:space="preserve">
-    <value>Digital Signature Thumbprint</value>
-  </data>
-  <data name="about_lnk_github" xml:space="preserve">
-    <value>Github Repo</value>
-  </data>
-  <data name="about_lnk_tpb" xml:space="preserve">
-    <value>TPB Profile</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\bch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,11 +127,38 @@
   <data name="btc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\btc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_generate" xml:space="preserve">
+  <data name="btn_ template_abort" xml:space="preserve">
+    <value>&amp;Abort</value>
+  </data>
+  <data name="btn_bhost_block" xml:space="preserve">
+    <value>&amp;Block Host</value>
+  </data>
+  <data name="btn_bhost_viewfile" xml:space="preserve">
+    <value>&amp;View Host</value>
+  </data>
+  <data name="btn_license_copy" xml:space="preserve">
+    <value>&amp;Copy</value>
+  </data>
+  <data name="btn_license_generate" xml:space="preserve">
     <value>&amp;Generate</value>
   </data>
-  <data name="btn_generate_copy" xml:space="preserve">
-    <value>&amp;Copy</value>
+  <data name="btn_template_cancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="btn_template_ignore" xml:space="preserve">
+    <value>&amp;Ignore</value>
+  </data>
+  <data name="btn_template_no" xml:space="preserve">
+    <value>&amp;No</value>
+  </data>
+  <data name="btn_template_ok" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="btn_template_retry" xml:space="preserve">
+    <value>&amp;Retry</value>
+  </data>
+  <data name="btn_template_yes" xml:space="preserve">
+    <value>&amp;Yes</value>
   </data>
   <data name="chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\bell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,20 +172,23 @@
   <data name="exclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hostblock_btn_doblock" xml:space="preserve">
-    <value>&amp;Block Host</value>
-  </data>
-  <data name="hostblock_btn_hostview" xml:space="preserve">
-    <value>&amp;View Host</value>
-  </data>
-  <data name="hostblock_desc" xml:space="preserve">
-    <value>Perform this step first to block {0} from communicating with your computer. Required for license activation to work.</value>
-  </data>
-  <data name="hostblock_title" xml:space="preserve">
-    <value>Host Blocker</value>
-  </data>
   <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lbl_about_gpg" xml:space="preserve">
+    <value>GPG KeyID</value>
+  </data>
+  <data name="lbl_about_HeaderSub" xml:space="preserve">
+    <value>Educational purposes only. No ads, no music, no bullshit.</value>
+  </data>
+  <data name="lbl_about_thumbprint" xml:space="preserve">
+    <value>Digital Signature Thumbprint</value>
+  </data>
+  <data name="lbl_bhost_pnl_intro" xml:space="preserve">
+    <value>Perform this step first to block {0} from communicating with your computer. Required for license activation to work.</value>
+  </data>
+  <data name="lbl_bhost_pnl_title" xml:space="preserve">
+    <value>Host Blocker</value>
   </data>
   <data name="lbl_contrib_bch" xml:space="preserve">
     <value>BCH</value>
@@ -193,21 +208,44 @@
   <data name="lbl_generate_name" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="msgbox_blkhost_badpath_msg" xml:space="preserve">
+  <data name="lnk_about_github" xml:space="preserve">
+    <value>Github Repo</value>
+  </data>
+  <data name="lnk_about_tpb" xml:space="preserve">
+    <value>TPB Profile</value>
+  </data>
+  <data name="msgbox_bhost_cancel_msg" xml:space="preserve">
+    <value>Your host file has been left untouched</value>
+  </data>
+  <data name="msgbox_bhost_cancel_title" xml:space="preserve">
+    <value>Operation Cancelled</value>
+  </data>
+  <data name="msgbox_bhost_fw_badpath_msg" xml:space="preserve">
     <value>Cannot locate the exact path to Screenpresso. Skipping Firewall registration. You may need to manually block Screenpresso using Windows Firewall.
 
 This can happen if you're running Screenpresso Portable.
 
 {0}</value>
   </data>
-  <data name="msgbox_blkhost_badpath_title" xml:space="preserve">
+  <data name="msgbox_bhost_fw_badpath_title" xml:space="preserve">
     <value>Unknown Firewall Target</value>
   </data>
-  <data name="msgbox_block_cancel_msg" xml:space="preserve">
-    <value>Your host file has been left untouched</value>
+  <data name="msgbox_bhost_fw_success_msg" xml:space="preserve">
+    <value>Successfully added new Firewall rules to block the executable:
+
+{0}</value>
   </data>
-  <data name="msgbox_block_cancel_title" xml:space="preserve">
-    <value>Operation Cancelled</value>
+  <data name="msgbox_bhost_fw_success_title" xml:space="preserve">
+    <value>Added Firewall Rules</value>
+  </data>
+  <data name="msgbox_bhost_success_msg" xml:space="preserve">
+    <value>Successfully edited your host file at {0}</value>
+  </data>
+  <data name="msgbox_bhost_success_title" xml:space="preserve">
+    <value>Screenpresso Successfully Blocked</value>
+  </data>
+  <data name="msgbox_bhost_title" xml:space="preserve">
+    <value>Add Screenpresso Blocks?</value>
   </data>
   <data name="msgbox_block_msg" xml:space="preserve">
     <value>This action will block Screenpresso by adding entries to your Windows host file. 
@@ -216,59 +254,52 @@ Additionally, two firewall rules will be created which blocks inbound / outbound
 
 Are you sure?</value>
   </data>
-  <data name="msgbox_block_success_msg" xml:space="preserve">
-    <value>Successfully edited your host file at {0}</value>
-  </data>
-  <data name="msgbox_block_success_title" xml:space="preserve">
-    <value>Screenpresso Successfully Blocked</value>
-  </data>
-  <data name="msgbox_block_title" xml:space="preserve">
-    <value>Add Screenpresso Blocks?</value>
-  </data>
   <data name="msgbox_copy_invlicense_msg" xml:space="preserve">
     <value>Cannot copy a license key you have not generated yet.</value>
   </data>
   <data name="msgbox_copy_invlicense_title" xml:space="preserve">
     <value>No License Generated</value>
   </data>
-  <data name="msgbox_debug_findpath_env_c1_msg" xml:space="preserve">
+  <data name="msgbox_debug_fpath_env_c1_msg" xml:space="preserve">
     <value>Located {0} with Windows Env Var in:
 
 {1}</value>
   </data>
-  <data name="msgbox_debug_findpath_env_c1_title" xml:space="preserve">
+  <data name="msgbox_debug_fpath_env_c1_title" xml:space="preserve">
     <value>Debug: 1000C-1</value>
   </data>
-  <data name="msgbox_debug_findpath_env_c2_msg" xml:space="preserve">
+  <data name="msgbox_debug_fpath_env_c2_msg" xml:space="preserve">
     <value>Located {0} with Windows Env Var in:
 
 {1}</value>
   </data>
-  <data name="msgbox_debug_findpath_env_c2_title" xml:space="preserve">
+  <data name="msgbox_debug_fpath_env_c2_title" xml:space="preserve">
     <value>Debug: 1000C-2</value>
   </data>
-  <data name="msgbox_debug_findpath_msg" xml:space="preserve">
+  <data name="msgbox_debug_fpath_msg" xml:space="preserve">
     <value>Located {0} In:
 
 {1}</value>
   </data>
-  <data name="msgbox_debug_findpath_ps_msg" xml:space="preserve">
+  <data name="msgbox_debug_fpath_ps_msg" xml:space="preserve">
     <value>Located {0} with Powershell in:
 
 {1}</value>
   </data>
-  <data name="msgbox_debug_findpath_ps_title" xml:space="preserve">
+  <data name="msgbox_debug_fpath_ps_title" xml:space="preserve">
     <value>Debug: 1000B</value>
   </data>
-  <data name="msgbox_debug_findpath_title" xml:space="preserve">
+  <data name="msgbox_debug_fpath_title" xml:space="preserve">
     <value>Debug: 1000A</value>
   </data>
-  <data name="msgbox_debug_ps_bhost_qry_fail_msg" xml:space="preserve">
+  <data name="msgbox_debug_ps_bhost_qry_alert_msg" xml:space="preserve">
     <value>It appears something went wrong adding the new firewall rules.
 
-Fear not, you can open Windows Firewall and manually block Screenpresso if you need to.</value>
+It could either be that you've already added the rules in a prior session, or you are running Screenpresso Portable and can't find the exact location.
+
+You can manually block Screenpresso in your WIndows Firewall.</value>
   </data>
-  <data name="msgbox_debug_ps_bhost_qry_fail_title" xml:space="preserve">
+  <data name="msgbox_debug_ps_bhost_qry_alert_title" xml:space="preserve">
     <value>Firewall Rule Addition Failed</value>
   </data>
   <data name="msgbox_debug_ps_bhost_qry_ok_msg" xml:space="preserve">
@@ -287,22 +318,19 @@ Fear not, you can open Windows Firewall and manually block Screenpresso if you n
   <data name="msgbox_debug_ps_output_title" xml:space="preserve">
     <value>Debug: PowerShell Output</value>
   </data>
-  <data name="msgbox_generate_invname_msg" xml:space="preserve">
+  <data name="msgbox_generate_invalidname_msg" xml:space="preserve">
     <value>You must enter a name first before trying to generate a license key.</value>
   </data>
-  <data name="msgbox_generate_invname_title" xml:space="preserve">
+  <data name="msgbox_generate_invalidname_title" xml:space="preserve">
     <value>No Name Specified</value>
   </data>
   <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="resp_keygen_fail" xml:space="preserve">
-    <value>Error - Key could not be generated</value>
-  </data>
-  <data name="statusbar_copy_invlicense" xml:space="preserve">
+  <data name="statusbar_copy_invalidlicense" xml:space="preserve">
     <value>Generate license key first</value>
   </data>
-  <data name="statusbar_copy_success" xml:space="preserve">
+  <data name="statusbar_copy_succ" xml:space="preserve">
     <value>License key copied. Paste in Screenpresso app.</value>
   </data>
   <data name="statusbar_generate" xml:space="preserve">
@@ -314,31 +342,13 @@ Fear not, you can open Windows Firewall and manually block Screenpresso if you n
   <data name="status_keygen_fail" xml:space="preserve">
     <value>Key generation failed</value>
   </data>
-  <data name="status_keygen_success" xml:space="preserve">
+  <data name="status_keygen_succ" xml:space="preserve">
     <value>Key generation successful</value>
-  </data>
-  <data name="template_btn_abort" xml:space="preserve">
-    <value>&amp;Abort</value>
-  </data>
-  <data name="template_btn_cancel" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="template_btn_ignore" xml:space="preserve">
-    <value>&amp;Ignore</value>
-  </data>
-  <data name="template_btn_no" xml:space="preserve">
-    <value>&amp;No</value>
-  </data>
-  <data name="template_btn_ok" xml:space="preserve">
-    <value>&amp;OK</value>
-  </data>
-  <data name="template_btn_retry" xml:space="preserve">
-    <value>&amp;Retry</value>
-  </data>
-  <data name="template_btn_yes" xml:space="preserve">
-    <value>&amp;Yes</value>
   </data>
   <data name="txt_contrib_intro" xml:space="preserve">
     <value>I do this because I enjoy giving back, and I'm not looking to make a profit off my work. However, donations would help immensely for one purpose -- purchasing libraries and other commercial products which have insane licensing systems. These types of products would make life much easier and get releases pumped out on a more regular basis. Don't feel obligated, this is just "if you can". My main goal is better tools.</value>
+  </data>
+  <data name="txt_License_resp_keygen_fail" xml:space="preserve">
+    <value>Error - Key could not be generated</value>
   </data>
 </root>
