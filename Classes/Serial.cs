@@ -41,6 +41,8 @@ namespace ScreenpressoKG
                 w.WriteLine( "0.0.0.0 secure.screenpresso.com"  );
                 w.WriteLine( "0.0.0.0 stats.screenpresso.com"   );
                 w.WriteLine( "0.0.0.0 18.65.3.28"               );
+                w.WriteLine( "0.0.0.0 webapi.screenpresso.com"  );
+                w.WriteLine( "0.0.0.0 18.155.192.82"            );
 
                 MessageBox.Show(
                     string.Format( Lng.msgbox_block_success_msg, host_path.ToString() ),
