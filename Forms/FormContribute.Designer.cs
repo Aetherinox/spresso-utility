@@ -71,7 +71,7 @@ namespace ScreenpressoKG.Forms
             this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Bold);
             this.btn_Close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btn_Close.Location = new System.Drawing.Point(492, 7);
+            this.btn_Close.Location = new System.Drawing.Point(490, 7);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(24, 32);
             this.btn_Close.TabIndex = 4;

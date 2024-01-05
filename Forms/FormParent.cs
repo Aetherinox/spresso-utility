@@ -107,6 +107,7 @@ namespace ScreenpressoKG
 
                 btnGenerate.Text                = Lng.btn_generate;
                 btnCopy.Text                    = Lng.btn_generate_copy;
+
             }
 
             /*
@@ -605,7 +606,7 @@ namespace ScreenpressoKG
 
             private void btn_Generate_Click( object sender, EventArgs e )
             {
-                if (string.IsNullOrEmpty(txt_User.Value))
+                if ( string.IsNullOrEmpty( txt_User.Value ) )
                 {
                     MessageBox.Show(
                         Lng.msgbox_generate_invname_msg,

@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppInfo.cs" />
+    <Compile Include="Classes\Perms.cs" />
     <Compile Include="Classes\Receiver.cs" />
     <Compile Include="Classes\Helpers.cs" />
     <Compile Include="Classes\MessageBox.cs" />
@@ -192,7 +193,6 @@
     <None Include="Materials\bch.png" />
     <None Include="Materials\btc.png" />
     <None Include="Materials\eth.png" />
-    <None Include="Materials\bg_header.jpg" />
     <Content Include="Materials\screenpresso_64.ico" />
   </ItemGroup>
   <ItemGroup>

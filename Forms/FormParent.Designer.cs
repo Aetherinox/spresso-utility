@@ -75,10 +75,12 @@ namespace ScreenpressoKG
             this.txt_User = new ScreenpressoKG.AetherxTextBox();
             this.btnCopy = new ScreenpressoKG.AetherxButton();
             this.btnGenerate = new ScreenpressoKG.AetherxButton();
+            this.pnl_StatusParent = new System.Windows.Forms.Panel();
             this.mnu_Main.SuspendLayout();
             this.status_Strip.SuspendLayout();
             this.box_BlockGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgHeader)).BeginInit();
+            this.pnl_StatusParent.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Minimize
@@ -101,7 +103,7 @@ namespace ScreenpressoKG
             this.btn_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btn_Close.Location = new System.Drawing.Point(492, 7);
+            this.btn_Close.Location = new System.Drawing.Point(490, 7);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(24, 32);
             this.btn_Close.TabIndex = 1;
@@ -126,7 +128,7 @@ namespace ScreenpressoKG
             // lbl_User
             // 
             this.lbl_User.AutoSize = true;
-            this.lbl_User.Location = new System.Drawing.Point(12, 301);
+            this.lbl_User.Location = new System.Drawing.Point(12, 296);
             this.lbl_User.Name = "lbl_User";
             this.lbl_User.Size = new System.Drawing.Size(52, 21);
             this.lbl_User.TabIndex = 6;
@@ -167,7 +169,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.mnu_Sub_Exit.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Exit.Name = "mnu_Sub_Exit";
-            this.mnu_Sub_Exit.Size = new System.Drawing.Size(93, 22);
+            this.mnu_Sub_Exit.Size = new System.Drawing.Size(180, 22);
             this.mnu_Sub_Exit.Text = "Exit";
             this.mnu_Sub_Exit.Click += new System.EventHandler(this.mnu_Sub_Exit_Click);
             // 
@@ -236,16 +238,16 @@ namespace ScreenpressoKG
             this.status_Strip.AutoSize = false;
             this.status_Strip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.status_Strip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.status_Strip.Dock = System.Windows.Forms.DockStyle.None;
+            this.status_Strip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.status_Strip.ForeColor = System.Drawing.Color.Red;
             this.status_Strip.GripMargin = new System.Windows.Forms.Padding(0);
             this.status_Strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lbl_StatusOutput});
-            this.status_Strip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.status_Strip.Location = new System.Drawing.Point(1, 547);
+            this.status_Strip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.status_Strip.Location = new System.Drawing.Point(1, 0);
             this.status_Strip.Name = "status_Strip";
             this.status_Strip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.status_Strip.Size = new System.Drawing.Size(528, 35);
+            this.status_Strip.Size = new System.Drawing.Size(528, 33);
             this.status_Strip.SizingGrip = false;
             this.status_Strip.TabIndex = 17;
             this.status_Strip.Text = "statusStrip1";
@@ -260,15 +262,15 @@ namespace ScreenpressoKG
             this.lbl_StatusOutput.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lbl_StatusOutput.ForeColor = System.Drawing.Color.White;
             this.lbl_StatusOutput.LinkVisited = true;
-            this.lbl_StatusOutput.Margin = new System.Windows.Forms.Padding(8, 6, 0, 2);
+            this.lbl_StatusOutput.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
             this.lbl_StatusOutput.Name = "lbl_StatusOutput";
-            this.lbl_StatusOutput.Size = new System.Drawing.Size(96, 19);
+            this.lbl_StatusOutput.Size = new System.Drawing.Size(96, 28);
             this.lbl_StatusOutput.Text = "Status Output";
             // 
             // lbl_LicenseKey
             // 
             this.lbl_LicenseKey.AutoSize = true;
-            this.lbl_LicenseKey.Location = new System.Drawing.Point(12, 362);
+            this.lbl_LicenseKey.Location = new System.Drawing.Point(12, 357);
             this.lbl_LicenseKey.Name = "lbl_LicenseKey";
             this.lbl_LicenseKey.Size = new System.Drawing.Size(166, 21);
             this.lbl_LicenseKey.TabIndex = 20;
@@ -409,7 +411,7 @@ namespace ScreenpressoKG
             this.txt_LicenseKey.BorderSize = 1;
             this.txt_LicenseKey.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txt_LicenseKey.ForeColor = System.Drawing.Color.White;
-            this.txt_LicenseKey.Location = new System.Drawing.Point(19, 388);
+            this.txt_LicenseKey.Location = new System.Drawing.Point(19, 383);
             this.txt_LicenseKey.Margin = new System.Windows.Forms.Padding(5);
             this.txt_LicenseKey.Multiline = true;
             this.txt_LicenseKey.MultilineScrollbars = true;
@@ -435,7 +437,7 @@ namespace ScreenpressoKG
             this.txt_User.BorderSize = 1;
             this.txt_User.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txt_User.ForeColor = System.Drawing.Color.White;
-            this.txt_User.Location = new System.Drawing.Point(19, 327);
+            this.txt_User.Location = new System.Drawing.Point(19, 322);
             this.txt_User.Margin = new System.Windows.Forms.Padding(5);
             this.txt_User.Multiline = false;
             this.txt_User.MultilineScrollbars = true;
@@ -459,7 +461,7 @@ namespace ScreenpressoKG
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Location = new System.Drawing.Point(136, 500);
+            this.btnCopy.Location = new System.Drawing.Point(136, 502);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(69, 29);
             this.btnCopy.TabIndex = 18;
@@ -475,7 +477,7 @@ namespace ScreenpressoKG
             this.btnGenerate.FlatAppearance.BorderSize = 0;
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Location = new System.Drawing.Point(19, 500);
+            this.btnGenerate.Location = new System.Drawing.Point(19, 502);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(111, 29);
             this.btnGenerate.TabIndex = 3;
@@ -483,19 +485,30 @@ namespace ScreenpressoKG
             this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btn_Generate_Click);
             // 
+            // pnl_StatusParent
+            // 
+            this.pnl_StatusParent.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_StatusParent.Controls.Add(this.status_Strip);
+            this.pnl_StatusParent.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnl_StatusParent.Location = new System.Drawing.Point(0, 549);
+            this.pnl_StatusParent.Name = "pnl_StatusParent";
+            this.pnl_StatusParent.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.pnl_StatusParent.Size = new System.Drawing.Size(530, 34);
+            this.pnl_StatusParent.TabIndex = 35;
+            // 
             // FormParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(530, 583);
+            this.Controls.Add(this.pnl_StatusParent);
             this.Controls.Add(this.lbl_HeaderSub);
             this.Controls.Add(this.box_BlockGroup);
             this.Controls.Add(this.txt_LicenseKey);
             this.Controls.Add(this.txt_User);
             this.Controls.Add(this.lbl_LicenseKey);
             this.Controls.Add(this.btnCopy);
-            this.Controls.Add(this.status_Strip);
             this.Controls.Add(this.lbl_User);
             this.Controls.Add(this.lbl_HeaderName);
             this.Controls.Add(this.btnGenerate);
@@ -524,6 +537,7 @@ namespace ScreenpressoKG
             this.box_BlockGroup.ResumeLayout(false);
             this.box_BlockGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgHeader)).EndInit();
+            this.pnl_StatusParent.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,6 +576,7 @@ namespace ScreenpressoKG
         private ToolStripMenuItem mnu_Sub_Validate;
         private ToolStripSeparator mnu_Help_Sep_1;
         private Label lbl_HeaderSub;
+        private Panel pnl_StatusParent;
     }
 }
 

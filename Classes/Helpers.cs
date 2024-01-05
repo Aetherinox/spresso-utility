@@ -16,6 +16,7 @@ using System.Management.Automation.Language;
 using System.Data;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+using System.Diagnostics;
 
 [AttributeUsage( AttributeTargets.Assembly )]
 internal class BuildDateAttribute : Attribute
@@ -38,8 +39,10 @@ namespace ScreenpressoKG
     class Helpers
     {
 
-        private static string patch_launch_dir  = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetEntryAssembly( ).Location );
-        private static string app_target_exe    = Cfg.Default.app_target_exe;
+        private static string patch_launch_fullpath     = Process.GetCurrentProcess( ).MainModule.FileName;
+        private static string patch_launch_dir          = Path.GetDirectoryName( patch_launch_fullpath );
+        private static string patch_launch_exe          = Path.GetFileName( patch_launch_fullpath );
+        private static string app_target_exe            = Cfg.Default.app_target_exe;
 
         /*
              Search Locations
