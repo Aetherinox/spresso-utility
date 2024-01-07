@@ -127,16 +127,13 @@ namespace ScreenpressoKG
                 Create two new firewall rules for inbound and outbound.
             */
 
-            string file_SHA1            = Hash.GetSHA1Hash( app_path_exe );
+            string fw_id_sha1           = Hash.GetSHA1Hash( app_path_exe );
 
-            MessageBox.Show( file_SHA1,
-                "base32",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
-            );
+            if ( string.IsNullOrEmpty( fw_id_sha1 ) )
+                fw_id_sha1 = "0";
 
-
-            string fw_id_name           = "01-Screenpresso - " + file_SHA1;
-            string fw_id_desc           = "Blocks Screenpresso from communicating with license server. Added by https://github.com/Aetherinox/ScreenpressoKeygen";
+            string fw_id_name           = string.Format( "01-Screenpresso ({0})", fw_id_sha1 );
+            string fw_id_desc           = string.Format( "Blocks Screenpresso from communicating with license server. Added by {0}", Cfg.Default.app_url_github );
             string fw_id_exe            = app_path_exe;
 
             /*
