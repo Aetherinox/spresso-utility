@@ -43,15 +43,12 @@ namespace ScreenpressoKG
 
         private static System.IO.FileStream GetFileStream( string path )
         {
-            return ( new System.IO.FileStream( path,
-                        System.IO.FileMode.Open,
-                        System.IO.FileAccess.Read,
-                        System.IO.FileShare.ReadWrite )
-                    );
+            return ( new System.IO.FileStream( path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite ) );
         }
 
         /*
             method : Get SHA1 Hash
+                requires a path to file to obtain the SHA1 hash
 
             @arg    : str path
             @ret    : str
@@ -85,8 +82,7 @@ namespace ScreenpressoKG
 
             if ( AppInfo.bIsDebug( ) )
             {
-                MessageBox.Show( result,
-                    string.Format( "Hash.cs ( SHA1 ):\n{0}", result ),
+                MessageBox.Show( result, string.Format( "Hash.cs ( SHA1 ):\n{0}", result ),
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation
                 );
             }
@@ -97,6 +93,7 @@ namespace ScreenpressoKG
 
         /*
             method : Get MD5 Hash
+                requires a path to file to obtain the md5 hash
 
             @arg    : str path
             @ret    : str
@@ -130,8 +127,7 @@ namespace ScreenpressoKG
 
             if ( AppInfo.bIsDebug( ) )
             {
-                MessageBox.Show( result,
-                    string.Format( "Hash.cs ( MD5 ):\n{0}", result ),
+                MessageBox.Show( result, string.Format( "Hash.cs ( MD5 ):\n{0}", result ),
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation
                 );
             }

@@ -12,12 +12,11 @@ using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
-using Lng = ScreenpressoKG.Properties.Resources;
-using Cfg = ScreenpressoKG.Properties.Settings;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using System.Collections.Generic;
+using Lng = ScreenpressoKG.Properties.Resources;
+using Cfg = ScreenpressoKG.Properties.Settings;
 
 /*
     Attribute : Build Date
@@ -56,7 +55,7 @@ namespace ScreenpressoKG
             Define > Classes
         */
 
-        private AppInfo AppInfo             = new AppInfo( );
+        private AppInfo AppInfo = new AppInfo( );
 
         /*
              patch and target paths
@@ -100,6 +99,7 @@ namespace ScreenpressoKG
             find target application
 
             A file will be checked in the following order:
+                -   Screenpresso portable (same directory as patch exe)
                 -   Windows Environment Variable PATH
                 -   C:\Program Files
                 -   C:\Program Files (x86)
@@ -131,8 +131,7 @@ namespace ScreenpressoKG
                     if ( AppInfo.bIsDebug( ) )
                     {
                         MessageBox.Show(
-                            string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, dir ),
-                            string.Format( Lng.msgbox_debug_fpath_title ),
+                            string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, dir ), string.Format( Lng.msgbox_debug_fpath_title ),
                             MessageBoxButtons.OK, MessageBoxIcon.None
                         );
                     }
@@ -155,8 +154,7 @@ namespace ScreenpressoKG
                     if ( AppInfo.bIsDebug( ) )
                     {
                         MessageBox.Show(
-                            string.Format( Lng.msgbox_debug_fpath_env_c1_msg, app_target_exe, folder ),
-                            string.Format( Lng.msgbox_debug_fpath_env_c1_title ),
+                            string.Format( Lng.msgbox_debug_fpath_env_c1_msg, app_target_exe, folder ), string.Format( Lng.msgbox_debug_fpath_env_c1_title ),
                             MessageBoxButtons.OK, MessageBoxIcon.None
                         );
                     }
@@ -167,9 +165,7 @@ namespace ScreenpressoKG
                 {
                     if ( AppInfo.bIsDebug( ) )
                     {
-                        MessageBox.Show(
-                            string.Format( Lng.msgbox_debug_fpath_env_c2_msg, app_target_exe, folder ),
-                            string.Format( Lng.msgbox_debug_fpath_env_c2_title ),
+                        MessageBox.Show( string.Format( Lng.msgbox_debug_fpath_env_c2_msg, app_target_exe, folder ), string.Format( Lng.msgbox_debug_fpath_env_c2_title ),
                             MessageBoxButtons.OK, MessageBoxIcon.None
                         );
                     }
@@ -189,8 +185,7 @@ namespace ScreenpressoKG
                 if ( AppInfo.bIsDebug( ) )
                 {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InProg64 ),
-                        string.Format( Lng.msgbox_debug_fpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InProg64 ), string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
                 }
@@ -209,8 +204,7 @@ namespace ScreenpressoKG
                 if ( AppInfo.bIsDebug( ) )
                 {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InProg86 ),
-                        string.Format( Lng.msgbox_debug_fpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InProg86 ), string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
                 }
@@ -229,8 +223,7 @@ namespace ScreenpressoKG
                 if ( AppInfo.bIsDebug( ) )
                 {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InAppData ),
-                        string.Format( Lng.msgbox_debug_fpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InAppData ), string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
                 }
@@ -249,8 +242,7 @@ namespace ScreenpressoKG
                 if ( AppInfo.bIsDebug( ) )
                 {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InAppHome ),
-                        string.Format( Lng.msgbox_debug_fpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InAppHome ), string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
                 }
@@ -275,7 +267,6 @@ namespace ScreenpressoKG
 
             if ( File.Exists( target_where ) )
             {
-
                 if ( AppInfo.bIsDebug( ) )
                 {
                     MessageBox.Show(
@@ -467,8 +458,7 @@ namespace ScreenpressoKG
  
                     var sig             = results[ 0 ].BaseObject as Signature;
 
-                    return sig == null || sig.SignerCertificate == null ? 
-                           false : ( sig.Status != SignatureStatus.NotSigned );
+                    return sig == null || sig.SignerCertificate == null ? false : ( sig.Status != SignatureStatus.NotSigned );
                 }
             }
         }
@@ -529,6 +519,7 @@ namespace ScreenpressoKG
 
             return Encoding.UTF8.GetString( bytesBegin ) == "MZ";
         }
+
 
     }
 }

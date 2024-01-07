@@ -448,7 +448,7 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot copy a license key you have not generated yet..
+        ///   Looks up a localized string similar to No license key generated yet..
         /// </summary>
         internal static string msgbox_copy_invlicense_msg {
             get {
@@ -466,7 +466,7 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Located {0} with Windows Env Var in:
+        ///   Looks up a localized string similar to Located {0} with Windows Env Variable in:
         ///
         ///{1}.
         /// </summary>
@@ -528,7 +528,7 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debug: 1000B.
+        ///   Looks up a localized string similar to Debug: 1000B-0.
         /// </summary>
         internal static string msgbox_debug_fpath_ps_title {
             get {
@@ -537,7 +537,7 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debug: 1000A.
+        ///   Looks up a localized string similar to Debug: 1000A-0.
         /// </summary>
         internal static string msgbox_debug_fpath_title {
             get {

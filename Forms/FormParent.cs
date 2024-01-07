@@ -21,9 +21,9 @@ namespace ScreenpressoKG
                 Define > Classes
             */
 
-            private AppInfo AppInfo             = new AppInfo();
+            private AppInfo AppInfo             = new AppInfo( );
             private Helpers Helpers             = new Helpers( );
-            readonly private Serial Serial      = new Serial();
+            readonly private Serial Serial      = new Serial( );
 
             /*
                 Define > Internal > Helper
@@ -82,12 +82,12 @@ namespace ScreenpressoKG
                 Frame > Parent
             */
 
-            public FormParent()
+            public FormParent( )
             {
                 InitializeComponent( );
                 StatusBar.InitializeReceiver( this );
 
-                this.status_Strip.Renderer  = new StatusBar_Renderer( );
+                this.status_Strip.Renderer = new StatusBar_Renderer( );
 
                 /*
                     Product, trademark, etc.
@@ -151,8 +151,8 @@ namespace ScreenpressoKG
 
             private void FormParent_Load( object sender, EventArgs e )
             {
-                mnu_Main.Renderer           = new ToolStripProfessionalRenderer( new mnu_Main_ColorTable( ) );
-                StatusBar.Update( string.Format( Lng.statusbar_generate ) );
+                mnu_Main.Renderer   = new ToolStripProfessionalRenderer( new mnu_Main_ColorTable( ) );
+                StatusBar.Update    ( string.Format( Lng.statusbar_generate ) );
 
                 /*
                     update checker > json
@@ -196,7 +196,7 @@ namespace ScreenpressoKG
                             MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
                         );
 
-                        string answer   = result.ToString( ).ToLower( );
+                        string answer = result.ToString( ).ToLower( );
 
                         if ( answer == "yes" )
                             System.Diagnostics.Process.Start( Cfg.Default.app_url_github + "/releases/" );
@@ -483,9 +483,10 @@ namespace ScreenpressoKG
 
             private void mnu_Main_Paint( object sender, PaintEventArgs e )
             {
-                Graphics g                  = e.Graphics;
-                Color backColor             = Color.FromArgb( 35, 255, 255, 255 );
-                var imgSize                 = mnu_Main.ClientSize;
+                Graphics g      = e.Graphics;
+                Color backColor = Color.FromArgb( 35, 255, 255, 255 );
+                var imgSize     = mnu_Main.ClientSize;
+
                 e.Graphics.FillRectangle( new SolidBrush( backColor ), 1, 1, imgSize.Width - 2, 1 );
                 e.Graphics.FillRectangle( new SolidBrush( backColor ), 1, imgSize.Height - 2, imgSize.Width - 2, 1 );
             }
@@ -554,7 +555,7 @@ namespace ScreenpressoKG
                     return;
                 }
 
-                string x509_cert    = Helper.x509_Thumbprint( exe_target );
+                string x509_cert = Helper.x509_Thumbprint( exe_target );
 
                 /*
                     x509 certificate
@@ -601,7 +602,7 @@ namespace ScreenpressoKG
 
             /*
                 Top Menu > Separator
-                Separates "Exit" from the other items in "About" dropdown.
+                    Separates "Exit" from the other items in "About" dropdown.
             */
 
             private void mnu_Help_Sep_1_Paint( object sender, PaintEventArgs e )
@@ -707,18 +708,15 @@ namespace ScreenpressoKG
             {
                 if ( string.IsNullOrEmpty( txt_User.Value ) )
                 {
-                    MessageBox.Show(
-                        Lng.msgbox_generate_invalidname_msg,
-                        Lng.msgbox_generate_invalidname_title,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
+                    MessageBox.Show( Lng.msgbox_generate_invalidname_msg, Lng.msgbox_generate_invalidname_title,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
                 }
                 else
                 {
                     // force placeholder off
                     txt_LicenseKey.isPlaceholder    = false;
-                    txt_LicenseKey.Value            = Serial.Generate( Serial.Editions.LicenseCorporate, new Random( ).Next( 0x270f ), this.txt_User.Value );
+                    txt_LicenseKey.Value            = Serial.Generate( Editions.LicenseCorporate, new Random( ).Next( 0x270f ), this.txt_User.Value );
                 }
             }
 
@@ -733,9 +731,7 @@ namespace ScreenpressoKG
 
                 if (string.IsNullOrEmpty( txt_LicenseKey.Value ) )
                 {
-                    MessageBox.Show(
-                        Lng.msgbox_copy_invlicense_msg,
-                        Lng.msgbox_copy_invlicense_title,
+                    MessageBox.Show( Lng.msgbox_copy_invlicense_msg, Lng.msgbox_copy_invlicense_title,
                         MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
 

@@ -17,6 +17,22 @@ using Cfg = ScreenpressoKG.Properties.Settings;
 
 namespace ScreenpressoKG
 {
+
+    /*
+        Serial > Edition Types
+
+        Do not change these, they are programmed into Screenpresso.
+    */
+
+    public enum Editions
+    {
+        ActivationKey,
+        LicenseBoundToSoftwareName,
+        LicenseBoundToHardDrive,
+        LicenseCorporate,
+        LicenseBoundToHardDrive2
+    }
+
     class Serial
     {
 
@@ -24,7 +40,7 @@ namespace ScreenpressoKG
             Define > Classes
         */
 
-        private AppInfo AppInfo             = new AppInfo( );
+        private AppInfo AppInfo = new AppInfo( );
 
         /*
              patch and target paths
@@ -34,21 +50,6 @@ namespace ScreenpressoKG
         private static string patch_launch_dir          = Path.GetDirectoryName( patch_launch_fullpath );
         private static string patch_launch_exe          = Path.GetFileName( patch_launch_fullpath );
         private static string app_target_exe            = Cfg.Default.app_target_exe;
-
-        /*
-            Serial > Edition Types
-
-            Do not change these, they are programmed into Screenpresso.
-        */
-
-        public enum Editions
-        {
-            ActivationKey,
-            LicenseBoundToSoftwareName,
-            LicenseBoundToHardDrive,
-            LicenseCorporate,
-            LicenseBoundToHardDrive2
-        }
 
         /*
             Define > Classes
@@ -64,13 +65,16 @@ namespace ScreenpressoKG
 
         public void BlockHost( )
         {
-            string host_path    = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.System ), "drivers\\etc\\hosts" );
+            string hostfile_path = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.System ), "drivers\\etc\\hosts" );
 
             /*
                 Windows host file
+                    adds a list of blocked dns
+
+                @revised    : 01.07.24
             */
 
-            using ( StreamWriter w = File.AppendText( host_path ) )
+            using ( StreamWriter w = File.AppendText( hostfile_path ) )
             {
                 w.WriteLine( Environment.NewLine                );
                 w.WriteLine( "# Screenpresso Host Block"        );
@@ -84,8 +88,7 @@ namespace ScreenpressoKG
                 w.WriteLine( "0.0.0.0 46.105.204.6"             );
 
                 MessageBox.Show(
-                    string.Format( Lng.msgbox_bhost_success_msg, host_path ),
-                    Lng.msgbox_bhost_success_title,
+                    string.Format( Lng.msgbox_bhost_success_msg, hostfile_path ), Lng.msgbox_bhost_success_title,
                     MessageBoxButtons.OK, MessageBoxIcon.Information
                 );
             }
@@ -95,7 +98,7 @@ namespace ScreenpressoKG
                     X:\Path\To\Folder\Screenpresso.exe
             */
 
-            string app_path_exe         = Helpers.FindApp( );
+            string app_path_exe = Helpers.FindApp( );
 
             /*
                 Found no app file path, no need to continue blocks with the firewall.
@@ -105,9 +108,7 @@ namespace ScreenpressoKG
             if ( !File.Exists( app_path_exe ) )
             {
 
-                MessageBox.Show(
-                    string.Format( Lng.msgbox_bhost_fw_badpath_msg, app_path_exe ),
-                    Lng.msgbox_bhost_fw_badpath_title,
+                MessageBox.Show( string.Format( Lng.msgbox_bhost_fw_badpath_msg, app_path_exe ), Lng.msgbox_bhost_fw_badpath_title,
                     MessageBoxButtons.OK, MessageBoxIcon.None
                 );
 
@@ -165,9 +166,7 @@ namespace ScreenpressoKG
 
                         if ( AppInfo.bIsDebug( ) )
                         {
-                            MessageBox.Show(
-                                string.Format( Lng.msgbox_debug_ps_bhost_qry_ok_msg, fwl_rule_block_in, fwl_rule_block_out ),
-                                Lng.msgbox_debug_ps_bhost_qry_ok_title,
+                            MessageBox.Show( string.Format( Lng.msgbox_debug_ps_bhost_qry_ok_msg, fwl_rule_block_in, fwl_rule_block_out ), Lng.msgbox_debug_ps_bhost_qry_ok_title,
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation
                             );
                         }
@@ -179,9 +178,7 @@ namespace ScreenpressoKG
                 {
                     if ( AppInfo.bIsDebug( ) )
                     {
-                        MessageBox.Show(
-                            string.Format( Lng.msgbox_debug_ps_bhost_qry_alert_msg ),
-                            Lng.msgbox_debug_ps_bhost_qry_alert_title,
+                        MessageBox.Show( string.Format( Lng.msgbox_debug_ps_bhost_qry_alert_msg ), Lng.msgbox_debug_ps_bhost_qry_alert_title,
                             MessageBoxButtons.OK, MessageBoxIcon.Error
                         );
                     }
@@ -192,9 +189,7 @@ namespace ScreenpressoKG
                 Firewall success message
             */
 
-            MessageBox.Show(
-                string.Format( Lng.msgbox_bhost_fw_success_msg, app_path_exe ),
-                Lng.msgbox_bhost_fw_success_title,
+            MessageBox.Show( string.Format( Lng.msgbox_bhost_fw_success_msg, app_path_exe ), Lng.msgbox_bhost_fw_success_title,
                 MessageBoxButtons.OK, MessageBoxIcon.None
             );
 
@@ -214,14 +209,18 @@ namespace ScreenpressoKG
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider( 0x200 );
 
-            rsa.FromXmlString( "<RSAKeyValue><Modulus>2FwAhdlB/Lw3csW+hov2cz33ZkaIP2rsl9GjJHgZgOrI/JvulnebHRvFrnMY4Z9TCvV7MT0rtTZ3aV1WFfGgpQ==</Modulus><Exponent>AQAB</Exponent><P>+MD97qTWvItm/OIwVrpE3PM6XNNznG4c0J8SnZnZ62E=</P><Q>3qlwFXADYCSsncBBVPrKDAfuzw6YgyItCfdlPm7238U=</Q><DP>Eujo5NlXEaIvRA4VyqICViGPUDsq0Lt2KU3OZnipnkE=</DP><DQ>uAdmofFAePgWyxMZbDkTQTpVQEEaAFgAzZnxzdY8qNk=</DQ><InverseQ>snkzqxdbYj2QSdGSzG9sEgvtgflbjFnLO68tRD+o0eo=</InverseQ><D>VwDYLPrqsCk32u1t6kkKN9lpTTV7wJTMw1hH1Hh/OPlzeyb/sFOW7V1lghRoxIzmOagdFGlSyt5jSeOBqxnTAQ==</D></RSAKeyValue>" );
+            /*
+                generated using https://github.com/ius/rsatool
+            */
+
+            rsa.FromXmlString( "<RSAKeyValue><Modulus>2FwAhdlB/Lw3csW+hov2cz33ZkaIP2rsl9GjJHgZgOrI/JvulnebHRvFrnMY4Z9TCvV7MT0rtTZ3aV1WFfGgpQ==</Modulus><Exponent>AQAB</Exponent><P>3qlwFXADYCSsncBBVPrKDAfuzw6YgyItCfdlPm7238U=</P><Q>+MD97qTWvItm/OIwVrpE3PM6XNNznG4c0J8SnZnZ62E=</Q><DP>uAdmofFAePgWyxMZbDkTQTpVQEEaAFgAzZnxzdY8qNk=</DP><DQ>Eujo5NlXEaIvRA4VyqICViGPUDsq0Lt2KU3OZnipnkE=</DQ><InverseQ>PuidoKq0V4ygjGTJ6IKZOy//e3+rXvOESJJKV/4lnhQ=</InverseQ><D>VwDYLPrqsCk32u1t6kkKN9lpTTV7wJTMw1hH1Hh/OPlzeyb/sFOW7V1lghRoxIzmOagdFGlSyt5jSeOBqxnTAQ==</D></RSAKeyValue>" );
 
             string dt_format        = "MM/dd/yyyy";
             string v_edition        = ( ( int ) edition ).ToString( );
-            string v_ver            = version.ToString( );
+            string v_version        = version.ToString( );
             string v_datetime       = DateTime.Today.ToString( dt_format );
 
-            string[] license_arr    = new string[] { "[", v_edition, "]-[screenpressopro]-[", v_ver, "]-[", data, "]-[", v_datetime, "]" };
+            string[] license_arr    = new string[] { "[", v_edition, "]-[screenpressopro]-[", v_version, "]-[", data, "]-[", v_datetime, "]" };
             string s                = string.Concat( license_arr );
             byte[] inArray          = rsa.SignData( Encoding.ASCII.GetBytes( s ), new SHA1CryptoServiceProvider( ) );
 

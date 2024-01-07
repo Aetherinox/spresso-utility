@@ -255,13 +255,13 @@ Additionally, two firewall rules will be created which blocks inbound / outbound
 Are you sure?</value>
   </data>
   <data name="msgbox_copy_invlicense_msg" xml:space="preserve">
-    <value>Cannot copy a license key you have not generated yet.</value>
+    <value>No license key generated yet.</value>
   </data>
   <data name="msgbox_copy_invlicense_title" xml:space="preserve">
     <value>No License Generated</value>
   </data>
   <data name="msgbox_debug_fpath_env_c1_msg" xml:space="preserve">
-    <value>Located {0} with Windows Env Var in:
+    <value>Located {0} with Windows Env Variable in:
 
 {1}</value>
   </data>
@@ -287,10 +287,10 @@ Are you sure?</value>
 {1}</value>
   </data>
   <data name="msgbox_debug_fpath_ps_title" xml:space="preserve">
-    <value>Debug: 1000B</value>
+    <value>Debug: 1000B-0</value>
   </data>
   <data name="msgbox_debug_fpath_title" xml:space="preserve">
-    <value>Debug: 1000A</value>
+    <value>Debug: 1000A-0</value>
   </data>
   <data name="msgbox_debug_ps_bhost_qry_alert_msg" xml:space="preserve">
     <value>It appears something went wrong adding the new firewall rules.

@@ -236,7 +236,7 @@ namespace ScreenpressoKG
             AppInfo -> Version Check
                 compare two versions.
 
-        @return     :   1   = v2 smaller
+            @return     1   = v2 smaller
                         -1  = v1 smaller
                         0   = equal
 
