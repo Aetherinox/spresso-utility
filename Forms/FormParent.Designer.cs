@@ -61,8 +61,6 @@ namespace ScreenpressoKG
             this.lbl_StatusOutput = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbl_LicenseKey = new System.Windows.Forms.Label();
             this.box_BlockGroup = new System.Windows.Forms.Panel();
-            this.btn_HostView = new ScreenpressoKG.AetherxButton();
-            this.btn_DoBlock = new ScreenpressoKG.AetherxButton();
             this.lbl_HostBlocker_Desc = new System.Windows.Forms.Label();
             this.lbl_HostBlocker_Title = new System.Windows.Forms.Label();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,11 +69,13 @@ namespace ScreenpressoKG
             this.aboutToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.imgHeader = new System.Windows.Forms.PictureBox();
             this.lbl_HeaderSub = new System.Windows.Forms.Label();
+            this.pnl_StatusParent = new System.Windows.Forms.Panel();
+            this.btn_HostView = new ScreenpressoKG.AetherxButton();
+            this.btn_DoBlock = new ScreenpressoKG.AetherxButton();
             this.txt_LicenseKey = new ScreenpressoKG.AetherxTextBox();
             this.txt_User = new ScreenpressoKG.AetherxTextBox();
             this.btnCopy = new ScreenpressoKG.AetherxButton();
             this.btnGenerate = new ScreenpressoKG.AetherxButton();
-            this.pnl_StatusParent = new System.Windows.Forms.Panel();
             this.mnu_Main.SuspendLayout();
             this.status_Strip.SuspendLayout();
             this.box_BlockGroup.SuspendLayout();
@@ -172,7 +172,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.mnu_Sub_Exit.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Exit.Name = "mnu_Sub_Exit";
-            this.mnu_Sub_Exit.Size = new System.Drawing.Size(93, 22);
+            this.mnu_Sub_Exit.Size = new System.Drawing.Size(180, 22);
             this.mnu_Sub_Exit.Text = "Exit";
             this.mnu_Sub_Exit.Click += new System.EventHandler(this.mnu_Sub_Exit_Click);
             // 
@@ -201,20 +201,21 @@ namespace ScreenpressoKG
             // mnu_Sub_Updates
             // 
             this.mnu_Sub_Updates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.mnu_Sub_Updates.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.mnu_Sub_Updates.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mnu_Sub_Updates.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Updates.Name = "mnu_Sub_Updates";
-            this.mnu_Sub_Updates.Size = new System.Drawing.Size(183, 22);
-            this.mnu_Sub_Updates.Text = "Check for Updates";
+            this.mnu_Sub_Updates.Size = new System.Drawing.Size(180, 22);
+            this.mnu_Sub_Updates.Text = "Updates";
             this.mnu_Sub_Updates.Click += new System.EventHandler(this.mnu_Sub_Updates_Click);
+            this.mnu_Sub_Updates.Paint += new System.Windows.Forms.PaintEventHandler(this.mnu_Sub_Updates_Paint);
             // 
             // mnu_Sub_Validate
             // 
             this.mnu_Sub_Validate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.mnu_Sub_Validate.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.mnu_Sub_Validate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mnu_Sub_Validate.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Validate.Name = "mnu_Sub_Validate";
-            this.mnu_Sub_Validate.Size = new System.Drawing.Size(183, 22);
+            this.mnu_Sub_Validate.Size = new System.Drawing.Size(180, 22);
             this.mnu_Sub_Validate.Text = "Validate Signature";
             this.mnu_Sub_Validate.Click += new System.EventHandler(this.mnu_Sub_Validate_Click);
             // 
@@ -224,7 +225,7 @@ namespace ScreenpressoKG
             this.mnu_Help_Sep_1.BackColor = System.Drawing.Color.Black;
             this.mnu_Help_Sep_1.Name = "mnu_Help_Sep_1";
             this.mnu_Help_Sep_1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always;
-            this.mnu_Help_Sep_1.Size = new System.Drawing.Size(180, 1);
+            this.mnu_Help_Sep_1.Size = new System.Drawing.Size(177, 1);
             this.mnu_Help_Sep_1.Paint += new System.Windows.Forms.PaintEventHandler(this.mnu_Help_Sep_1_Paint);
             // 
             // mnu_Sub_About
@@ -232,7 +233,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.mnu_Sub_About.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_About.Name = "mnu_Sub_About";
-            this.mnu_Sub_About.Size = new System.Drawing.Size(183, 22);
+            this.mnu_Sub_About.Size = new System.Drawing.Size(180, 22);
             this.mnu_Sub_About.Text = "About";
             this.mnu_Sub_About.Click += new System.EventHandler(this.mnu_Sub_About_Click);
             // 
@@ -291,38 +292,6 @@ namespace ScreenpressoKG
             this.box_BlockGroup.Size = new System.Drawing.Size(494, 126);
             this.box_BlockGroup.TabIndex = 24;
             this.box_BlockGroup.Paint += new System.Windows.Forms.PaintEventHandler(this.box_BlockGroup_Paint);
-            // 
-            // btn_HostView
-            // 
-            this.btn_HostView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
-            this.btn_HostView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_HostView.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_HostView.FlatAppearance.BorderSize = 0;
-            this.btn_HostView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HostView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_HostView.Location = new System.Drawing.Point(246, 80);
-            this.btn_HostView.Name = "btn_HostView";
-            this.btn_HostView.Size = new System.Drawing.Size(106, 29);
-            this.btn_HostView.TabIndex = 20;
-            this.btn_HostView.Text = "&View Host";
-            this.btn_HostView.UseVisualStyleBackColor = false;
-            this.btn_HostView.Click += new System.EventHandler(this.btn_HostView_Click);
-            // 
-            // btn_DoBlock
-            // 
-            this.btn_DoBlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
-            this.btn_DoBlock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DoBlock.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_DoBlock.FlatAppearance.BorderSize = 0;
-            this.btn_DoBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_DoBlock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DoBlock.Location = new System.Drawing.Point(134, 80);
-            this.btn_DoBlock.Name = "btn_DoBlock";
-            this.btn_DoBlock.Size = new System.Drawing.Size(106, 29);
-            this.btn_DoBlock.TabIndex = 19;
-            this.btn_DoBlock.Text = "&Block Host";
-            this.btn_DoBlock.UseVisualStyleBackColor = false;
-            this.btn_DoBlock.Click += new System.EventHandler(this.btn_DoBlock_Click);
             // 
             // lbl_HostBlocker_Desc
             // 
@@ -407,6 +376,49 @@ namespace ScreenpressoKG
             this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseMove);
             this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseUp);
             // 
+            // pnl_StatusParent
+            // 
+            this.pnl_StatusParent.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_StatusParent.Controls.Add(this.status_Strip);
+            this.pnl_StatusParent.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnl_StatusParent.Location = new System.Drawing.Point(0, 549);
+            this.pnl_StatusParent.Name = "pnl_StatusParent";
+            this.pnl_StatusParent.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.pnl_StatusParent.Size = new System.Drawing.Size(530, 34);
+            this.pnl_StatusParent.TabIndex = 35;
+            // 
+            // btn_HostView
+            // 
+            this.btn_HostView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.btn_HostView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_HostView.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_HostView.FlatAppearance.BorderSize = 0;
+            this.btn_HostView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_HostView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_HostView.Location = new System.Drawing.Point(246, 80);
+            this.btn_HostView.Name = "btn_HostView";
+            this.btn_HostView.Size = new System.Drawing.Size(106, 29);
+            this.btn_HostView.TabIndex = 20;
+            this.btn_HostView.Text = "&View Host";
+            this.btn_HostView.UseVisualStyleBackColor = false;
+            this.btn_HostView.Click += new System.EventHandler(this.btn_HostView_Click);
+            // 
+            // btn_DoBlock
+            // 
+            this.btn_DoBlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.btn_DoBlock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DoBlock.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_DoBlock.FlatAppearance.BorderSize = 0;
+            this.btn_DoBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DoBlock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DoBlock.Location = new System.Drawing.Point(134, 80);
+            this.btn_DoBlock.Name = "btn_DoBlock";
+            this.btn_DoBlock.Size = new System.Drawing.Size(106, 29);
+            this.btn_DoBlock.TabIndex = 19;
+            this.btn_DoBlock.Text = "&Block Host";
+            this.btn_DoBlock.UseVisualStyleBackColor = false;
+            this.btn_DoBlock.Click += new System.EventHandler(this.btn_DoBlock_Click);
+            // 
             // txt_LicenseKey
             // 
             this.txt_LicenseKey.AllowFocus = true;
@@ -490,17 +502,6 @@ namespace ScreenpressoKG
             this.btnGenerate.Text = "&Generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btn_Generate_Click);
-            // 
-            // pnl_StatusParent
-            // 
-            this.pnl_StatusParent.BackColor = System.Drawing.Color.Transparent;
-            this.pnl_StatusParent.Controls.Add(this.status_Strip);
-            this.pnl_StatusParent.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_StatusParent.Location = new System.Drawing.Point(0, 549);
-            this.pnl_StatusParent.Name = "pnl_StatusParent";
-            this.pnl_StatusParent.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
-            this.pnl_StatusParent.Size = new System.Drawing.Size(530, 34);
-            this.pnl_StatusParent.TabIndex = 35;
             // 
             // FormParent
             // 

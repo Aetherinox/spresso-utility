@@ -4,6 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using ScreenpressoKG.Forms;
+using System.Collections.Generic;
+using System.Web.Script.Serialization;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
 
@@ -19,6 +21,7 @@ namespace ScreenpressoKG
                 Define > Classes
             */
 
+            private AppInfo AppInfo             = new AppInfo();
             private Helpers Helpers             = new Helpers( );
             readonly private Serial Serial      = new Serial();
 
@@ -39,6 +42,38 @@ namespace ScreenpressoKG
             private bool mouseDown;
             private Point lastLocation;
 
+            /*
+                Could not find MobaXterm.exe
+
+                patch_launch_fullpath       : Full path to exe
+                patch_launch_dir            : Directory only
+                patch_launch_exe            : Patcher exe filename only
+            */
+
+            static private string patch_launch_fullpath = Process.GetCurrentProcess( ).MainModule.FileName;
+            static private string patch_launch_dir      = Path.GetDirectoryName( patch_launch_fullpath );
+            static private string patch_launch_exe      = Path.GetFileName( patch_launch_fullpath );
+
+            /*
+                Define > updates
+            */
+
+            private bool bUpdateAvailable               = false;
+
+            /*
+                Manifest > Json
+            */
+
+            public class Manifest
+            {
+                public string version { get; set; }
+                public string name { get; set; }
+                public string author { get; set; }
+                public string description { get; set; }
+                public string url { get; set; }
+                public IList<string> scripts { get; set; }
+            }
+
         #endregion
 
         #region "Main Window: Initialize"
@@ -58,31 +93,31 @@ namespace ScreenpressoKG
                     Product, trademark, etc.
                 */
 
-                string ver                  = AppInfo.ProductVersionCore.ToString( );
-                string product              = AppInfo.Title;
-                string tm                   = AppInfo.Trademark;
+                string ver                      = AppInfo.ProductVersionCore.ToString( );
+                string product                  = AppInfo.Title;
+                string tm                       = AppInfo.Trademark;
 
                 /*
                     Form Control Buttons
                 */
 
-                btn_Close.Parent            = imgHeader;
-                btn_Close.BackColor         = Color.Transparent;
+                btn_Close.Parent                = imgHeader;
+                btn_Close.BackColor             = Color.Transparent;
 
-                btn_Minimize.Parent         = imgHeader;
-                btn_Minimize.BackColor      = Color.Transparent;
+                btn_Minimize.Parent             = imgHeader;
+                btn_Minimize.BackColor          = Color.Transparent;
 
                 /*
                     Headers
                 */
 
-                lbl_HeaderName.Parent       = imgHeader;
-                lbl_HeaderName.BackColor    = Color.Transparent;
-                lbl_HeaderName.Text         = product;
+                lbl_HeaderName.Parent           = imgHeader;
+                lbl_HeaderName.BackColor        = Color.Transparent;
+                lbl_HeaderName.Text             = product;
 
-                lbl_HeaderSub.Parent        = imgHeader;
-                lbl_HeaderSub.BackColor     = Color.Transparent;
-                lbl_HeaderSub.Text          = "v" + ver + " by " + tm;
+                lbl_HeaderSub.Parent            = imgHeader;
+                lbl_HeaderSub.BackColor         = Color.Transparent;
+                lbl_HeaderSub.Text              = "v" + ver + " by " + tm;
 
                 /*
                     Host Block Segment
@@ -118,6 +153,57 @@ namespace ScreenpressoKG
             {
                 mnu_Main.Renderer           = new ToolStripProfessionalRenderer( new mnu_Main_ColorTable( ) );
                 StatusBar.Update( string.Format( Lng.statusbar_generate ) );
+
+                /*
+                    update checker > json
+                        views the data stored at https://github.com/Aetherinox/ScreenpressoKeygen/blob/master/Manifest/manifest.json
+                */
+
+                using ( var webClient = new System.Net.WebClient( ) )
+                {
+                    var json = webClient.DownloadString( Cfg.Default.app_url_manifest );
+
+                    if( json == null )
+                        return;
+
+                    JavaScriptSerializer serializer     = new JavaScriptSerializer( ); 
+                    Manifest manifest                   = serializer.Deserialize<Manifest>( json );
+
+                    /*
+                        Check if update is available for end-user
+                    */
+
+                    bool bUpdate        = AppInfo.UpdateAvailable( manifest.version );
+                    string ver_curr     = AppInfo.PublishVersion;
+
+                    /*
+                        determines if the update notification appears
+                    */
+
+                    if ( bUpdate || AppInfo.bIsDebug( ) )
+                        bUpdateAvailable = true;
+
+                    /*
+                        update checker
+                    */
+
+                    if ( ( bUpdateAvailable && !Cfg.Default.bShowedUpdates ) )
+                    {
+                        Cfg.Default.bShowedUpdates = true;
+
+                        var result = MessageBox.Show( string.Format( Lng.msgbox_update_msg, manifest.version, Cfg.Default.app_softw_name ),
+                            string.Format( Lng.msgbox_update_title, ver_curr, manifest.version ),
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
+                        );
+
+                        string answer   = result.ToString( ).ToLower( );
+
+                        if ( answer == "yes" )
+                            System.Diagnostics.Process.Start( Cfg.Default.app_url_github + "/releases/" );
+                    }
+
+                }
+
             }
 
         #endregion
@@ -436,6 +522,21 @@ namespace ScreenpressoKG
             }
 
             /*
+                Top Menu > Updates > Update Indicator
+            */
+
+            private void mnu_Sub_Updates_Paint( object sender, PaintEventArgs e )
+            {
+                if ( bUpdateAvailable )
+                {
+                    var imgSize     = mnu_Sub_Updates.Size;
+                    var bmp         = new Bitmap( Lng.notify_01 );
+
+                    e.Graphics.DrawImage( bmp, 7,  ( imgSize.Height / 2 ) - ( 24 / 2 ), 24, 24 );
+                }
+            }
+
+            /*
                Top Menu > Help > x509 Certificate Validation
             */
 
@@ -734,5 +835,6 @@ namespace ScreenpressoKG
             }
 
         #endregion
+
     }
 }

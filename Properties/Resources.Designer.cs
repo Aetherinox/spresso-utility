@@ -626,6 +626,38 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update v{0} is available.
+        ///
+        ///Updates ensure this patch works with the latest version {1}. If you have issues using this tool, download the latest version in the top menu: Help ► Updates
+        ///
+        ///Would you like to view the update? If not, program will start as normal..
+        /// </summary>
+        internal static string msgbox_update_msg {
+            get {
+                return ResourceManager.GetString("msgbox_update_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Available: {0} ► {1}.
+        /// </summary>
+        internal static string msgbox_update_title {
+            get {
+                return ResourceManager.GetString("msgbox_update_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap notify_01 {
+            get {
+                object obj = ResourceManager.GetObject("notify_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap question {

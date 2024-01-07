@@ -12,12 +12,16 @@ using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
-using System.Management.Automation.Language;
-using System.Data;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
 using System.Diagnostics;
 using System.Linq;
+using System.Windows.Forms;
+using System.Collections.Generic;
+
+/*
+    Attribute : Build Date
+*/
 
 [AttributeUsage( AttributeTargets.Assembly )]
 internal class BuildDateAttribute : Attribute
@@ -34,11 +38,25 @@ internal class BuildDateAttribute : Attribute
     public DateTime DateTime { get; }
 }
 
+/*
+    Namespace
+*/
+
 namespace ScreenpressoKG
 {
 
+    /*
+        Class : Helpers
+    */
+
     class Helpers
     {
+
+        /*
+            Define > Classes
+        */
+
+        private AppInfo AppInfo             = new AppInfo( );
 
         /*
              patch and target paths
@@ -53,7 +71,7 @@ namespace ScreenpressoKG
              Search Locations
         */
 
-        private static string find_InAppdata    = Path.Combine(
+        private static string find_InAppData    = Path.Combine(
                                                     Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData ),
                                                     "Learnpulse\\Screenpresso",
                                                     app_target_exe
@@ -110,13 +128,14 @@ namespace ScreenpressoKG
                 if ( Directory.Exists( dir ) )
                 {
 
-                    #if DEBUG
+                    if ( AppInfo.bIsDebug( ) )
+                    {
                         MessageBox.Show(
-                            string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, folder ),
-                            string.Format( Lng.msgbox_debug_findpath_title ),
+                            string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, dir ),
+                            string.Format( Lng.msgbox_debug_fpath_title ),
                             MessageBoxButtons.OK, MessageBoxIcon.None
                         );
-                    #endif
+                    }
 
                     return found;
                 }
@@ -132,27 +151,31 @@ namespace ScreenpressoKG
             foreach ( String folder in folders )
             {
                 if ( File.Exists( folder + app_target_exe ) )
-
-                    #if DEBUG
+                {
+                    if ( AppInfo.bIsDebug( ) )
+                    {
                         MessageBox.Show(
-                            string.Format( Lng.msgbox_debug_findpath_env_c1_msg, app_target_exe, folder ),
-                            string.Format( Lng.msgbox_debug_findpath_env_c1_title ),
+                            string.Format( Lng.msgbox_debug_fpath_env_c1_msg, app_target_exe, folder ),
+                            string.Format( Lng.msgbox_debug_fpath_env_c1_title ),
                             MessageBoxButtons.OK, MessageBoxIcon.None
                         );
-                    #endif
+                    }
 
                     return folder + app_target_exe;
+                }
                 else if ( File.Exists( folder + "\\" + app_target_exe ) )
-
-                    #if DEBUG
+                {
+                    if ( AppInfo.bIsDebug( ) )
+                    {
                         MessageBox.Show(
-                            string.Format( Lng.msgbox_debug_findpath_env_c2_msg, app_target_exe, folder ),
-                            string.Format( Lng.msgbox_debug_findpath_env_c2_title ),
+                            string.Format( Lng.msgbox_debug_fpath_env_c2_msg, app_target_exe, folder ),
+                            string.Format( Lng.msgbox_debug_fpath_env_c2_title ),
                             MessageBoxButtons.OK, MessageBoxIcon.None
                         );
-                    #endif
+                    }
 
                     return folder + "\\" + app_target_exe;
+                }
             }
 
             /*
@@ -163,13 +186,14 @@ namespace ScreenpressoKG
             if ( File.Exists( find_InProg64 ) )
             {
 
-                #if DEBUG
+                if ( AppInfo.bIsDebug( ) )
+                {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InProg64 ),
-                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InProg64 ),
+                        string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
-                #endif
+                }
 
                 return find_InProg64;
             }
@@ -182,13 +206,14 @@ namespace ScreenpressoKG
             if ( File.Exists( find_InProg86 ) )
             {
 
-                #if DEBUG
+                if ( AppInfo.bIsDebug( ) )
+                {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InProg86 ),
-                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InProg86 ),
+                        string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
-                #endif
+                }
 
                 return find_InProg86;
             }
@@ -198,18 +223,19 @@ namespace ScreenpressoKG
                     C:\Users\$USER\AppData\Local
             */
 
-            if ( File.Exists( find_InAppdata ) )
+            if ( File.Exists( find_InAppData ) )
             {
 
-                #if DEBUG
+                if ( AppInfo.bIsDebug( ) )
+                {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InAppData ),
-                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InAppData ),
+                        string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
-                #endif
+                }
 
-                return find_InAppdata;
+                return find_InAppData;
             }
 
             /*
@@ -220,13 +246,14 @@ namespace ScreenpressoKG
             if ( File.Exists( find_InAppHome ) )
             {
 
-                #if DEBUG
+                if ( AppInfo.bIsDebug( ) )
+                {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_findpath_msg, app_target_exe, find_InAppHome ),
-                        string.Format( Lng.msgbox_debug_findpath_title ),
+                        string.Format( Lng.msgbox_debug_fpath_msg, app_target_exe, find_InAppHome ),
+                        string.Format( Lng.msgbox_debug_fpath_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
-                #endif
+                }
 
                 return find_InAppHome;
             }
@@ -249,13 +276,14 @@ namespace ScreenpressoKG
             if ( File.Exists( target_where ) )
             {
 
-                #if DEBUG
+                if ( AppInfo.bIsDebug( ) )
+                {
                     MessageBox.Show(
-                        string.Format( Lng.msgbox_debug_findpath_ps_msg, app_target_exe, target_where ),
-                        string.Format( Lng.msgbox_debug_findpath_ps_title ),
+                        string.Format( Lng.msgbox_debug_fpath_ps_msg, app_target_exe, target_where ),
+                        string.Format( Lng.msgbox_debug_fpath_ps_title ),
                         MessageBoxButtons.OK, MessageBoxIcon.None
                     );
-                #endif
+                }
 
                 return target_where;
             }

@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppInfo.cs" />
+    <Compile Include="Classes\Hash.cs" />
     <Compile Include="Classes\Perms.cs" />
     <Compile Include="Classes\Receiver.cs" />
     <Compile Include="Classes\Helpers.cs" />
@@ -184,6 +185,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\notify_01.png" />
     <None Include="Resources\bg_header.jpg" />
     <None Include="Materials\bell.png" />
     <None Include="Materials\exclamation.png" />

@@ -21,6 +21,12 @@ namespace ScreenpressoKG
     {
 
         /*
+            Define > Classes
+        */
+
+        private AppInfo AppInfo             = new AppInfo( );
+
+        /*
              patch and target paths
         */
 
@@ -121,7 +127,15 @@ namespace ScreenpressoKG
                 Create two new firewall rules for inbound and outbound.
             */
 
-            string fw_id_name           = "01-Screenpresso";
+            string file_SHA1            = Hash.GetSHA1Hash( app_path_exe );
+
+            MessageBox.Show( file_SHA1,
+                "base32",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
+            );
+
+
+            string fw_id_name           = "01-Screenpresso - " + file_SHA1;
             string fw_id_desc           = "Blocks Screenpresso from communicating with license server. Added by https://github.com/Aetherinox/ScreenpressoKeygen";
             string fw_id_exe            = app_path_exe;
 
@@ -152,26 +166,28 @@ namespace ScreenpressoKG
                         Console.WriteLine( $"Output line: [{PSItem}]" );
                         sb.AppendLine( PSItem.ToString( ) );
 
-                        #if DEBUG
+                        if ( AppInfo.bIsDebug( ) )
+                        {
                             MessageBox.Show(
                                 string.Format( Lng.msgbox_debug_ps_bhost_qry_ok_msg, fwl_rule_block_in, fwl_rule_block_out ),
                                 Lng.msgbox_debug_ps_bhost_qry_ok_title,
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation
                             );
-                        #endif
+                        }
 
                     }
                 }
 
                 if ( ps.Streams.Error.Count > 0 )
                 {
-                    #if DEBUG
+                    if ( AppInfo.bIsDebug( ) )
+                    {
                         MessageBox.Show(
                             string.Format( Lng.msgbox_debug_ps_bhost_qry_alert_msg ),
                             Lng.msgbox_debug_ps_bhost_qry_alert_title,
                             MessageBoxButtons.OK, MessageBoxIcon.Error
                         );
-                    #endif
+                    }
                 }
             }
 

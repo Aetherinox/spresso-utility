@@ -65,9 +65,9 @@ namespace ScreenpressoKG.Msgbox
             this.lbl_Caption.ForeColor = System.Drawing.Color.White;
             this.lbl_Caption.Location = new System.Drawing.Point(9, 5);
             this.lbl_Caption.Name = "lbl_Caption";
-            this.lbl_Caption.Size = new System.Drawing.Size(86, 17);
+            this.lbl_Caption.Size = new System.Drawing.Size(96, 17);
             this.lbl_Caption.TabIndex = 4;
-            this.lbl_Caption.Text = "labelCaption";
+            this.lbl_Caption.Text = "Message Title";
             // 
             // btn_Close
             // 
@@ -203,7 +203,7 @@ namespace ScreenpressoKG.Msgbox
             this.Name = "FormMessageBox";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form1";
+            this.Text = "Screenpresso";
             this.pnl_Titlebar.ResumeLayout(false);
             this.pnl_Titlebar.PerformLayout();
             this.pnl_Buttons.ResumeLayout(false);
