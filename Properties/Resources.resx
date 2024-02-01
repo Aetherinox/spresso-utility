@@ -127,9 +127,6 @@
   <data name="btc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Materials\btc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_ template_abort" xml:space="preserve">
-    <value>&amp;Abort</value>
-  </data>
   <data name="btn_bhost_block" xml:space="preserve">
     <value>&amp;Block Host</value>
   </data>
@@ -141,6 +138,9 @@
   </data>
   <data name="btn_license_generate" xml:space="preserve">
     <value>&amp;Generate</value>
+  </data>
+  <data name="btn_template_abort" xml:space="preserve">
+    <value>&amp;Abort</value>
   </data>
   <data name="btn_template_cancel" xml:space="preserve">
     <value>&amp;Cancel</value>
@@ -260,6 +260,27 @@ Are you sure?</value>
   <data name="msgbox_copy_invlicense_title" xml:space="preserve">
     <value>No License Generated</value>
   </data>
+  <data name="msgbox_core_runas_msg" xml:space="preserve">
+    <value>This program requires it being ran as admin. Right-click on the program and select "Run As Admin".</value>
+  </data>
+  <data name="msgbox_core_runas_title" xml:space="preserve">
+    <value>Requires Admin</value>
+  </data>
+  <data name="msgbox_debug_egg_disable_msg" xml:space="preserve">
+    <value>Do you want to disable debug logging?</value>
+  </data>
+  <data name="msgbox_debug_egg_disable_title" xml:space="preserve">
+    <value>Disable Debug Logging?</value>
+  </data>
+  <data name="msgbox_debug_egg_enable_msg" xml:space="preserve">
+    <value>Do you want to enable debug logging?
+
+All logs will be stored in the location:
+     {0}</value>
+  </data>
+  <data name="msgbox_debug_egg_enable_title" xml:space="preserve">
+    <value>Enable Debug Logging?</value>
+  </data>
   <data name="msgbox_debug_fpath_env_c1_msg" xml:space="preserve">
     <value>Located {0} with Windows Env Variable in:
 
@@ -357,6 +378,9 @@ Would you like to view the update? If not, program will start as normal.</value>
   </data>
   <data name="status_keygen_succ" xml:space="preserve">
     <value>Key generation successful</value>
+  </data>
+  <data name="status_patch_default" xml:space="preserve">
+    <value>Press Generate to create license key</value>
   </data>
   <data name="txt_contrib_intro" xml:space="preserve">
     <value>I do this because I enjoy giving back, and I'm not looking to make a profit off my work. However, donations would help immensely for one purpose -- purchasing libraries and other commercial products which have insane licensing systems. These types of products would make life much easier and get releases pumped out on a more regular basis. Don't feel obligated, this is just "if you can". My main goal is better tools.</value>

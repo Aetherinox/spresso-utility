@@ -4,6 +4,7 @@
     @author     : Aetherinox
 */
 
+#region "Using"
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Management.Automation;
 using System.Diagnostics;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+#endregion
 
 namespace ScreenpressoKG
 {
@@ -41,6 +43,7 @@ namespace ScreenpressoKG
         */
 
         private AppInfo AppInfo = new AppInfo( );
+        private Helpers Helpers = new Helpers( );
 
         /*
              patch and target paths
@@ -52,10 +55,57 @@ namespace ScreenpressoKG
         private static string app_target_exe            = Cfg.Default.app_target_exe;
 
         /*
-            Define > Classes
+            Serial > Generate
+
+            @arg    : enum edition
+            @arg    : int version
+            @arg    : str data
+
+            @return : str
         */
 
-        private Helpers Helpers = new Helpers( );
+        public string Generate( Editions edition, int version, string data )
+        {
+            RSACryptoServiceProvider rsa    = new RSACryptoServiceProvider( 0x200 );
+            SHA1CryptoServiceProvider sha   = new SHA1CryptoServiceProvider( );
+
+            /*
+                generated using https://github.com/ius/rsatool
+            */
+
+            rsa.FromXmlString( "<RSAKeyValue><Modulus>2FwAhdlB/Lw3csW+hov2cz33ZkaIP2rsl9GjJHgZgOrI/JvulnebHRvFrnMY4Z9TCvV7MT0rtTZ3aV1WFfGgpQ==</Modulus><Exponent>AQAB</Exponent><P>3qlwFXADYCSsncBBVPrKDAfuzw6YgyItCfdlPm7238U=</P><Q>+MD97qTWvItm/OIwVrpE3PM6XNNznG4c0J8SnZnZ62E=</Q><DP>uAdmofFAePgWyxMZbDkTQTpVQEEaAFgAzZnxzdY8qNk=</DP><DQ>Eujo5NlXEaIvRA4VyqICViGPUDsq0Lt2KU3OZnipnkE=</DQ><InverseQ>PuidoKq0V4ygjGTJ6IKZOy//e3+rXvOESJJKV/4lnhQ=</InverseQ><D>VwDYLPrqsCk32u1t6kkKN9lpTTV7wJTMw1hH1Hh/OPlzeyb/sFOW7V1lghRoxIzmOagdFGlSyt5jSeOBqxnTAQ==</D></RSAKeyValue>" );
+
+            string dt_format        = "MM/dd/yyyy";
+            string v_edition        = ( ( int ) edition ).ToString( );
+            string v_version        = version.ToString( );
+            string v_datetime       = DateTime.Today.ToString( dt_format );
+
+            /*
+                build license key
+            */
+
+            string license_out      = String.Format( "[{0}]-[screenpressopro]-[{1}]-[{2}]-[{3}]", v_edition, v_version, data, v_datetime );
+            byte[] rsa_bytes        = rsa.SignData( Encoding.ASCII.GetBytes( license_out ), sha );
+            string key              = String.Format( "{0}-[{1}]", license_out, Convert.ToBase64String( rsa_bytes ) );
+
+            /*
+                Returns a blank key for some reason
+            */
+
+            if ( String.IsNullOrEmpty( key ) )
+            {
+                StatusBar.Update( Lng.status_keygen_fail );
+                return Lng.txt_License_resp_keygen_fail;
+            }
+
+            /*
+                key generated successfully
+            */
+
+            StatusBar.Update( Lng.status_keygen_succ );
+
+            return ( key );
+        }
 
         /*
             Serial > Block Host
@@ -130,6 +180,10 @@ namespace ScreenpressoKG
 
             string fw_id_sha1           = Hash.GetSHA1Hash( app_path_exe );
 
+            /*
+                sha not found
+            */
+
             if ( string.IsNullOrEmpty( fw_id_sha1 ) )
                 fw_id_sha1 = "0";
 
@@ -193,56 +247,6 @@ namespace ScreenpressoKG
                 MessageBoxButtons.OK, MessageBoxIcon.None
             );
 
-        }
-
-        /*
-            Serial > Generate
-
-            @arg    : enum edition
-            @arg    : int version
-            @arg    : str data
-
-            @return : str
-        */
-
-        public string Generate( Editions edition, int version, string data )
-        {
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider( 0x200 );
-
-            /*
-                generated using https://github.com/ius/rsatool
-            */
-
-            rsa.FromXmlString( "<RSAKeyValue><Modulus>2FwAhdlB/Lw3csW+hov2cz33ZkaIP2rsl9GjJHgZgOrI/JvulnebHRvFrnMY4Z9TCvV7MT0rtTZ3aV1WFfGgpQ==</Modulus><Exponent>AQAB</Exponent><P>3qlwFXADYCSsncBBVPrKDAfuzw6YgyItCfdlPm7238U=</P><Q>+MD97qTWvItm/OIwVrpE3PM6XNNznG4c0J8SnZnZ62E=</Q><DP>uAdmofFAePgWyxMZbDkTQTpVQEEaAFgAzZnxzdY8qNk=</DP><DQ>Eujo5NlXEaIvRA4VyqICViGPUDsq0Lt2KU3OZnipnkE=</DQ><InverseQ>PuidoKq0V4ygjGTJ6IKZOy//e3+rXvOESJJKV/4lnhQ=</InverseQ><D>VwDYLPrqsCk32u1t6kkKN9lpTTV7wJTMw1hH1Hh/OPlzeyb/sFOW7V1lghRoxIzmOagdFGlSyt5jSeOBqxnTAQ==</D></RSAKeyValue>" );
-
-            string dt_format        = "MM/dd/yyyy";
-            string v_edition        = ( ( int ) edition ).ToString( );
-            string v_version        = version.ToString( );
-            string v_datetime       = DateTime.Today.ToString( dt_format );
-
-            string[] license_arr    = new string[] { "[", v_edition, "]-[screenpressopro]-[", v_version, "]-[", data, "]-[", v_datetime, "]" };
-            string s                = string.Concat( license_arr );
-            byte[] inArray          = rsa.SignData( Encoding.ASCII.GetBytes( s ), new SHA1CryptoServiceProvider( ) );
-
-            string key              = s + "-[" + Convert.ToBase64String( inArray ) + "]";
-
-            /*
-                Returns a blank key for some reason
-            */
-
-            if ( String.IsNullOrEmpty( key ) )
-            {
-                StatusBar.Update( Lng.status_keygen_fail );
-                return Lng.txt_License_resp_keygen_fail;
-            }
-
-            /*
-                key generated successfully
-            */
-
-            StatusBar.Update( Lng.status_keygen_succ );
-
-            return ( key );
         }
 
     }

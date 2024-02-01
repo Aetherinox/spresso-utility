@@ -4,6 +4,7 @@
     @author     : Aetherinox
 */
 
+#region "Using"
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ using System.Management.Automation;
 using System.Text;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+#endregion
 
 namespace ScreenpressoKG
 {

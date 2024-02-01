@@ -4,7 +4,9 @@
     @author     : Aetherinox
 */
 
+#region "Using"
 using System.Windows.Forms;
+#endregion
 
 namespace ScreenpressoKG
 {

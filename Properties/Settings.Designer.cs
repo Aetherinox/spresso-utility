@@ -34,7 +34,7 @@ namespace ScreenpressoKG.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("70575bdfb02b3f1b45a37431bef9a8c9933a4ace")]
+        [global::System.Configuration.DefaultSettingValueAttribute("58a1539d6988d76f44bae27c27ed5645d3b1222a")]
         public string app_dev_piv_thumbprint {
             get {
                 return ((string)(this["app_dev_piv_thumbprint"]));
@@ -87,16 +87,13 @@ namespace ScreenpressoKG.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Aetherinox/ScreenpressoKeygen/master/Manifest/m" +
             "anifest.json")]
         public string app_url_manifest {
             get {
                 return ((string)(this["app_url_manifest"]));
-            }
-            set {
-                this["app_url_manifest"] = value;
             }
         }
         
@@ -109,15 +106,57 @@ namespace ScreenpressoKG.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool bShowedUpdates {
             get {
                 return ((bool)(this["bShowedUpdates"]));
             }
-            set {
-                this["bShowedUpdates"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int app_debug_clicks_activate {
+            get {
+                return ((int)(this["app_debug_clicks_activate"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("--debug")]
+        public string app_argid_debug {
+            get {
+                return ((string)(this["app_argid_debug"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hex_original.dmp")]
+        public string app_res_file_dmp_original {
+            get {
+                return ((string)(this["app_res_file_dmp_original"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hex_patched.dmp")]
+        public string app_res_file_dmp_patched {
+            get {
+                return ((string)(this["app_res_file_dmp_patched"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Screenpresso")]
+        public string app_name {
+            get {
+                return ((string)(this["app_name"]));
             }
         }
     }

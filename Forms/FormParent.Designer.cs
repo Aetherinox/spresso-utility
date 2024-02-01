@@ -61,6 +61,8 @@ namespace ScreenpressoKG
             this.lbl_StatusOutput = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbl_LicenseKey = new System.Windows.Forms.Label();
             this.box_BlockGroup = new System.Windows.Forms.Panel();
+            this.btn_HostView = new ScreenpressoKG.AetherxButton();
+            this.btn_DoBlock = new ScreenpressoKG.AetherxButton();
             this.lbl_HostBlocker_Desc = new System.Windows.Forms.Label();
             this.lbl_HostBlocker_Title = new System.Windows.Forms.Label();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,8 +72,6 @@ namespace ScreenpressoKG
             this.imgHeader = new System.Windows.Forms.PictureBox();
             this.lbl_HeaderSub = new System.Windows.Forms.Label();
             this.pnl_StatusParent = new System.Windows.Forms.Panel();
-            this.btn_HostView = new ScreenpressoKG.AetherxButton();
-            this.btn_DoBlock = new ScreenpressoKG.AetherxButton();
             this.txt_LicenseKey = new ScreenpressoKG.AetherxTextBox();
             this.txt_User = new ScreenpressoKG.AetherxTextBox();
             this.btnCopy = new ScreenpressoKG.AetherxButton();
@@ -124,9 +124,10 @@ namespace ScreenpressoKG
             this.lbl_HeaderName.Size = new System.Drawing.Size(356, 32);
             this.lbl_HeaderName.TabIndex = 5;
             this.lbl_HeaderName.Text = "Screenpresso License Generator";
-            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseDown);
-            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseMove);
-            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseUp);
+            this.lbl_HeaderName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseClick);
+            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_User
             // 
@@ -154,6 +155,9 @@ namespace ScreenpressoKG
             this.mnu_Main.TabIndex = 16;
             this.mnu_Main.Text = "menuStrip1";
             this.mnu_Main.Paint += new System.Windows.Forms.PaintEventHandler(this.mnu_Main_Paint);
+            this.mnu_Main.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.mnu_Main.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.mnu_Main.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // mnu_Cat_File
             // 
@@ -172,7 +176,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.mnu_Sub_Exit.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Exit.Name = "mnu_Sub_Exit";
-            this.mnu_Sub_Exit.Size = new System.Drawing.Size(180, 22);
+            this.mnu_Sub_Exit.Size = new System.Drawing.Size(93, 22);
             this.mnu_Sub_Exit.Text = "Exit";
             this.mnu_Sub_Exit.Click += new System.EventHandler(this.mnu_Sub_Exit_Click);
             // 
@@ -204,7 +208,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_Updates.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mnu_Sub_Updates.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Updates.Name = "mnu_Sub_Updates";
-            this.mnu_Sub_Updates.Size = new System.Drawing.Size(180, 22);
+            this.mnu_Sub_Updates.Size = new System.Drawing.Size(168, 22);
             this.mnu_Sub_Updates.Text = "Updates";
             this.mnu_Sub_Updates.Click += new System.EventHandler(this.mnu_Sub_Updates_Click);
             this.mnu_Sub_Updates.Paint += new System.Windows.Forms.PaintEventHandler(this.mnu_Sub_Updates_Paint);
@@ -215,7 +219,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_Validate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mnu_Sub_Validate.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_Validate.Name = "mnu_Sub_Validate";
-            this.mnu_Sub_Validate.Size = new System.Drawing.Size(180, 22);
+            this.mnu_Sub_Validate.Size = new System.Drawing.Size(168, 22);
             this.mnu_Sub_Validate.Text = "Validate Signature";
             this.mnu_Sub_Validate.Click += new System.EventHandler(this.mnu_Sub_Validate_Click);
             // 
@@ -225,7 +229,7 @@ namespace ScreenpressoKG
             this.mnu_Help_Sep_1.BackColor = System.Drawing.Color.Black;
             this.mnu_Help_Sep_1.Name = "mnu_Help_Sep_1";
             this.mnu_Help_Sep_1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always;
-            this.mnu_Help_Sep_1.Size = new System.Drawing.Size(177, 1);
+            this.mnu_Help_Sep_1.Size = new System.Drawing.Size(165, 1);
             this.mnu_Help_Sep_1.Paint += new System.Windows.Forms.PaintEventHandler(this.mnu_Help_Sep_1_Paint);
             // 
             // mnu_Sub_About
@@ -233,7 +237,7 @@ namespace ScreenpressoKG
             this.mnu_Sub_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.mnu_Sub_About.ForeColor = System.Drawing.Color.White;
             this.mnu_Sub_About.Name = "mnu_Sub_About";
-            this.mnu_Sub_About.Size = new System.Drawing.Size(180, 22);
+            this.mnu_Sub_About.Size = new System.Drawing.Size(168, 22);
             this.mnu_Sub_About.Text = "About";
             this.mnu_Sub_About.Click += new System.EventHandler(this.mnu_Sub_About_Click);
             // 
@@ -256,9 +260,9 @@ namespace ScreenpressoKG
             this.status_Strip.TabIndex = 17;
             this.status_Strip.Text = "statusStrip1";
             this.status_Strip.Paint += new System.Windows.Forms.PaintEventHandler(this.status_Strip_Paint);
-            this.status_Strip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.status_Strip_MouseDown);
-            this.status_Strip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.status_Strip_MouseMove);
-            this.status_Strip.MouseUp += new System.Windows.Forms.MouseEventHandler(this.status_Strip_MouseUp);
+            this.status_Strip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.status_Strip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.status_Strip.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_StatusOutput
             // 
@@ -292,6 +296,41 @@ namespace ScreenpressoKG
             this.box_BlockGroup.Size = new System.Drawing.Size(494, 126);
             this.box_BlockGroup.TabIndex = 24;
             this.box_BlockGroup.Paint += new System.Windows.Forms.PaintEventHandler(this.box_BlockGroup_Paint);
+            this.box_BlockGroup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.box_BlockGroup.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.box_BlockGroup.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
+            // 
+            // btn_HostView
+            // 
+            this.btn_HostView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.btn_HostView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_HostView.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_HostView.FlatAppearance.BorderSize = 0;
+            this.btn_HostView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_HostView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_HostView.Location = new System.Drawing.Point(246, 80);
+            this.btn_HostView.Name = "btn_HostView";
+            this.btn_HostView.Size = new System.Drawing.Size(106, 29);
+            this.btn_HostView.TabIndex = 20;
+            this.btn_HostView.Text = "&View Host";
+            this.btn_HostView.UseVisualStyleBackColor = false;
+            this.btn_HostView.Click += new System.EventHandler(this.btn_HostView_Click);
+            // 
+            // btn_DoBlock
+            // 
+            this.btn_DoBlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
+            this.btn_DoBlock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DoBlock.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_DoBlock.FlatAppearance.BorderSize = 0;
+            this.btn_DoBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DoBlock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DoBlock.Location = new System.Drawing.Point(134, 80);
+            this.btn_DoBlock.Name = "btn_DoBlock";
+            this.btn_DoBlock.Size = new System.Drawing.Size(106, 29);
+            this.btn_DoBlock.TabIndex = 19;
+            this.btn_DoBlock.Text = "&Block Host";
+            this.btn_DoBlock.UseVisualStyleBackColor = false;
+            this.btn_DoBlock.Click += new System.EventHandler(this.btn_DoBlock_Click);
             // 
             // lbl_HostBlocker_Desc
             // 
@@ -303,6 +342,9 @@ namespace ScreenpressoKG
             this.lbl_HostBlocker_Desc.TabIndex = 12;
             this.lbl_HostBlocker_Desc.Text = "Perform this step first to block Screenpresso from communicating with your comput" +
     "er. Required for license activation to work.";
+            this.lbl_HostBlocker_Desc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_HostBlocker_Desc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_HostBlocker_Desc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_HostBlocker_Title
             // 
@@ -315,6 +357,9 @@ namespace ScreenpressoKG
             this.lbl_HostBlocker_Title.Size = new System.Drawing.Size(108, 26);
             this.lbl_HostBlocker_Title.TabIndex = 11;
             this.lbl_HostBlocker_Title.Text = "Host Blocker";
+            this.lbl_HostBlocker_Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_HostBlocker_Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_HostBlocker_Title.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // fileToolStripMenuItem1
             // 
@@ -358,9 +403,9 @@ namespace ScreenpressoKG
             this.imgHeader.Size = new System.Drawing.Size(528, 129);
             this.imgHeader.TabIndex = 25;
             this.imgHeader.TabStop = false;
-            this.imgHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgHeader_MouseDown);
-            this.imgHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.imgHeader_MouseMove);
-            this.imgHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgHeader_MouseUp);
+            this.imgHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.imgHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.imgHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_HeaderSub
             // 
@@ -372,9 +417,9 @@ namespace ScreenpressoKG
             this.lbl_HeaderSub.Size = new System.Drawing.Size(51, 17);
             this.lbl_HeaderSub.TabIndex = 34;
             this.lbl_HeaderSub.Text = "Version";
-            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseDown);
-            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseMove);
-            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseUp);
+            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // pnl_StatusParent
             // 
@@ -386,38 +431,6 @@ namespace ScreenpressoKG
             this.pnl_StatusParent.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.pnl_StatusParent.Size = new System.Drawing.Size(530, 34);
             this.pnl_StatusParent.TabIndex = 35;
-            // 
-            // btn_HostView
-            // 
-            this.btn_HostView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
-            this.btn_HostView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_HostView.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_HostView.FlatAppearance.BorderSize = 0;
-            this.btn_HostView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HostView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_HostView.Location = new System.Drawing.Point(246, 80);
-            this.btn_HostView.Name = "btn_HostView";
-            this.btn_HostView.Size = new System.Drawing.Size(106, 29);
-            this.btn_HostView.TabIndex = 20;
-            this.btn_HostView.Text = "&View Host";
-            this.btn_HostView.UseVisualStyleBackColor = false;
-            this.btn_HostView.Click += new System.EventHandler(this.btn_HostView_Click);
-            // 
-            // btn_DoBlock
-            // 
-            this.btn_DoBlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(6)))), ((int)(((byte)(85)))));
-            this.btn_DoBlock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DoBlock.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_DoBlock.FlatAppearance.BorderSize = 0;
-            this.btn_DoBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_DoBlock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DoBlock.Location = new System.Drawing.Point(134, 80);
-            this.btn_DoBlock.Name = "btn_DoBlock";
-            this.btn_DoBlock.Size = new System.Drawing.Size(106, 29);
-            this.btn_DoBlock.TabIndex = 19;
-            this.btn_DoBlock.Text = "&Block Host";
-            this.btn_DoBlock.UseVisualStyleBackColor = false;
-            this.btn_DoBlock.Click += new System.EventHandler(this.btn_DoBlock_Click);
             // 
             // txt_LicenseKey
             // 
@@ -534,9 +547,9 @@ namespace ScreenpressoKG
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Screenpresso";
             this.Load += new System.EventHandler(this.FormParent_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             this.mnu_Main.ResumeLayout(false);
             this.mnu_Main.PerformLayout();
             this.status_Strip.ResumeLayout(false);

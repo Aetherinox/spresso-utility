@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+    @app        : Screenpresso
+    @repo       : https://github.com/Aetherinox/ScreenpressoKeygen
+    @author     : Aetherinox
+*/
+
+#region "Using"
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -6,8 +13,12 @@ using System.Windows.Forms;
 using ScreenpressoKG.Forms;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
-using Lng = ScreenpressoKG.Properties.Resources;
+using System.Threading.Tasks;
+using System.Reflection;
+using System.Net;
+using Res = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+#endregion
 
 namespace ScreenpressoKG
 {
@@ -15,15 +26,34 @@ namespace ScreenpressoKG
     public partial class FormParent : Form, IReceiver
     {
 
-        #region "Declarations"
+        #region "Define: Fileinfo"
 
             /*
+                Define > File Name
+                    utilized with logging
+            */
+
+            readonly static string log_file = "FormParent.cs";
+
+        #endregion
+
+        #region "Define: General"
+
+           /*
                 Define > Classes
             */
 
             private AppInfo AppInfo             = new AppInfo( );
             private Helpers Helpers             = new Helpers( );
             readonly private Serial Serial      = new Serial( );
+
+            /*
+                Define > Debug Activation
+            */
+
+            static int i_DebugClicks                        = 0;
+            private System.Windows.Forms.Timer DebugTimer   = new System.Windows.Forms.Timer( );
+            Stopwatch SW_DebugRemains                       = new Stopwatch( );
 
             /*
                 Define > Internal > Helper
@@ -55,6 +85,29 @@ namespace ScreenpressoKG
             static private string patch_launch_exe      = Path.GetFileName( patch_launch_fullpath );
 
             /*
+                Form > Register Object
+
+                    used to show / hide form without creating a new instance
+
+                @usage      : FormParent.Object = this;
+            */
+
+            private static FormParent Obj;
+
+            public static FormParent Object
+            {
+                get
+                {
+                    if ( Obj == null )
+                    {
+                        Obj = new FormParent( );
+                    }
+                    return Obj;
+                }
+                set { Obj = value; }
+            }
+
+            /*
                 Define > updates
             */
 
@@ -71,7 +124,54 @@ namespace ScreenpressoKG
                 public string author { get; set; }
                 public string description { get; set; }
                 public string url { get; set; }
-                public IList<string> scripts { get; set; }
+                public string piv { get; set; }
+                public string gpg { get; set; }
+                public IList<string> products { get; set; }
+            }
+
+        #endregion
+
+        #region "Define: Custom Menu Items"
+
+            ToolStripItem item_sep      = new ToolStripSeparator( );
+            ToolStripItem item_debug    = new ToolStripMenuItem( );
+
+        #endregion
+
+        #region "Method: Element Dragging"
+
+            private void obj_DragWindow_MouseDown( object sender, MouseEventArgs e )
+            {
+                mouseDown       = true;
+                lastLocation    = e.Location;
+            }
+
+            /*
+                Main Form > Mouse Up
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseUp( object sender, MouseEventArgs e )
+            {
+                mouseDown       = false;
+            }
+
+            /*
+                Main Form > Mouse Move
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseMove( object sender, MouseEventArgs e )
+            {
+                if ( mouseDown )
+                {
+                    this.Location = new Point(
+                        ( this.Location.X - lastLocation.X ) + e.X,
+                        ( this.Location.Y - lastLocation.Y ) + e.Y
+                    );
+
+                    this.Update( );
+                }
             }
 
         #endregion
@@ -84,8 +184,31 @@ namespace ScreenpressoKG
 
             public FormParent( )
             {
+                Stopwatch sw_LoadTime = new Stopwatch();
+                sw_LoadTime.Start( );
                 InitializeComponent( );
+                SetStyle( ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true );
+
+                typeof( Panel ).InvokeMember( "DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, 
+                null, this, new object[] { true } );
+
+                SuspendLayout( );
+
+                /*
+                    Register Form Object
+                */
+
+                FormParent.Object = this;
+
+                /*
+                    Initialize Receiver
+                */
+
                 StatusBar.InitializeReceiver( this );
+
+                /*
+                    Renderers
+                */
 
                 this.status_Strip.Renderer = new StatusBar_Renderer( );
 
@@ -123,25 +246,35 @@ namespace ScreenpressoKG
                     Host Block Segment
                 */
 
-                lbl_HostBlocker_Title.Text      = Lng.lbl_bhost_pnl_title;
-                lbl_HostBlocker_Desc.Text       = string.Format( Lng.lbl_bhost_pnl_intro, product );
-                btn_DoBlock.Text                = Lng.btn_bhost_block;
-                btn_HostView.Text               = Lng.btn_bhost_viewfile;
+                lbl_HostBlocker_Title.Text      = Res.lbl_bhost_pnl_title;
+                lbl_HostBlocker_Desc.Text       = string.Format( Res.lbl_bhost_pnl_intro, product );
+                btn_DoBlock.Text                = Res.btn_bhost_block;
+                btn_HostView.Text               = Res.btn_bhost_viewfile;
 
                 /*
                     User / License Boxes
                 */
 
-                lbl_User.Text                   = Lng.lbl_generate_name;
+                lbl_User.Text                   = Res.lbl_generate_name;
                 txt_User.PlaceholderText        = Cfg.Default.app_def_name;
-                lbl_LicenseKey.Text             = Lng.lbl_generate_license;
+                lbl_LicenseKey.Text             = Res.lbl_generate_license;
 
                 /*
                     Buttons
                 */
 
-                btnGenerate.Text                = Lng.btn_license_generate;
-                btnCopy.Text                    = Lng.btn_license_copy;
+                btnGenerate.Text                = Res.btn_license_generate;
+                btnCopy.Text                    = Res.btn_license_copy;
+
+                /*
+                    Debug Timer
+                */
+
+                sw_LoadTime.Stop            ( );
+                TimeSpan ts                 = sw_LoadTime.Elapsed;
+                string sw_TimeElapsed       = String.Format( "{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds,ts.Milliseconds / 10 );
+
+                Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Form", String.Format( "FormParent : {0} - Elapsed Loadtime {1}", System.Reflection.MethodBase.GetCurrentMethod( ).Name, sw_TimeElapsed ) );
 
             }
 
@@ -149,10 +282,10 @@ namespace ScreenpressoKG
                 Frame > Parent > Load
             */
 
-            private void FormParent_Load( object sender, EventArgs e )
+            private async void FormParent_Load( object sender, EventArgs e )
             {
                 mnu_Main.Renderer   = new ToolStripProfessionalRenderer( new mnu_Main_ColorTable( ) );
-                StatusBar.Update    ( string.Format( Lng.statusbar_generate ) );
+                StatusBar.Update    ( string.Format( Res.statusbar_generate ) );
 
                 /*
                     update checker > json
@@ -161,13 +294,66 @@ namespace ScreenpressoKG
 
                 using ( var webClient = new System.Net.WebClient( ) )
                 {
-                    var json = webClient.DownloadString( Cfg.Default.app_url_manifest );
+                    StatusBar.Update( string.Format( Res.status_patch_default ) );
 
-                    if( json == null )
-                        return;
+                    await Task.Run( ( ) => CheckUpdates( Cfg.Default.app_url_manifest ) );
+                    Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Form", String.Format( "FormParent_Load : {0}", System.Reflection.MethodBase.GetCurrentMethod( ).Name ) );
+
+                    /*
+                        Debug Timer
+                        forces the debug activation timer to expire every X seconds.
+                        A user must click on the header image at least 7 times in a matter of 7 seconds in order for debug mode to activate.
+
+                        see method DebugTimer_Tick for functionality
+                    */
+
+                    DebugTimer.Interval     = ( 10 * ( 100 * Cfg.Default.app_debug_clicks_activate ) );
+                    DebugTimer.Tick         += new EventHandler( DebugTimer_Tick );
+                    DebugTimer.Start        ( );
+                    SW_DebugRemains.Start   ( );
+                }
+
+            }
+
+
+            /*
+                Debug Timer > Tick
+                This termines how long a user has to click the header image in order to enable developer mode.
+                This is easier than creating yet another menu item.
+            */
+
+            private void DebugTimer_Tick( object sender, EventArgs e )
+            {
+                i_DebugClicks = 0;
+                SW_DebugRemains.Restart( );
+
+                Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Debug ] Timer", String.Format( "Debug timer SW_DebugRemains expired after {0} seconds -- resetting", Cfg.Default.app_debug_clicks_activate ) );
+            }
+
+            /*
+                Task > Check for Updates
+
+                views the data stored at https://github.com/Aetherinox/filezilla-patcher/blob/master/Manifest/manifest.json
+            */
+
+            private async Task CheckUpdates( string uri )
+            {
+                try
+                {
+                    var webClient       = new WebClient( );
+                    var json            = await webClient.DownloadStringTaskAsync( uri );
 
                     JavaScriptSerializer serializer     = new JavaScriptSerializer( ); 
                     Manifest manifest                   = serializer.Deserialize<Manifest>( json );
+
+                    /*
+                        validate json results from github
+                    */
+
+                    if ( manifest != null )
+                        Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Uplink", String.Format( "{0} : {1}", "FormParent.CheckUpdates", "Successful connection - populated manifest data" ) );
+                    else
+                       Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Uplink", String.Format( "{0} : {1}", "FormParent.CheckUpdates", "Successful connection - missing manifest data" ) );
 
                     /*
                         Check if update is available for end-user
@@ -187,23 +373,31 @@ namespace ScreenpressoKG
                         update checker
                     */
 
-                    if ( ( bUpdateAvailable && !Cfg.Default.bShowedUpdates ) )
+                    #pragma warning disable CS4014
+                    Task.Factory.StartNew( () =>
                     {
-                        Cfg.Default.bShowedUpdates = true;
+                        if ( ( bUpdateAvailable && !Settings.bShowedUpdates ) )
+                        {
+                            Settings.bShowedUpdates = true;
 
-                        var result = MessageBox.Show( string.Format( Lng.msgbox_update_msg, manifest.version, Cfg.Default.app_softw_name ),
-                            string.Format( Lng.msgbox_update_title, ver_curr, manifest.version ),
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
-                        );
+                            var result = MessageBox.Show
+                            ( 
+                                new Form( ) { TopMost = true, TopLevel = true, StartPosition = FormStartPosition.CenterScreen },
+                                string.Format( Res.msgbox_update_msg, manifest.version, Cfg.Default.app_name ),
+                                string.Format( Res.msgbox_update_title, ver_curr, manifest.version ),
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
+                            );
 
-                        string answer = result.ToString( ).ToLower( );
-
-                        if ( answer == "yes" )
-                            System.Diagnostics.Process.Start( Cfg.Default.app_url_github + "/releases/" );
-                    }
-
+                            if ( result.ToString( ).ToLower( ) == "yes" )
+                                System.Diagnostics.Process.Start( Cfg.Default.app_url_github + "/releases/" );
+                        }
+                     });
                 }
-
+                catch ( WebException e )
+                {
+                    Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Uplink", String.Format( "{0} : {1}", "FormParent.CheckUpdates", "Failed connection - exception" ) );
+                    Log.Send( log_file, 0, "", String.Format( "{0}", e.Message ) );
+                }
             }
 
         #endregion
@@ -272,120 +466,6 @@ namespace ScreenpressoKG
             private void btn_Window_Close_MouseLeave( object sender, EventArgs e )
             {
                 btn_Close.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-
-        #endregion
-
-        #region "Main Window: Dragging"
-
-            private void MainForm_MouseDown(object sender, MouseEventArgs e)
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void MainForm_MouseUp(object sender, MouseEventArgs e)
-            {
-                mouseDown = false;
-            }
-
-            private void MainForm_MouseMove(object sender, MouseEventArgs e)
-            {
-                if (mouseDown)
-                {
-                    this.Location = new Point(
-                        (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                    this.Update();
-                }
-            }
-
-        #endregion
-
-        #region "Header"
-
-        /*
-            Header Image
-        */
-
-            private void imgHeader_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown       = true;
-                lastLocation    = e.Location;
-            }
-
-            private void imgHeader_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void imgHeader_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-        /*
-            Header > Name Label
-        */
-
-            private void lbl_HeaderName_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void lbl_HeaderName_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void lbl_HeaderName_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-        /*
-            Header > Sub Label
-        */
-
-            private void lbl_HeaderSub_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void lbl_HeaderSub_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void lbl_HeaderSub_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
             }
 
         #endregion
@@ -531,7 +611,7 @@ namespace ScreenpressoKG
                 if ( bUpdateAvailable )
                 {
                     var imgSize     = mnu_Sub_Updates.Size;
-                    var bmp         = new Bitmap( Lng.notify_01 );
+                    var bmp         = new Bitmap( Res.notify_01 );
 
                     e.Graphics.DrawImage( bmp, 7,  ( imgSize.Height / 2 ) - ( 24 / 2 ), 24, 24 );
                 }
@@ -660,8 +740,8 @@ namespace ScreenpressoKG
 
                 var result = MessageBox.Show
                 (
-                    Lng.msgbox_block_msg,
-                    Lng.msgbox_bhost_title,
+                    Res.msgbox_block_msg,
+                    Res.msgbox_bhost_title,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question
                 );
 
@@ -675,8 +755,8 @@ namespace ScreenpressoKG
                 {
                     MessageBox.Show
                     (
-                        Lng.msgbox_bhost_cancel_msg,
-                        Lng.msgbox_bhost_cancel_title,
+                        Res.msgbox_bhost_cancel_msg,
+                        Res.msgbox_bhost_cancel_title,
                         MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
 
@@ -708,7 +788,7 @@ namespace ScreenpressoKG
             {
                 if ( string.IsNullOrEmpty( txt_User.Value ) )
                 {
-                    MessageBox.Show( Lng.msgbox_generate_invalidname_msg, Lng.msgbox_generate_invalidname_title,
+                    MessageBox.Show( Res.msgbox_generate_invalidname_msg, Res.msgbox_generate_invalidname_title,
                         MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
                 }
@@ -731,16 +811,16 @@ namespace ScreenpressoKG
 
                 if (string.IsNullOrEmpty( txt_LicenseKey.Value ) )
                 {
-                    MessageBox.Show( Lng.msgbox_copy_invlicense_msg, Lng.msgbox_copy_invlicense_title,
+                    MessageBox.Show( Res.msgbox_copy_invlicense_msg, Res.msgbox_copy_invlicense_title,
                         MessageBoxButtons.OK, MessageBoxIcon.Error
                     );
 
-                    StatusBar.Update( string.Format( Lng.statusbar_copy_invalidlicense ) );
+                    StatusBar.Update( string.Format( Res.statusbar_copy_invalidlicense ) );
                 }
                 else
                 {
                     Clipboard.SetText( txt_LicenseKey.Value );
-                    StatusBar.Update( string.Format( Lng.statusbar_copy_succ ) );
+                    StatusBar.Update( string.Format( Res.statusbar_copy_succ ) );
                 }
             }
 
@@ -793,34 +873,6 @@ namespace ScreenpressoKG
             }
 
             /*
-                Statusbar > Mouse Actions
-            */
-
-            private void status_Strip_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void status_Strip_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void status_Strip_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-            /*
                 Receiver > Update Status
             */
 
@@ -832,5 +884,109 @@ namespace ScreenpressoKG
 
         #endregion
 
+        #region "Debug Mode: Header"
+
+            /*
+                Debug Mode > Header Click
+                    if the user clicks the header a certain number of times in a short duration, they will enable
+                    debugging mode.
+            */
+
+            private void lbl_HeaderName_MouseClick( object sender, MouseEventArgs e )
+            {
+
+                /*
+                    add +1 to clicks
+                */
+
+                i_DebugClicks++;
+
+                /*
+                    don't go higher than 7, otherwise each click after 7 will re-show confirmation dialog. Start back at 0
+                */
+
+                int i_DebugRemains = Cfg.Default.app_debug_clicks_activate - i_DebugClicks;
+                if ( i_DebugClicks > Cfg.Default.app_debug_clicks_activate )
+                {
+                    i_DebugClicks = 0;
+                    return;
+                }
+
+                /*
+                    timer > remaining
+                */
+
+                int remains         = Cfg.Default.app_debug_clicks_activate - Convert.ToInt32( SW_DebugRemains.Elapsed.TotalSeconds );
+
+
+                /*
+                    prompt to enable / disable debug
+                */
+
+                if ( Settings.app_bDevmode )
+                    Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Debug ] Trigger", String.Format( "Disable debug with {0} more clicks -- {1} seconds remain", i_DebugRemains, remains ) );
+                else
+                    Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Debug ] Trigger", String.Format( "Enable debug with {0} more clicks -- {1} seconds remain", i_DebugRemains, remains ) );
+
+                /*
+                    wait until 7 clicks are done in X seconds
+                */
+
+                if ( i_DebugClicks >= Cfg.Default.app_debug_clicks_activate )
+                {
+
+                    if ( Settings.app_bDevmode )
+                    {
+
+                        /*
+                            Debug > disable
+                        */
+
+                        var resp_input = MessageBox.Show
+                        (
+                            new Form( ) { TopMost = true, TopLevel = true, StartPosition = FormStartPosition.CenterScreen },
+                            Res.msgbox_debug_egg_disable_msg,
+                            Res.msgbox_debug_egg_disable_title,
+                            MessageBoxButtons.YesNo, MessageBoxIcon.None
+                        );
+
+                        if ( resp_input.ToString( ).ToLower( ) == "yes" )
+                        {
+                            Settings.app_bDevmode = false;
+                            Program.DisableDebugConsole( );
+                        }
+
+                    }
+                    else
+                    {
+
+                        /*
+                            Debug > enable
+                        */
+
+                        string log_path = Log.GetStorageFile( );
+                        var resp_input = MessageBox.Show
+                        (
+                            new Form( ) { TopMost = true, TopLevel = true, StartPosition = FormStartPosition.CenterScreen },
+                            String.Format( Res.msgbox_debug_egg_enable_msg, log_path ),
+                            Res.msgbox_debug_egg_enable_title,
+                            MessageBoxButtons.YesNo, MessageBoxIcon.None
+                        );
+
+                        if ( resp_input.ToString( ).ToLower( ) == "yes" )
+                        {
+                            Settings.app_bDevmode = true;
+                            Program.EnableDebugConsole( );
+
+                            //mnu_Cat_Help.DropDownItems.Clear();
+
+                            mnu_Cat_Help.DropDownItems.Add( item_sep );
+                            mnu_Cat_Help.DropDownItems.Add( item_debug );
+                        }
+                    }
+                }
+            }
+
+        #endregion
     }
 }

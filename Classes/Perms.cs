@@ -4,10 +4,12 @@
     @author     : Aetherinox
 */
 
+#region "Using"
 using System;
 using System.Security.Principal;
 using System.Security.AccessControl;
 using System.IO;
+#endregion
 
 namespace ScreenpressoKG
 {

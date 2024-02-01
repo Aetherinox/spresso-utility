@@ -1,14 +1,85 @@
-﻿using System;
+﻿/*
+    @app        : Screenpresso
+    @repo       : https://github.com/Aetherinox/ScreenpressoKeygen
+    @author     : Aetherinox
+*/
+
+#region "Using"
+
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Lng = ScreenpressoKG.Properties.Resources;
+using Res = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+
+#endregion
 
 namespace ScreenpressoKG.Msgbox
 {
     public partial class FormMessageBox : Form
     {
+
+        #region "Define: Fileinfo"
+
+            /*
+                Define > File Name
+                    utilized with logging
+            */
+
+            readonly static string log_file = "FormMessageBox.cs";
+
+        #endregion
+
+        #region "Define: General"
+
+            /*
+                Define > Mouse
+            */
+
+            private bool mouseDown;
+            private Point lastLocation;
+
+        #endregion
+
+        #region "Method: Element Dragging"
+
+            private void obj_DragWindow_MouseDown( object sender, MouseEventArgs e )
+            {
+                mouseDown       = true;
+                lastLocation    = e.Location;
+            }
+
+            /*
+                Main Form > Mouse Up
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseUp( object sender, MouseEventArgs e )
+            {
+                mouseDown       = false;
+            }
+
+            /*
+                Main Form > Mouse Move
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseMove( object sender, MouseEventArgs e )
+            {
+                if ( mouseDown )
+                {
+                    this.Location = new Point(
+                        ( this.Location.X - lastLocation.X ) + e.X,
+                        ( this.Location.Y - lastLocation.Y ) + e.Y
+                    );
+
+                    this.Update( );
+                }
+            }
+
+        #endregion
+
         #region "Fields"
 
             private Color primaryColor  = Color.CornflowerBlue;
@@ -151,7 +222,7 @@ namespace ScreenpressoKG.Msgbox
                     case MessageBoxButtons.OK:
                         btn_1.Visible       = true;
                         btn_1.Location      = new Point( xCenter, yCenter );
-                        btn_1.Text          = "&OK";
+                        btn_1.Text          = Res.btn_template_ok;
                         btn_1.DialogResult  = DialogResult.OK;
 
                         SetDefaultButton( btn_Default );
@@ -165,12 +236,12 @@ namespace ScreenpressoKG.Msgbox
 
                         btn_1.Visible       = true;
                         btn_1.Location      = new Point( xCenter - ( btn_1.Width / 2 ) - 5, yCenter );
-                        btn_1.Text          = "&OK";
+                        btn_1.Text          = Res.btn_template_ok;
                         btn_1.DialogResult  = DialogResult.OK;
 
                         btn_2.Visible       = true;
                         btn_2.Location      = new Point( xCenter + ( btn_2.Width / 2 ) + 5, yCenter );
-                        btn_2.Text          = "&Cancel";
+                        btn_2.Text          = Res.btn_template_cancel;
                         btn_2.DialogResult  = DialogResult.Cancel;
                         btn_2.BackColor     = Color.DimGray;
 
@@ -188,12 +259,12 @@ namespace ScreenpressoKG.Msgbox
 
                         btn_1.Visible       = true;
                         btn_1.Location      = new Point(xCenter - ( btn_1.Width / 2) - 5, yCenter );
-                        btn_1.Text          = "&Retry";
+                        btn_1.Text          = Res.btn_template_retry;
                         btn_1.DialogResult  = DialogResult.Retry;
 
                         btn_2.Visible       = true;
                         btn_2.Location      = new Point( xCenter + ( btn_2.Width / 2 ) + 5, yCenter );
-                        btn_2.Text          = "&Cancel";
+                        btn_2.Text          = Res.btn_template_cancel;
                         btn_2.DialogResult  = DialogResult.Cancel;
                         btn_2.BackColor     = Color.DimGray;
 
@@ -211,12 +282,12 @@ namespace ScreenpressoKG.Msgbox
 
                         btn_1.Visible       = true;
                         btn_1.Location      = new Point(xCenter - ( btn_1.Width / 2) - 5, yCenter );
-                        btn_1.Text          = "&Yes";
+                        btn_1.Text          = Res.btn_template_yes;
                         btn_1.DialogResult  = DialogResult.Yes;
 
                         btn_2.Visible       = true;
                         btn_2.Location      = new Point( xCenter + ( btn_2.Width / 2 ) + 5, yCenter );
-                        btn_2.Text          = "&No";
+                        btn_2.Text          = Res.btn_template_no;
                         btn_2.DialogResult  = DialogResult.No;
                         btn_2.BackColor     = Color.IndianRed;
 
@@ -234,18 +305,18 @@ namespace ScreenpressoKG.Msgbox
 
                         btn_1.Visible       = true;
                         btn_1.Location      = new Point( xCenter - btn_1.Width - 5, yCenter );
-                        btn_1.Text          = "&Yes";
+                        btn_1.Text          = Res.btn_template_yes;
                         btn_1.DialogResult  = DialogResult.Yes;
 
                         btn_2.Visible       = true;
                         btn_2.Location      = new Point( xCenter, yCenter );
-                        btn_2.Text          = "&No";
+                        btn_2.Text          = Res.btn_template_no;
                         btn_2.DialogResult  = DialogResult.No;
                         btn_2.BackColor     = Color.IndianRed;
 
                         btn_3.Visible       = true;
                         btn_3.Location      = new Point( xCenter + btn_2.Width + 5, yCenter );
-                        btn_3.Text          = "&Cancel";
+                        btn_3.Text          = Res.btn_template_cancel;
                         btn_3.DialogResult  = DialogResult.Cancel;
                         btn_3.BackColor     = Color.DimGray;
 
@@ -261,18 +332,18 @@ namespace ScreenpressoKG.Msgbox
 
                         btn_1.Visible       = true;
                         btn_1.Location      = new Point( xCenter - btn_1.Width - 5, yCenter );
-                        btn_1.Text          = "&Abort";
+                        btn_1.Text          = Res.btn_template_abort;
                         btn_1.DialogResult  = DialogResult.Abort;
                         btn_1.BackColor     = Color.Goldenrod;
 
                         btn_2.Visible       = true;
                         btn_2.Location      = new Point(xCenter, yCenter);
-                        btn_2.Text          = "&Retry";
+                        btn_2.Text          = Res.btn_template_retry;
                         btn_2.DialogResult  = DialogResult.Retry;
 
                         btn_3.Visible       = true;
                         btn_3.Location      = new Point( xCenter + btn_2.Width + 5, yCenter );
-                        btn_3.Text          = "&Ignore";
+                        btn_3.Text          = Res.btn_template_ignore;
                         btn_3.DialogResult  = DialogResult.Ignore;
                         btn_3.BackColor     = Color.IndianRed;
 
@@ -420,45 +491,6 @@ namespace ScreenpressoKG.Msgbox
             private void btn_Close_MouseLeave( object sender, EventArgs e )
             {
                 this.btn_Close.ForeColor = Color.FromArgb( 255, 255, 255 );
-            }
-
-        #endregion
-
-        #region "Main Window: Dragging"
-
-            [DllImport( "user32.DLL", EntryPoint = "SendMessage" ) ]
-            private static extern void SendMessage(
-                System.IntPtr hWnd,
-                int wMsg,
-                int wParam,
-                int lParam
-            );
-
-            [ DllImport( "user32.DLL", EntryPoint = "ReleaseCapture" ) ]
-            private static extern void ReleaseCapture( );
-
-            private void pnl_Titlebar_MouseDown( object sender, MouseEventArgs e )
-            {
-                ReleaseCapture( );
-                SendMessage( this.Handle, 0x112, 0xf012, 0 );
-            }
-
-            private void pnl_Body_MouseDown( object sender, MouseEventArgs e )
-            {
-                ReleaseCapture( );
-                SendMessage( this.Handle, 0x112, 0xf012, 0 );
-            }
-
-            private void pnl_Buttons_MouseDown( object sender, MouseEventArgs e )
-            {
-                ReleaseCapture( );
-                SendMessage( this.Handle, 0x112, 0xf012, 0 );
-            }
-
-            private void lbl_Message_MouseDown( object sender, MouseEventArgs e )
-            {
-                ReleaseCapture( );
-                SendMessage( this.Handle, 0x112, 0xf012, 0 );
             }
 
         #endregion

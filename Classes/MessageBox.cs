@@ -4,8 +4,10 @@
     @author     : Aetherinox
 */
 
+#region "Using"
 using ScreenpressoKG.Msgbox;
 using System.Windows.Forms;
+#endregion
 
 namespace ScreenpressoKG
 {

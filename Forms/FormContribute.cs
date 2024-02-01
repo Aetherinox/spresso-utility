@@ -1,13 +1,31 @@
-﻿using System;
+﻿/*
+    @app        : Screenpresso
+    @repo       : https://github.com/Aetherinox/ScreenpressoKeygen
+    @author     : Aetherinox
+*/
+
+#region "Using"
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+#endregion
 
 namespace ScreenpressoKG.Forms
 {
     public partial class FormContribute : Form
     {
+
+        #region "Define: Fileinfo"
+
+            /*
+                Define > File Name
+            */
+
+            readonly static string log_file = "FormContribute.cs";
+
+        #endregion
 
         #region "Declarations"
 
@@ -23,6 +41,44 @@ namespace ScreenpressoKG.Forms
 
             private bool mouseDown;
             private Point lastLocation;
+
+        #endregion
+
+        #region "Global: Dragging"
+
+            private void obj_DragWindow_MouseDown( object sender, MouseEventArgs e )
+            {
+                mouseDown       = true;
+                lastLocation    = e.Location;
+            }
+
+            /*
+                Main Form > Mouse Up
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseUp( object sender, MouseEventArgs e )
+            {
+                mouseDown       = false;
+            }
+
+            /*
+                Main Form > Mouse Move
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseMove( object sender, MouseEventArgs e )
+            {
+                if ( mouseDown )
+                {
+                    this.Location = new Point(
+                        ( this.Location.X - lastLocation.X ) + e.X,
+                        ( this.Location.Y - lastLocation.Y ) + e.Y
+                    );
+
+                    this.Update( );
+                }
+            }
 
         #endregion
 
@@ -128,47 +184,6 @@ namespace ScreenpressoKG.Forms
 
         #endregion
 
-        #region "Main Window: Dragging"
-
-            /*
-                Main Form > Mouse Down
-                deals with moving form around on screen
-            */
-
-            private void FormContribute_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            /*
-                Main Form > Mouse Up
-                deals with moving form around on screen
-            */
-
-            private void FormContribute_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            /*
-                Main Form > Mouse Move
-                deals with moving form around on screen
-            */
-
-            private void FormContribute_MouseMove( object sender, MouseEventArgs e )
-            {
-                if (mouseDown)
-                {
-                    this.Location = new Point(
-                        (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                    this.Update( );
-                }
-            }
-
-        #endregion
-
         #region "Header"
 
         /*
@@ -182,114 +197,6 @@ namespace ScreenpressoKG.Forms
                 var imgSize         = imgHeader.ClientSize;
 
                 e.Graphics.FillRectangle( new SolidBrush( backColor ), 1, imgSize.Height - 2, imgSize.Width - 2, 2 );
-            }
-
-            private void imgHeader_MouseDown( object sender, MouseEventArgs e )
-            {
-                    mouseDown = true;
-                    lastLocation = e.Location;
-            }
-
-            private void imgHeader_MouseUp( object sender, MouseEventArgs e )
-            {
-                    mouseDown       = false;
-            }
-
-            private void imgHeader_MouseMove( object sender, MouseEventArgs e )
-            {
-                    if ( mouseDown )
-                    {
-                        this.Location = new Point(
-                            ( this.Location.X - lastLocation.X ) + e.X,
-                            ( this.Location.Y - lastLocation.Y ) + e.Y
-                        );
-
-                        this.Update( );
-                    }
-            }
-
-        /*
-            Header > Name Label
-        */
-
-            private void lbl_HeaderName_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void lbl_HeaderName_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown       = false;
-            }
-
-            private void lbl_HeaderName_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-        /*
-            Header > Sub Label
-        */
-
-            private void lbl_HeaderSub_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void lbl_HeaderSub_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown       = false;
-            }
-
-            private void lbl_HeaderSub_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-        #endregion
-
-        #region "Body: Intro"
-
-            private void lbl_Contrib_Intro_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void lbl_Contrib_Intro_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void lbl_Contrib_Intro_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
             }
 
         #endregion

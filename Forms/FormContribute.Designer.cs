@@ -61,9 +61,9 @@ namespace ScreenpressoKG.Forms
             this.imgHeader.TabIndex = 0;
             this.imgHeader.TabStop = false;
             this.imgHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.imgHeader_Paint);
-            this.imgHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.imgHeader_MouseDown);
-            this.imgHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.imgHeader_MouseMove);
-            this.imgHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.imgHeader_MouseUp);
+            this.imgHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.imgHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.imgHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // btn_Close
             // 
@@ -91,9 +91,9 @@ namespace ScreenpressoKG.Forms
             this.lbl_HeaderSub.Size = new System.Drawing.Size(51, 17);
             this.lbl_HeaderSub.TabIndex = 7;
             this.lbl_HeaderSub.Text = "Version";
-            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseDown);
-            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseMove);
-            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderSub_MouseUp);
+            this.lbl_HeaderSub.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_HeaderSub.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_HeaderSub.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_HeaderName
             // 
@@ -105,9 +105,9 @@ namespace ScreenpressoKG.Forms
             this.lbl_HeaderName.Size = new System.Drawing.Size(129, 32);
             this.lbl_HeaderName.TabIndex = 6;
             this.lbl_HeaderName.Text = "Contribute";
-            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseDown);
-            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseMove);
-            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_HeaderName_MouseUp);
+            this.lbl_HeaderName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_HeaderName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_HeaderName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_Contrib_Intro
             // 
@@ -123,9 +123,9 @@ namespace ScreenpressoKG.Forms
             this.lbl_Contrib_Intro.Size = new System.Drawing.Size(503, 155);
             this.lbl_Contrib_Intro.TabIndex = 1;
             this.lbl_Contrib_Intro.Text = resources.GetString("lbl_Contrib_Intro.Text");
-            this.lbl_Contrib_Intro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseDown);
-            this.lbl_Contrib_Intro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseMove);
-            this.lbl_Contrib_Intro.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_Contrib_Intro_MouseUp);
+            this.lbl_Contrib_Intro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_Contrib_Intro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_Contrib_Intro.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // pic_BCH
             // 
@@ -302,9 +302,9 @@ namespace ScreenpressoKG.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Screenpresso : Contribute";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormContribute_Paint);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormContribute_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormContribute_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FormContribute_MouseUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.imgHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BCH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_ETH)).EndInit();

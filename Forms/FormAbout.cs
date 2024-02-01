@@ -1,9 +1,21 @@
-﻿using System;
+﻿/*
+    @app        : Screenpresso
+    @repo       : https://github.com/Aetherinox/ScreenpressoKeygen
+    @author     : Aetherinox
+*/
+
+#region "Using"
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using ScreenpressoKG.Forms;
+using System.Reflection;
+using System.Threading.Tasks;
+using static ScreenpressoKG.FormParent;
+using System.Net;
+using System.Web.Script.Serialization;
 using Lng = ScreenpressoKG.Properties.Resources;
 using Cfg = ScreenpressoKG.Properties.Settings;
+#endregion
 
 namespace ScreenpressoKG
 {
@@ -11,7 +23,18 @@ namespace ScreenpressoKG
     public partial class FormAbout : Form
     {
 
-        #region "Declarations"
+        #region "Define: Fileinfo"
+
+            /*
+                Define > File Name
+                    utilized with logging
+            */
+
+            readonly static string log_file = "FormAbout.cs";
+
+        #endregion
+
+        #region "Define: General"
 
             /*
                 Define > Classes
@@ -102,11 +125,55 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
         #endregion
 
+        #region "Method: Element Dragging"
+
+            private void obj_DragWindow_MouseDown( object sender, MouseEventArgs e )
+            {
+                mouseDown       = true;
+                lastLocation    = e.Location;
+            }
+
+            /*
+                Main Form > Mouse Up
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseUp( object sender, MouseEventArgs e )
+            {
+                mouseDown       = false;
+            }
+
+            /*
+                Main Form > Mouse Move
+                deals with moving form around on screen
+            */
+
+            private void obj_DragWindow_MouseMove( object sender, MouseEventArgs e )
+            {
+                if ( mouseDown )
+                {
+                    this.Location = new Point(
+                        ( this.Location.X - lastLocation.X ) + e.X,
+                        ( this.Location.Y - lastLocation.Y ) + e.Y
+                    );
+
+                    this.Update( );
+                }
+            }
+
+        #endregion
+
         #region "Main Window: Initialize"
 
             public FormAbout( )
             {
-                InitializeComponent( );
+                InitializeComponent();
+                SetStyle( ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true );
+
+                typeof( Panel ).InvokeMember( "DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, 
+                null, this, new object[] { true } );
+
+                SuspendLayout( );
 
                 /*
                     Form Control Buttons
@@ -168,13 +235,15 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
             }
 
-            private void FormAbout_Load(object sender, EventArgs e)
+            private async void FormAbout_Load(object sender, EventArgs e)
             {
-
+                await Task.Run( ( ) => FetchJson( Cfg.Default.app_url_manifest ) );
+                Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Form", String.Format( "FormAbout_Load : {0}", System.Reflection.MethodBase.GetCurrentMethod( ).Name ) );
             }
 
             /*
-                Tweak to fix frame flickering
+                This optimizes the form for better loading of elements.
+                You must set the Form Properties AUTO-VALIDATE to "disabled".
             */
 
             protected override CreateParams CreateParams
@@ -182,34 +251,51 @@ This key is used to sign the releases on Github.com, all commits are also signed
                 get
                 {
                     CreateParams cp = base.CreateParams;
-                    cp.ExStyle |= 0x02000000;  // enable WS_EX_COMPOSITED
+                    cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                     return cp;
                 }
-            } 
-
-        #endregion
-
-        #region "Main Window: Dragging"
-
-            private void FormAbout_MouseDown(object sender, MouseEventArgs e)
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
             }
 
-            private void FormAbout_MouseUp(object sender, MouseEventArgs e)
-            {
-                mouseDown = false;
-            }
+            /*
+                Task > Fetch Json
 
-            private void FormAbout_MouseMove(object sender, MouseEventArgs e)
+                    views the data stored at https://github.com/Aetherinox/ScreenpressoKeygen/blob/master/Manifest/manifest.json
+            */
+
+            private async Task FetchJson( string uri )
             {
-                if (mouseDown)
+                try
                 {
-                    this.Location = new Point(
-                        (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+                    var webClient       = new WebClient( );
+                    var json            = await webClient.DownloadStringTaskAsync( uri );
 
-                    this.Update();
+                    JavaScriptSerializer serializer     = new JavaScriptSerializer( ); 
+                    Manifest manifest                   = serializer.Deserialize<Manifest>( json );
+
+                    /*
+                        validate json results from github
+                    */
+
+                    if ( manifest != null )
+                        Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Uplink", String.Format( "{0} : {1}", "FormAbout.FetchJson", "Successful connection - populated manifest data" ) );
+                    else
+                       Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Uplink", String.Format( "{0} : {1}", "FormAbout.FetchJson", "Successful connection - missing manifest data" ) );
+
+                    /*
+                        Check if update is available for end-user
+                    */
+
+                    if ( !string.IsNullOrEmpty( manifest.piv ) )
+                        txt_Dev_PIV_Thumbprint.Value    = manifest.piv;
+
+                    if ( !string.IsNullOrEmpty( manifest.gpg ) )
+                        txt_Dev_GPG_KeyID.Value         = manifest.gpg;
+
+                }
+                catch ( WebException e )
+                {
+                    Log.Send( log_file, new System.Diagnostics.StackTrace( true ).GetFrame( 0 ).GetFileLineNumber( ), "[ App.Interface ] Uplink", String.Format( "{0} : {1}", "FormAbout.FetchJson", "Failed connection - exception" ) );
+                    Log.Send( log_file, 0, "", String.Format( "{0}", e.Message ) );
                 }
             }
 
@@ -217,11 +303,11 @@ This key is used to sign the releases on Github.com, all commits are also signed
 
         #region "Main Window: Controls"
 
-            /*
-                Window > Button > Close
-            */
+        /*
+            Window > Button > Close
+        */
 
-            private void btn_Window_Close_Click(object sender, EventArgs e)
+        private void btn_Window_Close_Click(object sender, EventArgs e)
             {
 
                 FormParent to       = new FormParent( );
@@ -265,135 +351,26 @@ This key is used to sign the releases on Github.com, all commits are also signed
                 e.Graphics.FillRectangle( new SolidBrush( backColor ), 1, imgSize.Height - 2, imgSize.Width - 2, 2 );
             }
 
-            private void imgHeader_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void imgHeader_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown       = false;
-            }
-
-            private void imgHeader_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-        /*
-            Header > Name Label
-        */
-
-            private void lbl_HeaderName_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void lbl_HeaderName_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void lbl_HeaderName_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-        /*
-            Header > Sub Label
-        */
-
-            private void lbl_HeaderSub_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void lbl_HeaderSub_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void lbl_HeaderSub_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
-        /*
-            Header > Bottom Panel
-                Holds the links and version label
-        */
-
-            private void pnl_HeaderBtm_MouseDown( object sender, MouseEventArgs e )
-            {
-                mouseDown = true;
-                lastLocation = e.Location;
-            }
-
-            private void pnl_HeaderBtm_MouseUp( object sender, MouseEventArgs e )
-            {
-                mouseDown = false;
-            }
-
-            private void pnl_HeaderBtm_MouseMove( object sender, MouseEventArgs e )
-            {
-                if ( mouseDown )
-                {
-                    this.Location = new Point(
-                        ( this.Location.X - lastLocation.X ) + e.X,
-                        ( this.Location.Y - lastLocation.Y ) + e.Y
-                    );
-
-                    this.Update( );
-                }
-            }
-
         #endregion
 
         #region "Header Links"
 
-            /*
-                The header contains three levels. Two are links, and one is the version number.
-                The header also includes a semi-transparent panel to dim the background. In order to do this
-                and have the labels appear properly, we need to do some hacky stuff.
+        /*
+            The header contains three levels. Two are links, and one is the version number.
+            The header also includes a semi-transparent panel to dim the background. In order to do this
+            and have the labels appear properly, we need to do some hacky stuff.
 
-                    - Set the original link labels to have blank text
-                    - Add a Paint hook to each link label and draw the semi-transparent box
-                    - Manually draw the text on top of the transparent background
-                    - Track when the mouse enters / leaves the button so that text will be highlighted
-            */
+                - Set the original link labels to have blank text
+                - Add a Paint hook to each link label and draw the semi-transparent box
+                - Manually draw the text on top of the transparent background
+                - Track when the mouse enters / leaves the button so that text will be highlighted
+        */
 
-            /*
-                Links & label settings
-            */
+        /*
+            Links & label settings
+        */
 
-            private bool _bTPB_Hover            = false;
+        private bool _bTPB_Hover            = false;
             private bool _bGithub_Hover         = false;
             private string lnk_TPB_label        = " " + Lng.lnk_about_tpb;
             private string lnk_Github_Label     = " " + Lng.lnk_about_github;

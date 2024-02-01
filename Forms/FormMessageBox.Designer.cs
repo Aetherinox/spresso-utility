@@ -56,7 +56,9 @@ namespace ScreenpressoKG.Msgbox
             this.pnl_Titlebar.Name = "pnl_Titlebar";
             this.pnl_Titlebar.Size = new System.Drawing.Size(376, 28);
             this.pnl_Titlebar.TabIndex = 0;
-            this.pnl_Titlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_Titlebar_MouseDown);
+            this.pnl_Titlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.pnl_Titlebar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.pnl_Titlebar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_Caption
             // 
@@ -68,6 +70,9 @@ namespace ScreenpressoKG.Msgbox
             this.lbl_Caption.Size = new System.Drawing.Size(96, 17);
             this.lbl_Caption.TabIndex = 4;
             this.lbl_Caption.Text = "Message Title";
+            this.lbl_Caption.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_Caption.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_Caption.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // btn_Close
             // 
@@ -100,7 +105,9 @@ namespace ScreenpressoKG.Msgbox
             this.pnl_Buttons.Name = "pnl_Buttons";
             this.pnl_Buttons.Size = new System.Drawing.Size(376, 60);
             this.pnl_Buttons.TabIndex = 1;
-            this.pnl_Buttons.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_Buttons_MouseDown);
+            this.pnl_Buttons.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.pnl_Buttons.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.pnl_Buttons.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // btn_3
             // 
@@ -159,7 +166,9 @@ namespace ScreenpressoKG.Msgbox
             this.pnl_Body.Padding = new System.Windows.Forms.Padding(18, 13, 5, 0);
             this.pnl_Body.Size = new System.Drawing.Size(376, 58);
             this.pnl_Body.TabIndex = 2;
-            this.pnl_Body.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_Body_MouseDown);
+            this.pnl_Body.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.pnl_Body.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.pnl_Body.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // lbl_Message
             // 
@@ -176,7 +185,9 @@ namespace ScreenpressoKG.Msgbox
             this.lbl_Message.TabIndex = 1;
             this.lbl_Message.Text = "This is a notification message";
             this.lbl_Message.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Message.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Message_MouseDown);
+            this.lbl_Message.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.lbl_Message.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.lbl_Message.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // img_Icon
             // 
@@ -189,6 +200,9 @@ namespace ScreenpressoKG.Msgbox
             this.img_Icon.Size = new System.Drawing.Size(40, 45);
             this.img_Icon.TabIndex = 0;
             this.img_Icon.TabStop = false;
+            this.img_Icon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseDown);
+            this.img_Icon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseMove);
+            this.img_Icon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.obj_DragWindow_MouseUp);
             // 
             // FormMessageBox
             // 

@@ -91,15 +91,6 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Abort.
-        /// </summary>
-        internal static string btn__template_abort {
-            get {
-                return ResourceManager.GetString("btn_ template_abort", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &amp;Block Host.
         /// </summary>
         internal static string btn_bhost_block {
@@ -132,6 +123,15 @@ namespace ScreenpressoKG.Properties {
         internal static string btn_license_generate {
             get {
                 return ResourceManager.GetString("btn_license_generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Abort.
+        /// </summary>
+        internal static string btn_template_abort {
+            get {
+                return ResourceManager.GetString("btn_template_abort", resourceCulture);
             }
         }
         
@@ -466,6 +466,63 @@ namespace ScreenpressoKG.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This program requires it being ran as admin. Right-click on the program and select &quot;Run As Admin&quot;..
+        /// </summary>
+        internal static string msgbox_core_runas_msg {
+            get {
+                return ResourceManager.GetString("msgbox_core_runas_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Requires Admin.
+        /// </summary>
+        internal static string msgbox_core_runas_title {
+            get {
+                return ResourceManager.GetString("msgbox_core_runas_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to disable debug logging?.
+        /// </summary>
+        internal static string msgbox_debug_egg_disable_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_egg_disable_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Debug Logging?.
+        /// </summary>
+        internal static string msgbox_debug_egg_disable_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_egg_disable_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to enable debug logging?
+        ///
+        ///All logs will be stored in the location:
+        ///     {0}.
+        /// </summary>
+        internal static string msgbox_debug_egg_enable_msg {
+            get {
+                return ResourceManager.GetString("msgbox_debug_egg_enable_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Debug Logging?.
+        /// </summary>
+        internal static string msgbox_debug_egg_enable_title {
+            get {
+                return ResourceManager.GetString("msgbox_debug_egg_enable_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Located {0} with Windows Env Variable in:
         ///
         ///{1}.
@@ -682,6 +739,15 @@ namespace ScreenpressoKG.Properties {
         internal static string status_keygen_succ {
             get {
                 return ResourceManager.GetString("status_keygen_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press Generate to create license key.
+        /// </summary>
+        internal static string status_patch_default {
+            get {
+                return ResourceManager.GetString("status_patch_default", resourceCulture);
             }
         }
         

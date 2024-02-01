@@ -4,8 +4,10 @@
     @author     : Aetherinox
 */
 
+#region "Using"
 using System;
 using System.Reflection;
+#endregion
 
 namespace ScreenpressoKG
 {
@@ -18,13 +20,29 @@ namespace ScreenpressoKG
     class AppInfo
     {
 
+        #region "Define: Fileinfo"
+
+            /*
+                Define > File Name
+                    utilized with logging
+            */
+
+            readonly static string log_file = "AppInfo.cs";
+
+        #endregion
+
         /*
-             AppInfo > Configuration Name
+             AppInfo > Get Debug
+
+             @ret       : bool
         */
 
         public bool bIsDebug( )
         {
             if ( System.Diagnostics.Debugger.IsAttached )
+                return true;
+
+            if ( Settings.app_bDevmode )
                 return true;
 
             #if DEBUG
