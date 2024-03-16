@@ -34,7 +34,7 @@ namespace ScreenpressoKG.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("58a1539d6988d76f44bae27c27ed5645d3b1222a")]
+        [global::System.Configuration.DefaultSettingValueAttribute("70575bdfb02b3f1b45a37431bef9a8c9933a4ace")]
         public string app_dev_piv_thumbprint {
             get {
                 return ((string)(this["app_dev_piv_thumbprint"]));
@@ -52,7 +52,7 @@ namespace ScreenpressoKG.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Aetherinox/ScreenpressoKeygen")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Aetherinox/screenpresso-utility")]
         public string app_url_github {
             get {
                 return ((string)(this["app_url_github"]));
@@ -89,8 +89,8 @@ namespace ScreenpressoKG.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Aetherinox/ScreenpressoKeygen/master/Manifest/m" +
-            "anifest.json")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Aetherinox/screenpresso-utility/master/Manifest" +
+            "/manifest.json")]
         public string app_url_manifest {
             get {
                 return ((string)(this["app_url_manifest"]));
